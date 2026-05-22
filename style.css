@@ -1,0 +1,1191 @@
+/* ==========================================================================
+   PRIMEHUD: Premium Silicon-Wafer & Integrated Circuit Console Stylesheet
+   ========================================================================== */
+
+:root {
+  --color-gold: #EBA413;
+  --color-orange: #C75124;
+  --color-green: #247F43;
+  --color-bg-dark: #050706;
+  --font-family: 'Outfit', sans-serif;
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+
+  /* Ambient Glow Intensities */
+  --glow-gold: rgba(235, 164, 19, 0.25);
+  --glow-green: rgba(36, 127, 67, 0.25);
+  --glow-orange: rgba(199, 81, 36, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  min-height: 100vh;
+  background-color: var(--color-bg-dark);
+  color: #e5e7eb;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   1. Dynamic Wafer & Semiconductor Circuit Background
+   -------------------------------------------------------------------------- */
+.circuit-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Microscopic Wafer Grid Pattern */
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at center, black 30%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 85%);
+}
+
+/* Silicon inspection sweeping laser beam */
+.grid-overlay::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(235, 164, 19, 0.15), var(--color-gold), rgba(235, 164, 19, 0.15), transparent);
+  box-shadow: 0 0 20px rgba(235, 164, 19, 0.4);
+  animation: waferLaserSweep 8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.8;
+}
+
+@keyframes waferLaserSweep {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+
+.circuit-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.35;
+}
+
+/* Pulsing electrical waveforms traveling on traces */
+.circuit-path {
+  fill: none;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-dasharray: 180 360;
+  stroke-dashoffset: 540;
+  animation: tracePulseFlow 12s linear infinite;
+}
+
+.path-gold { stroke: var(--color-gold); animation-duration: 9s; }
+.path-green { stroke: var(--color-green); animation-duration: 14s; animation-delay: -3s; }
+.path-orange { stroke: var(--color-orange); animation-duration: 11s; animation-delay: -5s; }
+.path-gold-2 { stroke: #ffd54f; animation-duration: 10s; animation-delay: -1s; }
+
+@keyframes tracePulseFlow {
+  to { stroke-dashoffset: -540; }
+}
+
+/* Circuit Nodes */
+.node {
+  fill: var(--color-bg-dark);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 5px currentColor);
+}
+.node-gold { stroke: var(--color-gold); color: var(--color-gold); }
+.node-green { stroke: var(--color-green); color: var(--color-green); }
+.node-orange { stroke: var(--color-orange); color: var(--color-orange); }
+
+/* Ambient high-tech background orbs */
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.1;
+  pointer-events: none;
+}
+.glow-1 { top: -10%; left: 15%; width: 500px; height: 500px; background: var(--color-gold); }
+.glow-2 { bottom: 5%; right: 10%; width: 600px; height: 600px; background: var(--color-green); }
+
+/* --------------------------------------------------------------------------
+   2. Professional HUD Top Header
+   -------------------------------------------------------------------------- */
+.header {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  user-select: none;
+  animation: headerFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: transform 0.3s ease;
+}
+
+.brand-container:hover {
+  transform: translateY(-1px);
+}
+
+.logo-emblem {
+  width: 46px;
+  height: 46px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(235, 164, 19, 0.15);
+  overflow: hidden;
+  padding: 3px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-container:hover .logo-emblem {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 
+    0 6px 18px rgba(235, 164, 19, 0.25),
+    0 0 0 2px var(--color-green);
+}
+
+.logo-emblem-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.brand-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.brand-main {
+  font-size: 1.95rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  background: linear-gradient(90deg, #FFB800 0%, #E58600 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: baseline;
+  line-height: 1;
+}
+
+.brand-main span {
+  font-weight: 800;
+  background: linear-gradient(90deg, #E58600 0%, #9C2003 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-main span.tm {
+  font-size: 0.7rem;
+  font-weight: 600;
+  vertical-align: super;
+  margin-left: 1px;
+  background: #9C2003;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-sub {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  color: #94a3b8;
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+}
+
+.hud-status {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 0.5rem 0.85rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  animation: headerFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.15s;
+}
+
+.pulse-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 10px currentColor;
+}
+.pulse-indicator.green {
+  color: var(--color-green);
+  background-color: var(--color-green);
+  animation: coreGlowPulse 1.8s infinite;
+}
+
+@keyframes coreGlowPulse {
+  0%, 100% { opacity: 0.5; box-shadow: 0 0 4px var(--color-green); }
+  50% { opacity: 1; box-shadow: 0 0 12px var(--color-green); }
+}
+
+.hud-status-text {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: #94a3b8;
+  letter-spacing: 0.03em;
+  font-weight: 500;
+}
+
+@keyframes headerFadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------------------------------------------
+   3. Silicon Die Console Core HUD Grid Layout
+   -------------------------------------------------------------------------- */
+.hud-dashboard {
+  position: relative;
+  z-index: 10;
+  width: 95%;
+  max-width: 1240px;
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Interactive Glassmorphic Card Container Base */
+.glass-hud-card {
+  position: relative;
+  background: rgba(8, 12, 10, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 20px;
+  padding: 1.8rem;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-hud-card:hover {
+  border-color: rgba(255, 255, 255, 0.09);
+  box-shadow: 
+    0 22px 45px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+/* HUD Corner Brackets for Scientific Styling */
+.corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: rgba(255, 255, 255, 0.15);
+  border-style: solid;
+  pointer-events: none;
+}
+.corner.tl { top: 12px; left: 12px; border-width: 1.5px 0 0 1.5px; }
+.corner.tr { top: 12px; right: 12px; border-width: 1.5px 1.5px 0 0; }
+.corner.bl { bottom: 12px; left: 12px; border-width: 0 0 1.5px 1.5px; }
+.corner.br { bottom: 12px; right: 12px; border-width: 0 1.5px 1.5px 0; }
+
+.glass-hud-card:hover .corner {
+  border-color: var(--color-gold);
+}
+
+/* Silicon Chip Telemetry Tag */
+.hud-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  color: var(--color-gold);
+  background: rgba(235, 164, 19, 0.08);
+  border: 1px solid rgba(235, 164, 19, 0.15);
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Left Panel: Main Info, Countdown Bezel & Signal Oscilloscope
+   -------------------------------------------------------------------------- */
+.console-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.core-info {
+  animation: panelEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.85rem;
+  background: linear-gradient(135deg, var(--color-green) 0%, var(--color-gold) 50%, var(--color-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.85rem;
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+/* Technical Bezel Container for Countdown */
+.countdown-bezel {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.bezel-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  color: #64748b;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 480px;
+}
+
+.countdown-digit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.countdown-digit-container .number {
+  font-size: 2.2rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+.countdown-digit-container .label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+}
+
+.countdown-colon {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.15);
+  margin-bottom: 0.8rem;
+  animation: digitalBlink 1.5s infinite;
+}
+
+.text-orange {
+  color: var(--color-orange) !important;
+}
+.text-orange .number {
+  color: var(--color-orange) !important;
+  text-shadow: 0 0 12px rgba(199, 81, 36, 0.3) !important;
+}
+
+@keyframes digitalBlink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   ECE Technical Compiler Terminal Box
+   -------------------------------------------------------------------------- */
+.terminal-card {
+  padding: 0;
+  background: rgba(4, 6, 5, 0.85);
+  border-radius: 16px;
+  animation: panelEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.1s;
+}
+
+.terminal-header {
+  background: rgba(255, 255, 255, 0.015);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 0.65rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.dot.red { background-color: #ef4444; }
+.dot.yellow { background-color: #eab308; }
+.dot.green { background-color: #22c55e; }
+
+.terminal-title {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #64748b;
+  letter-spacing: 0.02em;
+}
+
+.terminal-status {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--color-green);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: rgba(34, 197, 94, 0.06);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+}
+
+.terminal-body {
+  padding: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  min-height: 160px;
+  max-height: 160px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.05) transparent;
+}
+
+.log-line {
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.log-line.text-green { color: var(--color-green); text-shadow: 0 0 4px rgba(36, 127, 67, 0.3); }
+.log-line.text-dim { color: #64748b; }
+
+.log-line-cursor {
+  display: inline-block;
+  width: 6px;
+  height: 13px;
+  background-color: var(--color-green);
+  animation: termCursorBlink 1s infinite steps(2);
+}
+
+@keyframes termCursorBlink {
+  50% { opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   ECE Oscilloscope Waveform Display
+   -------------------------------------------------------------------------- */
+.oscilloscope-card {
+  animation: panelEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+.oscilloscope-screen {
+  position: relative;
+  background: #020403;
+  border: 1.5px solid rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  height: 110px;
+  overflow: hidden;
+  box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+/* Retro green phosphor CRT grid */
+.oscilloscope-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(34, 197, 94, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 197, 94, 0.04) 1px, transparent 1px);
+  background-size: 15px 15px;
+}
+
+.oscilloscope-waves {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.digital-wave {
+  fill: none;
+  stroke: var(--color-green);
+  stroke-width: 1.5;
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  filter: drop-shadow(0 0 5px rgba(36, 127, 67, 0.7));
+  animation: oscWaveFlow 4s linear infinite;
+}
+
+.analog-wave {
+  fill: none;
+  stroke: var(--color-gold);
+  stroke-width: 1.5;
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  filter: drop-shadow(0 0 5px rgba(235, 164, 19, 0.7));
+  animation: oscWaveFlow 5s linear infinite;
+  animation-delay: -1.5s;
+}
+
+@keyframes oscWaveFlow {
+  from { stroke-dashoffset: 800; }
+  to { stroke-dashoffset: 0; }
+}
+
+.wave-overlay {
+  position: absolute;
+  bottom: 6px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: #64748b;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+.wave-overlay span:first-child { color: var(--color-green); opacity: 0.7; }
+.wave-overlay span:last-child { color: var(--color-gold); opacity: 0.7; }
+
+/* --------------------------------------------------------------------------
+   5. Right Panel: Premium Interactive Microprocessor Silicon Die
+   -------------------------------------------------------------------------- */
+.silicon-die-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.chip-package {
+  padding: 2.2rem;
+  animation: panelEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Microchip outer casing border (Socket package) */
+.chip-socket-border {
+  position: relative;
+  background: linear-gradient(135deg, #111815 0%, #080c0a 100%);
+  border: 4px solid #1a221e;
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    inset 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+/* Dynamic metal connector pins on socket edges */
+.socket-pins {
+  position: absolute;
+  display: flex;
+}
+
+.socket-pins.top { top: -4px; left: 12%; right: 12%; justify-content: space-between; }
+.socket-pins.bottom { bottom: -12px; left: 12%; right: 12%; justify-content: space-between; }
+.socket-pins.left { left: -10px; top: 12%; bottom: 12%; flex-direction: column; justify-content: space-between; }
+.socket-pins.right { right: -12px; top: 12%; bottom: 12%; flex-direction: column; justify-content: space-between; }
+
+.socket-pin {
+  background: linear-gradient(180deg, var(--color-gold) 0%, rgba(255, 255, 255, 0.3) 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(235, 164, 19, 0.2);
+}
+
+.socket-pins.top .socket-pin, .socket-pins.bottom .socket-pin { width: 8px; height: 12px; }
+.socket-pins.left .socket-pin, .socket-pins.right .socket-pin { width: 12px; height: 8px; }
+
+/* Microprocessor Silicon substrate wafer (The Die) */
+.silicon-die {
+  position: relative;
+  background: #090e0c;
+  border: 1.5px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9);
+  transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Substrate die inspection lines */
+.die-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.die-svg-traces {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+}
+
+.micro-trace {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+.die-bus {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  transition: stroke-dashoffset 0.6s ease, stroke 0.4s ease;
+}
+
+.die-core-hub {
+  fill: #060907;
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 1.5;
+}
+
+/* Interactive core blocks inside the chip die */
+.die-sector {
+  position: absolute;
+  width: 44%;
+  height: 38%;
+  background: rgba(14, 20, 17, 0.65);
+  border: 1.5px solid rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sector-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 9px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.sector-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+  z-index: 2;
+  transition: transform 0.4s ease;
+}
+
+.sector-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  transition: all 0.4s ease;
+}
+
+.sector-icon .icon-svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.die-sector h4 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+.sector-status {
+  font-size: 0.48rem;
+  font-family: var(--font-mono);
+  color: #64748b;
+  letter-spacing: 0.02em;
+}
+
+/* Core block locations on Silicon Wafer substrate */
+.vlsi-sector { top: 8%; left: 8%; --sector-color: var(--color-green); }
+.synthesis-sector { top: 8%; right: 8%; --sector-color: var(--color-gold); }
+.eda-sector { bottom: 8%; left: 28%; right: 28%; height: 32%; --sector-color: var(--color-orange); }
+
+/* Core Sector Hover & Active Telemetry States */
+.die-sector:hover {
+  border-color: var(--sector-color);
+  background: rgba(255, 255, 255, 0.01);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.die-sector:hover .sector-glow {
+  opacity: 0.15;
+}
+
+.die-sector:hover .sector-icon {
+  background-color: var(--sector-color);
+  color: #050706;
+  transform: scale(1.05) rotate(2deg);
+}
+
+.die-sector.active {
+  border-color: var(--sector-color);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(255, 255, 255, 0.02),
+    inset 0 0 10px rgba(255, 255, 255, 0.02);
+}
+
+.die-sector.active .sector-glow {
+  opacity: 0.25;
+}
+
+.die-sector.active .sector-icon {
+  background-color: var(--sector-color);
+  color: #050706;
+}
+
+.die-sector.active .sector-status {
+  color: var(--sector-color);
+  font-weight: 700;
+}
+
+/* Solid sector backdrops */
+.bg-green { background: radial-gradient(circle at center, var(--color-green), transparent 80%); }
+.bg-gold { background: radial-gradient(circle at center, var(--color-gold), transparent 80%); }
+.bg-orange { background: radial-gradient(circle at center, var(--color-orange), transparent 80%); }
+
+/* Diagnostic Die Hub in center */
+.die-center-display {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(4, 7, 5, 0.95);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+.display-freq {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.display-label {
+  font-size: 0.48rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* Wave Core Dynamic Hover Transitions */
+.silicon-die.theme-vlsi {
+  border-color: rgba(36, 127, 67, 0.25);
+  box-shadow: 0 0 35px rgba(36, 127, 67, 0.12), inset 0 0 25px rgba(0, 0, 0, 0.9);
+}
+.silicon-die.theme-vlsi .die-svg-traces { opacity: 0.7; }
+.silicon-die.theme-vlsi .green-bus { stroke: var(--color-green); stroke-dashoffset: 0; filter: drop-shadow(0 0 4px var(--color-green)); }
+.silicon-die.theme-vlsi .die-center-display { border-color: var(--color-green); box-shadow: 0 0 15px rgba(36, 127, 67, 0.3); }
+
+.silicon-die.theme-synthesis {
+  border-color: rgba(235, 164, 19, 0.25);
+  box-shadow: 0 0 35px rgba(235, 164, 19, 0.12), inset 0 0 25px rgba(0, 0, 0, 0.9);
+}
+.silicon-die.theme-synthesis .die-svg-traces { opacity: 0.7; }
+.silicon-die.theme-synthesis .gold-bus { stroke: var(--color-gold); stroke-dashoffset: 0; filter: drop-shadow(0 0 4px var(--color-gold)); }
+.silicon-die.theme-synthesis .die-center-display { border-color: var(--color-gold); box-shadow: 0 0 15px rgba(235, 164, 19, 0.3); }
+
+.silicon-die.theme-eda {
+  border-color: rgba(199, 81, 36, 0.25);
+  box-shadow: 0 0 35px rgba(199, 81, 36, 0.12), inset 0 0 25px rgba(0, 0, 0, 0.9);
+}
+.silicon-die.theme-eda .die-svg-traces { opacity: 0.7; }
+.silicon-die.theme-eda .orange-bus { stroke: var(--color-orange); stroke-dashoffset: 0; filter: drop-shadow(0 0 4px var(--color-orange)); }
+.silicon-die.theme-eda .die-center-display { border-color: var(--color-orange); box-shadow: 0 0 15px rgba(199, 81, 36, 0.3); }
+
+/* Silicon Core Telemetry diagnostic board */
+.info-board {
+  animation: panelEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.15s;
+}
+
+.info-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.01em;
+}
+
+.info-text {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #94a3b8;
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+
+.info-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 1rem;
+}
+
+.spec-node {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.spec-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.spec-val {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.spec-val.text-green { color: var(--color-green); }
+.spec-val.text-gold { color: var(--color-gold); }
+.spec-val.text-orange { color: var(--color-orange); }
+
+@keyframes panelEntrance {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------------------------------------------
+   6. Footer: Styled as ECE Printed Circuit Board (PCB) Breakout Board
+   -------------------------------------------------------------------------- */
+.pcb-breakout {
+  position: relative;
+  z-index: 10;
+  width: 95%;
+  max-width: 1240px;
+  margin: 3.5rem 0 2rem 0;
+  background: rgba(8, 12, 10, 0.7);
+  border: 1.5px solid rgba(255, 255, 255, 0.03);
+  border-radius: 24px;
+  padding: 2.2rem;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  box-shadow: 
+    0 20px 45px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+/* Background PCB copper wires simulation */
+.pcb-breakout::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(235, 164, 19, 0.02) 20%, transparent 60%),
+    radial-gradient(circle at 90% 90%, rgba(36, 127, 67, 0.02) 20%, transparent 60%);
+  pointer-events: none;
+}
+
+.pcb-contacts-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.95fr 0.95fr;
+  gap: 2.5rem;
+}
+
+.pcb-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Gold solder trace overlays */
+.pcb-trace-line {
+  position: absolute;
+  background: linear-gradient(90deg, var(--color-green), var(--color-gold));
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.pcb-trace-line.vertical { top: -2.2rem; left: 0; width: 1.5px; height: 100%; }
+.pcb-trace-line.horizontal { bottom: 0; left: -2.5rem; width: 100%; height: 1.5px; }
+.pcb-trace-line.diagonal { top: 0; right: 0; width: 1.5px; height: 100%; }
+
+/* Social Interface header pins */
+.social-pins-container {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.pcb-pin-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pin-svg {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 10px;
+  color: #94a3b8;
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pin-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  color: #64748b;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.pcb-pin-btn:hover .pin-lbl {
+  color: #ffffff;
+}
+
+.pcb-pin-btn:hover .pin-svg {
+  color: #ffffff;
+  transform: translateY(-4px) scale(1.05);
+  border-color: var(--hover-color);
+  box-shadow: 0 6px 20px var(--glow-color);
+}
+
+.pcb-pin-btn.linkedin { --hover-color: #0077B5; --glow-color: rgba(0, 119, 181, 0.3); }
+.pcb-pin-btn.whatsapp { --hover-color: #25D366; --glow-color: rgba(37, 211, 102, 0.3); }
+.pcb-pin-btn.researchgate { --hover-color: #00CCBB; --glow-color: rgba(0, 204, 187, 0.3); }
+
+/* Analog Signal & packet connections text blocks */
+.pcb-contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.pcb-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pcb-icon {
+  width: 22px;
+  height: 22px;
+  fill: var(--color-gold);
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 5px rgba(235, 164, 19, 0.25));
+}
+
+.pcb-link-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.pcb-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-mono);
+}
+
+.pcb-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-green), var(--color-gold));
+  transition: width 0.3s ease;
+}
+
+.pcb-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+}
+
+.pcb-link:hover::after {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   7. High-Fidelity Responsive Design Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hud-dashboard {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .pcb-contacts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+  .pcb-trace-line {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1.2rem 1.5rem;
+  }
+  .brand-main {
+    font-size: 1.55rem;
+  }
+  .brand-sub {
+    font-size: 0.48rem;
+    letter-spacing: 0.28em;
+  }
+  .hud-status {
+    display: none;
+  }
+  .title {
+    font-size: 2.35rem;
+  }
+  .subtitle {
+    font-size: 1.05rem;
+  }
+  .countdown {
+    gap: 0.5rem;
+  }
+  .countdown-digit-container {
+    min-width: 50px;
+  }
+  .countdown-digit-container .number {
+    font-size: 1.75rem;
+  }
+  .pcb-breakout {
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+  .social-pins-container {
+    gap: 0.85rem;
+  }
+  .pin-svg {
+    width: 38px;
+    height: 38px;
+    padding: 8px;
+  }
+}
