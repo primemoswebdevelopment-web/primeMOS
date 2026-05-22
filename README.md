@@ -83,7 +83,7 @@ http-server -p 8000
 ### 3. Launch Console
 Open your preferred web browser and navigate to:
 ```
-http://localhost:8000/coming_soon.html
+http://localhost:8000/index.html
 ```
 
 ---
