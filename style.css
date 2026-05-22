@@ -1173,6 +1173,13 @@ body {
 /* --------------------------------------------------------------------------
    7. High-Fidelity Responsive Design Breakpoints
    -------------------------------------------------------------------------- */
+.status-compact {
+  display: none;
+}
+.status-full {
+  display: inline;
+}
+
 @media (max-width: 1024px) {
   .hud-dashboard {
     grid-template-columns: 1fr;
@@ -1448,8 +1455,55 @@ body {
 
 /* Specific styling override for small screen phones */
 @media (max-width: 480px) {
+  .status-full {
+    display: none;
+  }
+  
+  .status-compact {
+    display: inline;
+  }
+
+  .header {
+    padding: 0.6rem 0.5rem;
+    gap: 0.6rem;
+  }
+
+  .logo-emblem {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    padding: 1.5px;
+  }
+
   .brand-main {
     font-size: 1.35rem;
+  }
+
+  .brand-sub {
+    font-size: 0.4rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hud-status-text {
+    font-size: 0.58rem;
+    letter-spacing: 0.01em;
+  }
+
+  .hud-dashboard {
+    width: 96%;
+    gap: 0.9rem;
+    margin-top: 0.75rem;
+  }
+
+  /* Tighter padding on glass cards to prevent overflows */
+  .glass-hud-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .hud-tag {
+    font-size: 0.52rem;
+    padding: 0.1rem 0.35rem;
+    margin-bottom: 0.6rem;
   }
 
   .title {
@@ -1460,29 +1514,150 @@ body {
     font-size: 0.95rem;
   }
 
+  .description {
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
+
+  .countdown-bezel {
+    padding: 0.75rem 0.6rem;
+    border-radius: 10px;
+  }
+
   .countdown-digit-container {
-    min-width: 42px;
+    min-width: 40px;
   }
 
   .countdown-digit-container .number {
     font-size: 1.35rem;
   }
 
+  .countdown-digit-container .label {
+    font-size: 0.5rem;
+  }
+
+  .countdown-colon {
+    font-size: 1.1rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .terminal-body {
+    font-size: 0.65rem;
+    line-height: 1.4;
+    min-height: 110px;
+    max-height: 110px;
+    padding: 0.65rem;
+  }
+
+  .oscilloscope-screen {
+    height: 70px;
+  }
+
+  .wave-overlay {
+    font-size: 0.48rem;
+  }
+
+  /* Prevent interactive microchip core border overflow */
+  .chip-socket-border {
+    padding: 0.6rem;
+    border-radius: 12px;
+  }
+
+  .socket-pins.top { top: -2px; }
+  .socket-pins.bottom { bottom: -6px; }
+  .socket-pins.left { left: -6px; }
+  .socket-pins.right { right: -6px; }
+
+  .socket-pins.top .socket-pin, .socket-pins.bottom .socket-pin {
+    width: 5px;
+    height: 8px;
+  }
+  .socket-pins.left .socket-pin, .socket-pins.right .socket-pin {
+    width: 8px;
+    height: 5px;
+  }
+
   .silicon-die {
-    max-width: 250px;
+    max-width: 230px;
+    border-radius: 8px;
+  }
+
+  .die-sector {
+    border-radius: 5px;
+  }
+
+  .sector-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+  }
+
+  .sector-icon .icon-svg {
+    width: 10px;
+    height: 10px;
   }
 
   .die-sector h4 {
-    font-size: 0.52rem;
+    font-size: 0.5rem;
   }
 
-  .pcb-link {
+  .sector-status {
+    font-size: 0.38rem;
+  }
+
+  .die-center-display {
+    width: 40px;
+    height: 40px;
+  }
+
+  .display-freq {
+    font-size: 0.55rem;
+  }
+
+  .display-label {
+    font-size: 0.35rem;
+  }
+
+  /* Compact block details */
+  .info-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .info-text {
+    font-size: 0.72rem;
+    line-height: 1.4;
+    margin-bottom: 0.65rem;
+  }
+
+  .info-specs {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.5rem;
+    padding-top: 0.6rem;
+  }
+
+  .spec-label {
+    font-size: 0.48rem;
+  }
+
+  .spec-val {
     font-size: 0.7rem;
   }
 
-  /* Extra compact social pins for tiny screens */
+  /* PCB Footer adjustments */
+  .pcb-breakout {
+    padding: 1rem 0.75rem;
+    margin: 1.5rem 0 1rem 0;
+    border-radius: 12px;
+    width: 96%;
+  }
+
+  .pcb-contacts-grid {
+    gap: 1.1rem;
+  }
+
   .social-pins-container {
-    gap: 0.65rem;
+    gap: 0.75rem;
   }
 
   .pin-svg {
@@ -1498,5 +1673,95 @@ body {
   .pcb-pin-btn:hover .pin-svg, .pcb-pin-btn:active .pin-svg {
     transform: translateY(-1px) scale(1.02) !important;
   }
+
+  .pcb-contacts-list {
+    gap: 0.65rem;
+  }
+
+  .pcb-contact-row {
+    gap: 0.65rem;
+  }
+
+  .pcb-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .pcb-link {
+    font-size: 0.7rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
 }
+
+/* Extra safety override for extremely small/narrow screens like Galaxy Fold/tiny phones */
+@media (max-width: 360px) {
+  .brand-main {
+    font-size: 1.2rem;
+  }
+
+  .hud-status-text {
+    font-size: 0.52rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .description {
+    font-size: 0.7rem;
+  }
+
+  .countdown-digit-container {
+    min-width: 32px;
+  }
+
+  .countdown-digit-container .number {
+    font-size: 1.15rem;
+  }
+
+  .countdown-digit-container .label {
+    font-size: 0.45rem;
+  }
+
+  .countdown-colon {
+    font-size: 1rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .terminal-body {
+    min-height: 100px;
+    max-height: 100px;
+  }
+
+  .silicon-die {
+    max-width: 200px;
+  }
+
+  .die-sector h4 {
+    font-size: 0.45rem;
+  }
+
+  .die-center-display {
+    width: 36px;
+    height: 36px;
+  }
+
+  .display-freq {
+    font-size: 0.5rem;
+  }
+
+  .display-label {
+    font-size: 0.3rem;
+  }
+
+  .pcb-link {
+    font-size: 0.65rem;
+  }
+}
+
 
