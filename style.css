@@ -923,6 +923,7 @@ body {
   color: #94a3b8;
   font-weight: 300;
   margin-bottom: 1.2rem;
+  min-height: 4.5rem; /* Stabilize height across active ECE core selections */
 }
 
 .info-specs {
@@ -1386,6 +1387,7 @@ body {
     font-size: 0.78rem;
     line-height: 1.45;
     margin-bottom: 0.85rem;
+    min-height: 5.2rem; /* Keep stable height on tablets */
   }
 
   .info-specs {
@@ -1628,6 +1630,7 @@ body {
     font-size: 0.72rem;
     line-height: 1.4;
     margin-bottom: 0.65rem;
+    min-height: 6rem; /* Keep stable height on mobile devices */
   }
 
   .info-specs {
@@ -1761,6 +1764,10 @@ body {
 
   .pcb-link {
     font-size: 0.65rem;
+  }
+
+  .info-text {
+    min-height: 6.8rem; /* Keep stable height on extra narrow mobile screens */
   }
 }
 
