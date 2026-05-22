@@ -1148,44 +1148,291 @@ body {
 }
 
 @media (max-width: 768px) {
+  body {
+    padding-bottom: 2rem;
+  }
+
   .header {
-    padding: 1.2rem 1.5rem;
+    padding: 0.8rem 1rem;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+    text-align: center;
   }
-  .brand-main {
-    font-size: 1.55rem;
+
+  .brand-container {
+    gap: 0.65rem;
   }
-  .brand-sub {
-    font-size: 0.48rem;
-    letter-spacing: 0.28em;
-  }
-  .hud-status {
-    display: none;
-  }
-  .title {
-    font-size: 2.35rem;
-  }
-  .subtitle {
-    font-size: 1.05rem;
-  }
-  .countdown {
-    gap: 0.5rem;
-  }
-  .countdown-digit-container {
-    min-width: 50px;
-  }
-  .countdown-digit-container .number {
-    font-size: 1.75rem;
-  }
-  .pcb-breakout {
-    padding: 1.5rem;
-    margin-top: 2rem;
-  }
-  .social-pins-container {
-    gap: 0.85rem;
-  }
-  .pin-svg {
+
+  .logo-emblem {
     width: 38px;
     height: 38px;
+    border-radius: 8px;
+    padding: 2px;
+  }
+
+  .brand-main {
+    font-size: 1.5rem;
+  }
+
+  .brand-sub {
+    font-size: 0.45rem;
+    letter-spacing: 0.28em;
+    margin-top: 0.1rem;
+  }
+
+  .hud-status {
+    width: 100%;
+    justify-content: center;
+    padding: 0.35rem 0.6rem;
+  }
+
+  .hud-dashboard {
+    width: 95%;
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  /* Compact glass cards for mobile */
+  .glass-hud-card {
+    padding: 1.25rem 1rem;
+    border-radius: 14px;
+  }
+
+  .hud-tag {
+    font-size: 0.58rem;
+    padding: 0.15rem 0.4rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .title {
+    font-size: 2.1rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .description {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+  }
+
+  /* Compact Bezel Timer */
+  .countdown-bezel {
+    padding: 0.85rem;
+    border-radius: 12px;
+  }
+
+  .bezel-label {
+    font-size: 0.55rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .countdown {
+    gap: 0.4rem;
+    justify-content: center;
+  }
+
+  .countdown-digit-container {
+    min-width: 48px;
+  }
+
+  .countdown-digit-container .number {
+    font-size: 1.6rem;
+  }
+
+  .countdown-digit-container .label {
+    font-size: 0.55rem;
+    margin-top: 0.15rem;
+  }
+
+  .countdown-colon {
+    font-size: 1.3rem;
+    margin-bottom: 0.65rem;
+  }
+
+  /* Compact Monospace Terminal */
+  .terminal-body {
+    padding: 0.85rem;
+    font-size: 0.7rem;
+    min-height: 120px;
+    max-height: 120px;
+  }
+
+  /* Compact Wave Oscilloscope */
+  .oscilloscope-screen {
+    height: 80px;
+  }
+
+  .wave-overlay {
+    font-size: 0.5rem;
+    bottom: 4px;
+    left: 6px;
+    right: 6px;
+  }
+
+  /* Compact Silicon Die Core Socket */
+  .chip-socket-border {
+    padding: 0.85rem;
+    border-radius: 14px;
+  }
+
+  .silicon-die {
+    max-width: 290px;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+  /* Scaled-down interactive ECE sectors on mobile */
+  .die-sector {
+    border-radius: 6px;
+  }
+
+  .sector-content {
+    gap: 0.25rem;
+  }
+
+  .sector-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+  }
+
+  .sector-icon .icon-svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .die-sector h4 {
+    font-size: 0.58rem;
+  }
+
+  .sector-status {
+    font-size: 0.4rem;
+  }
+
+  .die-center-display {
+    width: 46px;
+    height: 46px;
+    border-width: 1px;
+  }
+
+  .display-freq {
+    font-size: 0.6rem;
+  }
+
+  .display-label {
+    font-size: 0.38rem;
+  }
+
+  /* Compact Silicon Diagnostic info-board */
+  .info-title {
+    font-size: 1rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .info-text {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    margin-bottom: 0.85rem;
+  }
+
+  .info-specs {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.65rem;
+    padding-top: 0.75rem;
+  }
+
+  .spec-label {
+    font-size: 0.52rem;
+  }
+
+  .spec-val {
+    font-size: 0.75rem;
+  }
+
+  /* PCB Mobile Breakout Board Footer */
+  .pcb-breakout {
+    padding: 1.25rem 1rem;
+    margin: 2rem 0 1rem 0;
+    border-radius: 16px;
+  }
+
+  .pcb-contacts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .social-pins-container {
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+
+  .pin-svg {
+    width: 36px;
+    height: 36px;
     padding: 8px;
   }
+
+  .pin-lbl {
+    font-size: 0.48rem;
+  }
+
+  .pcb-contacts-list {
+    gap: 0.85rem;
+  }
+
+  .pcb-contact-row {
+    gap: 0.75rem;
+  }
+
+  .pcb-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .pcb-link {
+    font-size: 0.76rem;
+    word-break: break-all; /* Break long emails perfectly */
+  }
 }
+
+/* Specific styling override for small screen phones */
+@media (max-width: 480px) {
+  .brand-main {
+    font-size: 1.35rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .countdown-digit-container {
+    min-width: 42px;
+  }
+
+  .countdown-digit-container .number {
+    font-size: 1.35rem;
+  }
+
+  .silicon-die {
+    max-width: 250px;
+  }
+
+  .die-sector h4 {
+    font-size: 0.52rem;
+  }
+
+  .pcb-link {
+    font-size: 0.7rem;
+  }
+}
+
