@@ -1769,6 +1769,32 @@ body {
   .info-text {
     min-height: 6.8rem; /* Keep stable height on extra narrow mobile screens */
   }
+
+  /* Extremely defensive overrides for extra narrow viewports to prevent wrapping */
+  .btn-launch-portal {
+    font-size: 0.8rem !important;
+    padding: 0.7rem 1.2rem !important;
+    letter-spacing: 0.08em !important;
+    max-width: 100% !important;
+  }
+  
+  .hud-status {
+    padding: 0.25rem 0.5rem !important;
+  }
+  
+  .hud-status-text {
+    font-size: 0.5rem !important;
+  }
+  
+  .pcb-breakout {
+    padding: 0.85rem 0.6rem !important;
+  }
+  
+  .pin-svg {
+    width: 28px !important;
+    height: 28px !important;
+    padding: 6px !important;
+  }
 }
 
 /* --------------------------------------------------------------------------
