@@ -523,14 +523,20 @@ a {
   font-size: 0.875rem;
 }
 
-/* Animations (Intersection Observer) */
+/* Animations (Intersection Observer - JS Enabled Fallback) */
 .fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: 1;
+  transform: none;
 }
 
-.fade-in.appear {
+/* Only trigger initial hidden state if JavaScript is fully loaded and active */
+.js-enabled .fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.js-enabled .fade-in.appear {
   opacity: 1;
   transform: translateY(0);
 }
@@ -542,7 +548,7 @@ a {
 /* Responsive */
 @media (max-width: 768px) {
   /* Performance optimizations for mobile - disable scroll opacity locks and avoid heavy image weights */
-  .fade-in {
+  .js-enabled .fade-in {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
