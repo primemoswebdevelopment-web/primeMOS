@@ -1771,4 +1771,167 @@ body {
   }
 }
 
+/* --------------------------------------------------------------------------
+   8. ECE Silicon Tape-Out Launch Portal Enhancements
+   -------------------------------------------------------------------------- */
+
+/* Premium Launch Portal Button Styling */
+.btn-launch-portal {
+  background: linear-gradient(135deg, rgba(241, 90, 36, 0.15), rgba(194, 65, 12, 0.15));
+  border: 1.5px solid #f15a24;
+  color: #ffffff;
+  padding: 0.85rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 
+    0 0 15px rgba(241, 90, 36, 0.2),
+    inset 0 0 10px rgba(241, 90, 36, 0.1);
+  width: 100%;
+  max-width: 320px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.btn-launch-portal:hover {
+  background: linear-gradient(135deg, rgba(241, 90, 36, 0.35), rgba(194, 65, 12, 0.35));
+  box-shadow: 
+    0 0 30px rgba(241, 90, 36, 0.45),
+    inset 0 0 15px rgba(241, 90, 36, 0.2);
+  transform: translateY(-2px);
+  letter-spacing: 0.16em;
+  border-color: #ff7c4d;
+}
+
+.btn-launch-portal:active {
+  transform: translateY(1px);
+}
+
+.btn-launch-portal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-launch-portal:hover::before {
+  left: 100%;
+}
+
+.animate-rocket {
+  transition: transform 0.3s ease;
+}
+
+.btn-launch-portal:hover .animate-rocket {
+  transform: translate(3px, -3px) scale(1.1);
+  animation: shake-rocket 0.5s infinite alternate ease-in-out 0.3s;
+}
+
+@keyframes shake-rocket {
+  0% { transform: translate(2px, -2px) rotate(0deg); }
+  100% { transform: translate(4px, -4px) rotate(3deg); }
+}
+
+/* Silicon Gate Transition Overlay */
+.silicon-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #04070a;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(241, 90, 36, 0.06) 0%, transparent 70%),
+    linear-gradient(rgba(255, 255, 255, 0.003) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.003) 1px, transparent 1px);
+  background-size: 100% 100%, 30px 30px, 30px 30px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.silicon-transition-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.transition-gate-icon {
+  font-size: 5rem;
+  color: #f15a24;
+  margin-bottom: 2.5rem;
+  animation: pulse-transition-icon 1.8s infinite ease-in-out;
+}
+
+.transition-bar-container {
+  width: 80%;
+  max-width: 440px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(241, 90, 36, 0.15);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.transition-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #f15a24, #c2410c);
+  box-shadow: 0 0 15px #f15a24;
+  transition: width 3.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.transition-status {
+  font-family: 'Fira Code', monospace;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 1.25rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+@keyframes pulse-transition-icon {
+  0%, 100% { 
+    transform: scale(1); 
+    filter: drop-shadow(0 0 12px rgba(241, 90, 36, 0.4)); 
+  }
+  50% { 
+    transform: scale(1.08); 
+    filter: drop-shadow(0 0 30px rgba(241, 90, 36, 0.75)); 
+  }
+}
+
+/* Overdrive core active states */
+.silicon-die.overdrive-active {
+  animation: rotate-overdrive-pulse 0.4s infinite alternate ease-in-out !important;
+  box-shadow: 
+    0 0 60px rgba(241, 90, 36, 0.4),
+    inset 0 0 35px rgba(241, 90, 36, 0.2) !important;
+  border-color: #f15a24 !important;
+}
+
+@keyframes rotate-overdrive-pulse {
+  0% { transform: scale(1); filter: brightness(1); }
+  100% { transform: scale(1.02); filter: brightness(1.25); }
+}
+
 

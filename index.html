@@ -11,9 +11,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <!-- Silicon Gate Transition Overlay -->
+    <div class="silicon-transition-overlay" id="launchTransitionOverlay">
+        <i class="fa-solid fa-microchip transition-gate-icon"></i>
+        <div class="transition-bar-container">
+            <div class="transition-bar-fill" id="transitionBarFill"></div>
+        </div>
+        <div class="transition-status" id="transitionStatus">INITIALIZING CORE BUS TRANSFERS...</div>
+    </div>
+
     <!-- Silicon Circuit Board Animated Background -->
     <div class="circuit-bg">
         <div class="grid-overlay"></div>
@@ -50,15 +60,15 @@
                 <img src="logo.png" alt="PrimeMOS Logo" class="logo-emblem-img" />
             </div>
             <div class="brand-logo-text">
-                <div class="brand-main">Prime<span>MOS</span><span class="tm">™</span></div>
+                <div class="brand-main">Prime<span>MOS</span><span class="tm">Γäó</span></div>
                 <div class="brand-sub">RESEARCH & SOLUTIONS</div>
             </div>
         </div>
         <div class="hud-status">
             <span class="pulse-indicator green"></span>
             <span class="hud-status-text">
-                <span class="status-full">CORE TEMPERATURE: 32.4°C • CLOCK: 5.8 GHz</span>
-                <span class="status-compact">TEMP: 32.4°C • CLK: 5.8 GHz</span>
+                <span class="status-full">CORE TEMPERATURE: 32.4┬░C ΓÇó CLOCK: 5.8 GHz</span>
+                <span class="status-compact">TEMP: 32.4┬░C ΓÇó CLK: 5.8 GHz</span>
             </span>
         </div>
     </header>
@@ -105,6 +115,14 @@
                             <span class="label">SECS</span>
                         </div>
                     </div>
+                </div>
+
+                <!-- Launch Portal Action -->
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <button class="btn-launch-portal" onclick="triggerLaunchSequence()">
+                        <span class="launch-btn-glow"></span>
+                        <i class="fa-solid fa-rocket animate-rocket" style="margin-right: 8px;"></i> LAUNCH CORE PORTAL
+                    </button>
                 </div>
             </div>
             
@@ -471,6 +489,60 @@
         window.addEventListener("DOMContentLoaded", () => {
             activateCore('vlsi');
         });
+
+        // Launch Sequence Controller with overdrive compilation and overlay animation
+        let isLaunching = false;
+        function triggerLaunchSequence() {
+            if (isLaunching) return;
+            isLaunching = true;
+
+            // 1. Play overdrive ECE terminal compilation logs
+            const launchLogs = [
+                "> [CRITICAL] OVERCLOCK SIGNAL RECEIVED...",
+                "> Initiating full-scale core Tap-out...",
+                "> Main interconnect clock pushed to 6.2 GHz (OVERDRIVE)!",
+                "> Syncing logic gates with hardware synthesis...",
+                "> Allocating routing channels (A* router)... Done.",
+                "> Unlocking PrimeMOS central die block...",
+                "> [SUCCESS] TAPE-OUT UNLOCKED! DIRECTING TO PORTAL..."
+            ];
+            simulateTerminalLogs(launchLogs);
+
+            // 2. Overdrive central silicon die core loaders
+            const dieContainer = document.getElementById("silicon-die-container");
+            dieContainer.classList.add("overdrive-active");
+            document.querySelector(".display-freq").innerText = "100%";
+            document.querySelector(".display-label").innerText = "OVERCLOCK";
+
+            // 3. Trigger overlay dissolve sequence with custom progress timings
+            setTimeout(() => {
+                const overlay = document.getElementById("launchTransitionOverlay");
+                const progressFill = document.getElementById("transitionBarFill");
+                const statusTxt = document.getElementById("transitionStatus");
+                
+                overlay.classList.add("active");
+                
+                setTimeout(() => {
+                    progressFill.style.width = "40%";
+                    statusTxt.innerText = "TAP-OUT UNLOCKED... DECRYPTION KEY ACCEPTED";
+                }, 500);
+                
+                setTimeout(() => {
+                    progressFill.style.width = "75%";
+                    statusTxt.innerText = "INITIALIZING CORE DATA BUS MODULES...";
+                }, 1200);
+
+                setTimeout(() => {
+                    progressFill.style.width = "100%";
+                    statusTxt.innerText = "CONNECTION SECURE. REDIRECTING...";
+                }, 2200);
+
+                // 4. Redirect to pretty home URL
+                setTimeout(() => {
+                    window.location.href = "./home/";
+                }, 3000);
+            }, 1800);
+        }
     </script>
 </body>
 </html>
