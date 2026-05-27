@@ -541,6 +541,17 @@ a {
 
 /* Responsive */
 @media (max-width: 768px) {
+  /* Performance optimizations for mobile - disable scroll opacity locks and avoid heavy image weights */
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero {
+    background-image: none !important; /* Avoid downloading heavy 1.16MB image on mobile, keep CSS mesh-gradient */
+  }
+
   .navbar .container {
     height: 60px;
   }
