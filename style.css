@@ -281,18 +281,23 @@ body {
 .hud-dashboard {
   position: relative;
   z-index: 10;
-  width: 95%;
+  width: 100%;
   max-width: 1240px;
-  margin-top: 1.5rem;
+  margin: 1.5rem auto 0;
+  padding: 0 1rem;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 2rem;
   align-items: start;
+  justify-items: center;
+  box-sizing: border-box;
 }
 
 /* Interactive Glassmorphic Card Container Base */
 .glass-hud-card {
   position: relative;
+  width: 100%;
+  max-width: 100%;
   background: rgba(8, 12, 10, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: 20px;
@@ -304,6 +309,7 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
 }
 
 .glass-hud-card:hover {
@@ -353,6 +359,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .core-info {
@@ -368,6 +377,8 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-align: left;
+  word-wrap: break-word;
 }
 
 .subtitle {
@@ -630,11 +641,17 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .chip-package {
   padding: 2.2rem;
+  width: 100%;
+  max-width: 100%;
   animation: panelEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-sizing: border-box;
 }
 
 /* Microchip outer casing border (Socket package) */
@@ -677,6 +694,8 @@ body {
   border-radius: 12px;
   aspect-ratio: 1 / 1;
   width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
   overflow: hidden;
   box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9);
   transition: border-color 0.5s ease, box-shadow 0.5s ease;
@@ -1185,7 +1204,24 @@ body {
   .hud-dashboard {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
   }
+
+  .console-panel {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .silicon-die-panel {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
   .pcb-contacts-grid {
     grid-template-columns: 1fr;
     gap: 1.8rem;
@@ -1236,15 +1272,34 @@ body {
   }
 
   .hud-dashboard {
-    width: 95%;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+    grid-template-columns: 1fr;
     gap: 1.25rem;
     margin-top: 1rem;
+    box-sizing: border-box;
+  }
+
+  .console-panel {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .silicon-die-panel {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   /* Compact glass cards for mobile */
   .glass-hud-card {
     padding: 1.25rem 1rem;
     border-radius: 14px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .hud-tag {
@@ -1256,17 +1311,20 @@ body {
   .title {
     font-size: 2.1rem;
     margin-bottom: 0.65rem;
+    text-align: left;
   }
 
   .subtitle {
     font-size: 1.05rem;
     margin-bottom: 0.65rem;
+    text-align: left;
   }
 
   .description {
     font-size: 0.82rem;
     line-height: 1.5;
     margin-bottom: 1.2rem;
+    text-align: left;
   }
 
   /* Compact Bezel Timer */
@@ -1283,6 +1341,7 @@ body {
   .countdown {
     gap: 0.4rem;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .countdown-digit-container {
@@ -1333,6 +1392,7 @@ body {
     max-width: 290px;
     margin: 0 auto;
     border-radius: 10px;
+    aspect-ratio: 1 / 1;
   }
 
   /* Scaled-down interactive ECE sectors on mobile */
@@ -1492,14 +1552,33 @@ body {
   }
 
   .hud-dashboard {
-    width: 96%;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 0.75rem;
+    grid-template-columns: 1fr;
     gap: 0.9rem;
     margin-top: 0.75rem;
+    box-sizing: border-box;
+  }
+
+  .console-panel {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .silicon-die-panel {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   /* Tighter padding on glass cards to prevent overflows */
   .glass-hud-card {
     padding: 1rem 0.75rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .hud-tag {
@@ -1510,15 +1589,18 @@ body {
 
   .title {
     font-size: 1.8rem;
+    text-align: left;
   }
 
   .subtitle {
     font-size: 0.95rem;
+    text-align: left;
   }
 
   .description {
     font-size: 0.75rem;
     line-height: 1.45;
+    text-align: left;
   }
 
   .countdown-bezel {
@@ -1582,6 +1664,7 @@ body {
   .silicon-die {
     max-width: 230px;
     border-radius: 8px;
+    aspect-ratio: 1 / 1;
   }
 
   .die-sector {
@@ -1652,7 +1735,9 @@ body {
     padding: 1rem 0.75rem;
     margin: 1.5rem 0 1rem 0;
     border-radius: 12px;
-    width: 96%;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .pcb-contacts-grid {

@@ -794,83 +794,15 @@ a {
     font-size: 0.8rem;
   }
 
-  /* Unified Mobile Founder Section Styles */
+  /* Mobile Founder Section Padding */
   .founder-section {
     padding: 2rem 0;
   }
-  
-  .founder-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 1.5rem;
-  }
-  
-  .founder-image-wrapper {
-    max-width: 160px;
-    margin: 0 auto;
-  }
-  
-  .founder-image-wrapper::after {
-    left: 10px;
-    top: 10px;
-  }
-  
-  .founder-info {
-    align-items: center;
-    gap: 0.75rem;
-    padding-left: 0;
-  }
-  
-  .founder-pill {
-    flex-wrap: wrap;
-    justify-content: center;
-    border-radius: 8px;
-    padding: 0.3rem 0.6rem;
-    gap: 0.4rem;
-  }
 
-  .founder-pill-badge {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
-  }
-
-  .founder-pill-tags {
-    font-size: 0.72rem;
-    text-align: center;
-  }
-
-  .founder-title-group {
-    text-align: center;
-  }
-
-  .founder-first-name, .founder-last-name {
-    font-size: clamp(1.2rem, 5vw, 1.6rem);
-    white-space: normal;
-  }
-  
-  .founder-bio {
-    padding-left: 0;
-    border-left: none;
-    border-top: none;
-    padding-top: 0;
-    font-size: 0.85rem;
-    line-height: 1.6;
-    text-align: center;
-    margin-top: 0;
-  }
-  
-  .founder-buttons {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-  }
-  
-  .btn-founder-primary, .btn-founder-secondary {
-    width: 100%;
-    padding: 0.6rem 1rem;
-    font-size: 0.85rem;
+  /* Defensive overrides to counteract inline style margins and paddings */
+  .feature-card {
+    padding: 1.25rem 1rem !important;
+    gap: 0.75rem !important;
   }
 
   /* Compact footer for mobile */
@@ -890,12 +822,6 @@ a {
   
   .footer-links li {
     margin-bottom: 0.5rem;
-  }
-
-  /* Defensive overrides to counteract inline style margins and paddings */
-  .feature-card {
-    padding: 1.25rem 1rem !important;
-    gap: 0.75rem !important;
   }
   
   /* Pricing card specific adjustments */
@@ -1177,11 +1103,138 @@ a {
   transform: translateY(-2px);
 }
 
-/* Responsive adjustment for Founder Section */
-@media (max-width: 992px) {
+/* Responsive adjustment for Founder Section - Tablet */
+@media (min-width: 769px) and (max-width: 992px) {
   .founder-container {
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 300px 1fr;
     gap: 2.5rem;
+    text-align: left;
+  }
+  
+  .founder-image-wrapper {
+    max-width: 300px;
+  }
+  
+  .founder-info {
+    align-items: flex-start;
+    padding-left: 1rem;
+  }
+}
+
+/* Mobile-specific Founder Section - Priority override */
+@media (max-width: 768px) {
+  .founder-section {
+    padding: 2.5rem 0 3rem;
+    overflow: visible;
+  }
+
+  .founder-container {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    gap: 2rem !important;
+    padding: 0 1rem;
+  }
+  
+  .founder-image-wrapper {
+    max-width: 180px !important;
+    width: 180px !important;
+    height: 180px !important;
+    margin: 0 auto !important;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+  }
+  
+  .founder-image {
+    width: 180px !important;
+    height: 180px !important;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .founder-info {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding-left: 0 !important;
+    width: 100%;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .founder-pill-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .founder-pill {
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 0.4rem 0.75rem;
+    gap: 0.4rem;
+    max-width: 100%;
+  }
+
+  .founder-pill-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .founder-pill-tags {
+    font-size: 0.72rem;
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+
+  .founder-title-group {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .founder-first-name {
+    font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
+    white-space: normal;
+    margin: 0 0 0.15rem !important;
+  }
+
+  .founder-last-name {
+    font-size: clamp(1.6rem, 7vw, 2rem) !important;
+    white-space: normal;
+    margin: 0 !important;
+  }
+  
+  .founder-bio {
+    padding-left: 0 !important;
+    border-left: none !important;
+    border-top: none !important;
+    padding-top: 0 !important;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    text-align: center;
+    margin-top: 0 !important;
+    width: 100%;
+    display: block !important;
+    color: var(--text-main) !important;
+  }
+  
+  .founder-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+  }
+  
+  .btn-founder-primary, .btn-founder-secondary {
+    width: 100% !important;
+    padding: 0.7rem 1rem !important;
+    font-size: 0.88rem !important;
+    text-align: center;
+    justify-content: center;
   }
 }
 
@@ -1484,7 +1537,28 @@ a {
     gap: 0.5rem;
     margin: 1rem 0;
   }
+
+  /* Ensure footer content is always visible on mobile screens */
+  .footer {
+    padding: 3rem 0 1.75rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-note {
+    margin-top: 0.75rem;
+    padding-top: 1rem;
+  }
+
+  .footer-bottom {
+    padding-top: 1.25rem;
+    margin-top: 1.5rem;
+  }
 }
+
 
 /* Floating Buttons */
 .back-to-top {
