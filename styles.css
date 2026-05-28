@@ -38,6 +38,7 @@ img, video, iframe, canvas, svg {
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -1844,4 +1845,652 @@ a {
   color: var(--text-muted);
   margin-top: 0.5rem;
   text-align: center;
+}
+
+/* ==========================================================================
+   COMPREHENSIVE MOBILE RESPONSIVE OVERRIDES
+   Targets ALL pages: home, services, about, research, events, contact, etc.
+   ========================================================================== */
+
+/* ---- TABLET BREAKPOINT (768px–1024px) ---- */
+@media (max-width: 1024px) {
+  /* Services page: College events 2-col grid → 1-col */
+  [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* ---- PRIMARY MOBILE BREAKPOINT ---- */
+@media (max-width: 768px) {
+
+  /* === GLOBAL: All inline grids must stack === */
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns: repeat(auto-fit"] {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  /* === GLOBAL: Smaller buttons for mobile === */
+  .btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.8rem !important;
+    border-radius: var(--radius-sm) !important;
+  }
+
+  .btn-primary,
+  .btn-outline,
+  .btn-whatsapp,
+  .btn-founder-primary,
+  .btn-founder-secondary {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* === GLOBAL: Smaller page headers === */
+  .page-header {
+    padding-top: 85px !important;
+    padding-bottom: 25px !important;
+  }
+
+  .page-title {
+    font-size: clamp(1.2rem, 5vw, 1.6rem) !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .page-desc {
+    font-size: 0.82rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* === GLOBAL: Sections reduced padding === */
+  .py-24 {
+    padding-top: 1.75rem !important;
+    padding-bottom: 1.75rem !important;
+  }
+
+  .py-16 {
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+
+  .py-20 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  /* === GLOBAL: Section titles & headers === */
+  .section-header {
+    margin-bottom: 1.25rem !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.1rem, 4vw, 1.35rem) !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .section-header p,
+  .section-header > p {
+    font-size: 0.82rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* === GLOBAL: Feature cards compact === */
+  .feature-card {
+    padding: 1.1rem 0.9rem !important;
+    border-radius: var(--radius-md) !important;
+    gap: 0.6rem !important;
+  }
+
+  .feature-card[style*="padding"] {
+    padding: 1.1rem 0.9rem !important;
+  }
+
+  .feature-icon {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .feature-title {
+    font-size: 1.05rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .feature-desc {
+    font-size: 0.8rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Service cards: list items smaller */
+  .feature-card ul li,
+  .feature-card [style*="list-style-type: none"] li {
+    font-size: 0.78rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .feature-card ul,
+  .feature-card [style*="list-style-type: none"] {
+    margin-bottom: 1rem !important;
+  }
+
+  /* === SERVICES PAGE: College Events Section === */
+  /* The dark section with 2-column grid */
+  [style*="grid-template-columns: 1fr 1fr"][style*="gap: 4rem"] {
+    gap: 1.5rem !important;
+  }
+
+  /* College events section heading */
+  [style*="font-size: clamp(1.8rem"] {
+    font-size: clamp(1.15rem, 5vw, 1.4rem) !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* College events body text */
+  [style*="color: rgba(255,255,255,0.7)"][style*="line-height: 1.75"] {
+    font-size: 0.82rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* College events feature list items */
+  [style*="color: rgba(255,255,255,0.8)"][style*="font-size: 0.92rem"] {
+    font-size: 0.78rem !important;
+    margin-bottom: 0.5rem !important;
+    gap: 0.5rem !important;
+  }
+
+  /* College events booking card */
+  [style*="backdrop-filter: blur(10px)"] {
+    padding: 1.25rem !important;
+  }
+
+  [style*="backdrop-filter: blur(10px)"] h3 {
+    font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Contact rows inside the booking card */
+  [style*="backdrop-filter: blur(10px)"] a[style*="display: flex"][style*="padding: 1rem"] {
+    padding: 0.7rem !important;
+    gap: 0.65rem !important;
+  }
+
+  [style*="backdrop-filter: blur(10px)"] [style*="width: 40px"][style*="height: 40px"] {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+  }
+
+  [style*="backdrop-filter: blur(10px)"] [style*="font-size: 0.92rem"],
+  [style*="backdrop-filter: blur(10px)"] [style*="font-size: 0.88rem"] {
+    font-size: 0.78rem !important;
+  }
+
+  [style*="backdrop-filter: blur(10px)"] [style*="font-size: 0.72rem"] {
+    font-size: 0.62rem !important;
+  }
+
+  /* College events pill/tag badge */
+  [style*="border-radius: 100px"][style*="padding: 0.3rem 1rem"] {
+    font-size: 0.68rem !important;
+    padding: 0.2rem 0.7rem !important;
+  }
+
+  /* === SERVICES PAGE: How It Works Steps === */
+  [style*="minmax(280px"] {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Step cards */
+  [style*="padding: 2.5rem 1.5rem"][style*="border-radius"] {
+    padding: 1.5rem 1rem !important;
+  }
+
+  [style*="padding: 2.5rem 1.5rem"] h3 {
+    font-size: 1rem !important;
+  }
+
+  [style*="padding: 2.5rem 1.5rem"] p {
+    font-size: 0.8rem !important;
+  }
+
+  /* Step number circle */
+  [style*="top: -1.25rem"][style*="width: 40px"][style*="height: 40px"] {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.95rem !important;
+    top: -1rem !important;
+  }
+
+  /* Step icon */
+  [style*="width: 54px"][style*="height: 54px"] {
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 1.1rem !important;
+  }
+
+  /* === SERVICES PAGE: Pricing Cards === */
+  .features-grid[style*="minmax(min(100%, 420px)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  .pricing-card-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.4rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .pricing-card-title {
+    font-size: 1.05rem !important;
+  }
+
+  .pricing-card-badge {
+    font-size: 0.68rem !important;
+    padding: 0.2rem 0.5rem !important;
+  }
+
+  /* Pricing cards description text */
+  .feature-card > div > p[style*="font-size: 0.92rem"] {
+    font-size: 0.8rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Pricing card list items */
+  .feature-card[style*="border-top: 4px"] li {
+    font-size: 0.78rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* === SERVICES PAGE: Student Services Detail Cards === */
+  .internship-detail-section {
+    padding: 2rem 0 !important;
+  }
+
+  .internship-header-grid {
+    gap: 1.25rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .internship-header-text h2 {
+    font-size: clamp(1.15rem, 5vw, 1.45rem) !important;
+  }
+
+  .internship-subtitle {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .internship-desc {
+    font-size: 0.8rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .internship-cards-grid {
+    gap: 0.85rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .internship-detail-card {
+    padding: 1rem 0.85rem !important;
+  }
+
+  .card-title-group {
+    margin-bottom: 0.75rem !important;
+    gap: 0.15rem !important;
+  }
+
+  .card-title-group h3 {
+    font-size: 1rem !important;
+  }
+
+  .card-title-group i {
+    font-size: 1rem !important;
+  }
+
+  /* Service type label under card title */
+  .card-title-group span[style*="font-size: 0.76rem"] {
+    font-size: 0.68rem !important;
+    margin-left: 1.5rem !important;
+  }
+
+  .internship-detail-list li {
+    font-size: 0.78rem !important;
+    margin-bottom: 0.35rem !important;
+    padding-left: 1rem !important;
+  }
+
+  /* Gain/outcomes card */
+  .gain-card {
+    padding: 1.1rem 0.9rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .gain-card .card-title-group h3 {
+    font-size: 0.95rem !important;
+  }
+
+  .gain-grid {
+    gap: 0.65rem !important;
+  }
+
+  .gain-item {
+    font-size: 0.78rem !important;
+    gap: 0.4rem !important;
+  }
+
+  .gain-item i {
+    font-size: 0.9rem !important;
+  }
+
+  /* Intake alert bar */
+  .intake-alert {
+    padding: 0.75rem !important;
+    font-size: 0.78rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .intake-alert i {
+    font-size: 1rem !important;
+  }
+
+  /* === ABOUT PAGE: Stats section === */
+  .stat-digit,
+  [data-target][style*="font-size: 3rem"] {
+    font-size: 2rem !important;
+  }
+
+  [style*="minmax(200px, 1fr)"] {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  [style*="minmax(200px, 1fr)"] p {
+    font-size: 0.72rem !important;
+  }
+
+  /* === ABOUT PAGE: About grid text === */
+  .about-text h2 {
+    font-size: clamp(1.15rem, 4vw, 1.4rem) !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .about-text p {
+    font-size: 0.85rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* About page: Mission/Vision card grid override */
+  [style*="minmax(min(100%, 350px)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* === CONTACT PAGE: Form section === */
+  .contact-form-section {
+    margin-top: 2rem !important;
+    padding: 1.5rem 1rem !important;
+  }
+
+  .contact-form-title {
+    font-size: 1.3rem !important;
+  }
+
+  .contact-form-desc {
+    font-size: 0.85rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .form-group {
+    margin-bottom: 1rem !important;
+  }
+
+  .form-label {
+    font-size: 0.82rem !important;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 0.6rem 0.8rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  .security-notice-box {
+    padding: 0.85rem !important;
+    margin-top: 1.25rem !important;
+  }
+
+  .security-notice-box p {
+    font-size: 0.8rem !important;
+  }
+
+  /* === FAQ Section === */
+  .faq-section {
+    margin-top: 2rem !important;
+    padding: 1.5rem 1rem !important;
+  }
+
+  .faq-title {
+    font-size: 1.3rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .faq-question {
+    font-size: 0.88rem !important;
+    padding: 0.35rem 0 !important;
+  }
+
+  .faq-answer {
+    font-size: 0.82rem !important;
+  }
+
+  .faq-item {
+    padding: 0.6rem 0 !important;
+  }
+
+  /* === CTA Sections (Home page) === */
+  .cta-content h2 {
+    font-size: clamp(1.15rem, 4vw, 1.4rem) !important;
+  }
+
+  .cta-content p {
+    font-size: 0.85rem !important;
+  }
+
+  /* === GLOBAL: Hero subtitle wrapping fix === */
+  .hero-subtitle {
+    font-size: clamp(0.78rem, 2vw, 1rem) !important;
+    word-break: break-word !important;
+  }
+
+  /* === FOOTER: Compact on all pages === */
+  .footer {
+    padding: 2rem 0 1.25rem !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .footer h4 {
+    font-size: 1rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+
+  .footer-links li {
+    margin-bottom: 0.35rem !important;
+    font-size: 0.82rem !important;
+  }
+
+  .footer-links a {
+    font-size: 0.82rem !important;
+  }
+
+  .footer-note {
+    font-size: 0.75rem !important;
+    margin-top: 0.5rem !important;
+    padding-top: 0.75rem !important;
+  }
+
+  .footer-bottom {
+    font-size: 0.72rem !important;
+    padding-top: 1rem !important;
+    margin-top: 1rem !important;
+  }
+
+  .footer-legal {
+    font-size: 0.7rem !important;
+    gap: 0.4rem !important;
+    margin: 0.75rem 0 !important;
+  }
+
+  /* MSME badge mobile */
+  .msme-badge {
+    padding: 0.4rem 0.75rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .msme-badge img {
+    height: 26px !important;
+  }
+
+  /* Visitor counter */
+  .visitor-counter-wrap {
+    font-size: 0.72rem !important;
+    padding: 0.25rem 0.6rem !important;
+  }
+
+  .visitor-count {
+    font-size: 0.8rem !important;
+  }
+
+  /* === Floating Buttons: Smaller === */
+  .whatsapp-float {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 1.15rem !important;
+    bottom: 4.5rem !important;
+    right: 1rem !important;
+  }
+
+  .back-to-top {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 1rem !important;
+    bottom: 1rem !important;
+    right: 1rem !important;
+  }
+
+  /* === SERVICES PAGE: Premium ECE badge inside title === */
+  .feature-title span[style*="font-size: 0.65rem"] {
+    font-size: 0.55rem !important;
+    padding: 0.1rem 0.35rem !important;
+    display: block !important;
+    width: fit-content !important;
+    margin-top: 0.35rem !important;
+  }
+}
+
+/* ---- EXTRA SMALL PHONES (≤ 480px) ---- */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.65rem !important;
+  }
+
+  .btn {
+    padding: 0.45rem 0.85rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  .page-title {
+    font-size: clamp(1.1rem, 5vw, 1.4rem) !important;
+  }
+
+  .section-title {
+    font-size: clamp(1rem, 4vw, 1.2rem) !important;
+  }
+
+  .feature-card {
+    padding: 0.9rem 0.75rem !important;
+  }
+
+  .feature-title {
+    font-size: 0.95rem !important;
+  }
+
+  .feature-desc {
+    font-size: 0.75rem !important;
+  }
+
+  .feature-card ul li,
+  .feature-card [style*="list-style-type: none"] li {
+    font-size: 0.72rem !important;
+  }
+
+  .internship-detail-card {
+    padding: 0.85rem 0.7rem !important;
+  }
+
+  .card-title-group h3 {
+    font-size: 0.9rem !important;
+  }
+
+  .internship-detail-list li {
+    font-size: 0.72rem !important;
+  }
+
+  .gain-item {
+    font-size: 0.72rem !important;
+  }
+
+  /* Stats on very small screens: stack to 1 column */
+  [style*="minmax(200px, 1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  [data-target][style*="font-size: 3rem"] {
+    font-size: 1.75rem !important;
+  }
+
+  /* Pricing card badge on tiny screens */
+  .pricing-card-badge {
+    font-size: 0.62rem !important;
+  }
+
+  /* Footer even more compact */
+  .footer-links li {
+    font-size: 0.75rem !important;
+  }
+}
+
+/* ---- ULTRA NARROW (≤ 360px, e.g., Galaxy Fold) ---- */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 0.5rem !important;
+  }
+
+  .page-title {
+    font-size: 1.05rem !important;
+  }
+
+  .feature-card {
+    padding: 0.75rem 0.6rem !important;
+  }
+
+  .btn {
+    padding: 0.4rem 0.7rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  .feature-title {
+    font-size: 0.88rem !important;
+  }
 }
