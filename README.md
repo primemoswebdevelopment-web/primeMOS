@@ -56,7 +56,7 @@ Expert physical design implementation, chip verification, power optimization, an
   <strong>Associate Member of IETE | VLSI Researcher | Semiconductor Innovator</strong>
 </p>
 
-PVSDD Mallikarjuna is a highly dedicated research engineer specializing in CMOS and Digital Integrated Circuit (IC) design. Possessing extensive experience in industry-standard environments—including Cadence Virtuoso, Xilinx Vivado, OpenLane, and SkyWater PDK—he is an IEEE-published researcher, a Top-5 VLSI Hackathon Finalist, and a former Defense Research and Development Laboratory (DRDL) intern. Passionate about educational democratization, he established PrimeMOS to provide real-time, industrial-grade VLSI and semiconductor research experience to aspiring students.
+PVSDD Mallikarjuna is a highly dedicated research engineer specializing in CMOS and Digital Integrated Circuit (IC) design. Possessing extensive experience in industry-standard environments—including Cadence Virtuoso, Xilinx Vivado, OpenLane, and SkyWater PDK—he is an IEEE-published researcher and a former Defense Research and Development Laboratory (DRDL) intern, currently specializing in AI-Enabled VLSI Design. Passionate about educational democratization, he established PrimeMOS to provide real-time, industrial-grade VLSI and semiconductor research experience to aspiring students.
 
 <p align="center">
   <a href="https://www.researchgate.net/profile/P-V-S-D-D-Mallikarjuna" target="_blank"><img src="https://img.shields.io/badge/ResearchGate-Profile-00CCBB?style=for-the-badge&logo=ResearchGate&logoColor=white" alt="ResearchGate"></a>
