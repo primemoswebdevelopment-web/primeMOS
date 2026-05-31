@@ -291,7 +291,26 @@
             .event-desc { font-size: 0.82rem; line-height: 1.5; margin-bottom: 1rem; }
             .event-participants { padding: 0.4rem 0.75rem; font-size: 0.76rem; margin-bottom: 1rem; }
             .event-tag { padding: 0.2rem 0.6rem; font-size: 0.68rem; }
-            .winner-chip { padding: 0.2rem 0.6rem; font-size: 0.68rem; }
+            .cert-winners {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+                width: 100%;
+            }
+            .winner-chip {
+                background: linear-gradient(135deg, rgba(248, 158, 27, 0.06), rgba(241, 90, 36, 0.04));
+                border: 1px solid rgba(248, 158, 27, 0.15);
+                border-radius: var(--radius-sm);
+                padding: 0.5rem 0.6rem;
+                font-size: 0.72rem;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 0.4rem;
+                justify-content: flex-start;
+                box-shadow: var(--shadow-sm);
+                text-align: left;
+            }
             .event-card-footer { gap: 0.5rem; }
             .event-card-footer .btn { font-size: 0.75rem; padding: 0.5rem 0.85rem; }
             .events-grid { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1.5rem; }
