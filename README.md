@@ -62,35 +62,6 @@ PVSDD Mallikarjuna is a highly dedicated research engineer specializing in CMOS 
   <a href="https://www.researchgate.net/profile/P-V-S-D-D-Mallikarjuna" target="_blank"><img src="https://img.shields.io/badge/ResearchGate-Profile-00CCBB?style=for-the-badge&logo=ResearchGate&logoColor=white" alt="ResearchGate"></a>
   <a href="https://www.linkedin.com/in/p-v-s-d-d-mallikarjuna-9569b0298" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin" alt="LinkedIn"></a>
 </p>
-
----
-
-## 🛠️ Technological Stack & Design Systems
-
-The website is engineered as a highly responsive, fast, and accessible digital platform:
-* **Markup**: Semantic HTML5 structures optimizing modern SEO practices.
-* **Styling**: Vanilla CSS3 custom-built design system utilizing curated color tokens (Warm primary `#f26622`, charcoal secondary `#1a1a1a`, and warm peach background `#faf4ec`).
-* **Typography**: Outfit (headings) and Inter (body text) imported from Google Fonts for high legibility.
-* **Micro-Animations**: Custom scroll-triggered fade-in transitions and pulsing radial mesh glowing layers.
-* **Responsive Layouts**: Flexible Flexbox and CSS Grid frameworks supporting ultra-narrow mobile screens (e.g., iPhone SE) up to wide tablet and notebook displays without layout shifts.
-
----
-
-## 📁 Repository Directory Structure
-
-```text
-PrimeMOS/
-├── index.html              # Homepage & company capabilities overview
-├── services.html           # Dedicated Student Services & Consulting page
-├── research.html           # Brand new Standalone Research & Internships landing
-├── about.html              # About company history, mission, & founder profile
-├── styles.css              # Core responsive stylesheet with layout systems
-├── script.js               # Intersection Observer animations & mobile drawer logic
-├── logo_transparent.png    # Official high-res company logo
-├── founder_profile.jpg     # Founder official profile photo
-├── silicon_chip_bg.png     # ECE silicon waver backdrop graphic
-└── README.md               # Professional documentation
-```
 ## 📞 Contact & Support
 
 For collaborations, project guidance applications, or consulting inquiries, reach out through our verified contact points:
