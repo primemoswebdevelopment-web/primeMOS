@@ -238,6 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
       { title: "Research Internship Program", description: "Intensive 3 to 5 weeks remote program for CMOS VLSI and Digital IC designs.", url: `${prefix}research/`, category: "internship", icon: "fa-microchip" },
       { title: "Host a College Workshop / Webinar", description: "Hands-on VLSI bootcamps and customized webinars.", url: `${prefix}events/`, category: "institutional", icon: "fa-building-columns" },
       { title: "VBIT Hyderabad VLSI Workshop", description: "Review our workshop organized for 150+ ECE students.", url: `${prefix}events/#past-events`, category: "event", icon: "fa-calendar-check" },
+      { title: "VBIT (JNTUH) Official Testimonial", description: "Official institutional testimonial from Vignan's Bharathi Institute of Technology.", url: `${prefix}testimonials/`, category: "reviews", icon: "fa-building-columns" },
       { title: "Technical Webinar on Digital Design", description: "Awarding best participant certificates for VLSI & EDA tool webinars.", url: `${prefix}events/#past-events`, category: "event", icon: "fa-award" },
       { title: "About PVSDD Mallikarjuna (Founder)", description: "Semiconductor Innovator, Associate IETE member, AI-Enabled VLSI engineer.", url: `${prefix}about/`, category: "founder", icon: "fa-user-tie" },
       { title: "Contact Information & Location", description: "Reach out via WhatsApp or Email in Hyderabad, India.", url: `${prefix}contact/`, category: "contact", icon: "fa-envelope" },
