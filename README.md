@@ -91,30 +91,6 @@ PrimeMOS/
 ├── silicon_chip_bg.png     # ECE silicon waver backdrop graphic
 └── README.md               # Professional documentation
 ```
-
----
-
-## 🚀 Getting Started Locally
-
-To run the site locally and test transitions and responsiveness:
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/adithyayanamalamanda/PrimeMOS.git
-   cd PrimeMOS
-   ```
-
-2. **Serve the Application**:
-   Since the site uses pure frontend assets, you can run it using any local static server. For instance, using Node's `http-server`:
-   ```bash
-   npx http-server -p 8080
-   ```
-
-3. **Open in Browser**:
-   Navigate to `http://localhost:8080` in your web browser.
-
----
-
 ## 📞 Contact & Support
 
 For collaborations, project guidance applications, or consulting inquiries, reach out through our verified contact points:
