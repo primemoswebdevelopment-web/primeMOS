@@ -313,6 +313,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target === overlay) closeSearch();
     });
 
+    // Delegated click handler for search items to ensure reliable navigation
+    resultsContainer.addEventListener('click', (e) => {
+      const searchItem = e.target.closest('.search-item');
+      if (searchItem) {
+        e.preventDefault();
+        const url = searchItem.getAttribute('href');
+        closeSearch();
+        window.location.href = url;
+      }
+    });
+
     document.addEventListener('keydown', (e) => {
       if ((e.ctrlKey && e.key === 'k') || (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA')) {
         e.preventDefault();
@@ -336,11 +347,10 @@ document.addEventListener('DOMContentLoaded', () => {
             updateSelection(items);
           } else if (e.key === 'Enter') {
             e.preventDefault();
-            if (selectedIndex >= 0 && selectedIndex < items.length) {
-              items[selectedIndex].click();
-            } else if (items.length > 0) {
-              items[0].click();
-            }
+            const targetItem = selectedIndex >= 0 && selectedIndex < items.length ? items[selectedIndex] : items[0];
+            const url = targetItem.getAttribute('href');
+            closeSearch();
+            window.location.href = url;
           }
         }
       }
