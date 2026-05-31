@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (shouldOpen) {
         navLinks.classList.add('active');
         overlay.classList.add('active');
+        mobileToggle.classList.add('active');
         if (icon) {
           icon.classList.remove('fa-bars');
           icon.classList.add('fa-times');
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         navLinks.classList.remove('active');
         overlay.classList.remove('active');
+        mobileToggle.classList.remove('active');
         if (icon) {
           icon.classList.remove('fa-times');
           icon.classList.add('fa-bars');
