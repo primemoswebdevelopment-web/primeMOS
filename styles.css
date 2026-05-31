@@ -618,7 +618,7 @@ a {
   }
 
   .hero {
-    background-image: none !important; /* Avoid downloading heavy 1.16MB image on mobile, keep CSS mesh-gradient */
+    background-position: center center !important;
   }
 
   .navbar .container {
