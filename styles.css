@@ -55,6 +55,12 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.35rem; }
+h4 { font-size: 1.15rem; }
+p { font-size: 0.95rem; }
+
 a {
   text-decoration: none;
   color: inherit;
@@ -284,15 +290,15 @@ a {
 }
 
 .hero-title {
-  font-size: clamp(3rem, 5vw, 5rem);
-  margin-bottom: 1.5rem;
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  margin-bottom: 1.25rem;
   background: linear-gradient(to right, #fff, #cbd5e1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
-  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, 2vw, 1.25rem);
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 2.5rem;
   font-weight: 300;
@@ -310,7 +316,7 @@ a {
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 1.85rem;
   color: var(--secondary);
   margin-bottom: 1rem;
 }
@@ -426,13 +432,13 @@ a {
 }
 
 .page-title {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
+  font-size: 2.4rem;
+  margin-bottom: 0.75rem;
   color: var(--secondary);
 }
 
 .page-desc {
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto;
@@ -441,9 +447,11 @@ a {
 /* About Grid */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 2.5rem;
   align-items: center;
+  max-width: 1050px;
+  margin: 0 auto;
 }
 
 .about-image img {
@@ -453,13 +461,13 @@ a {
 }
 
 .about-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.85rem;
+  margin-bottom: 1.25rem;
 }
 
 .about-text p {
-  margin-bottom: 1.5rem;
-  font-size: 1.125rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
 }
 
@@ -548,6 +556,10 @@ a {
 
 /* Responsive */
 @media (max-width: 768px) {
+  html {
+    font-size: 14.5px !important;
+  }
+
   /* Performance optimizations for mobile - disable scroll opacity locks and avoid heavy image weights */
   .js-enabled .fade-in:not(.testimonials .feature-card) {
     opacity: 1 !important;
@@ -1011,6 +1023,10 @@ a {
 }
 
 @media (max-width: 576px) {
+  html {
+    font-size: 13.5px !important;
+  }
+
   .container {
     padding: 0 0.75rem;
   }
@@ -1178,7 +1194,7 @@ a {
 }
 
 .founder-first-name {
-  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
   font-weight: 800;
   color: var(--secondary);
   line-height: 1.1;
@@ -1188,7 +1204,7 @@ a {
 }
 
 .founder-last-name {
-  font-size: clamp(1.8rem, 6vw, 3.4rem);
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
   font-weight: 800;
   color: var(--secondary);
   line-height: 1.1;
@@ -1197,8 +1213,8 @@ a {
 }
 
 .founder-bio {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 0.95rem;
+  line-height: 1.7;
   color: var(--text-main);
   position: relative;
   padding-left: 0;
@@ -2548,6 +2564,10 @@ a {
 
 /* ---- EXTRA SMALL PHONES (≤ 480px) ---- */
 @media (max-width: 480px) {
+  html {
+    font-size: 13px !important;
+  }
+
   .container {
     padding: 0 0.65rem !important;
   }
@@ -2621,6 +2641,10 @@ a {
 
 /* ---- ULTRA NARROW (≤ 360px, e.g., Galaxy Fold) ---- */
 @media (max-width: 360px) {
+  html {
+    font-size: 12px !important;
+  }
+
   .container {
     padding: 0 0.5rem !important;
   }
@@ -2925,4 +2949,116 @@ a {
     display: none;
   }
 }
+
+/* ── Testimonials Page Refinements ── */
+.testimonials .page-header {
+  padding-top: 120px !important;
+  padding-bottom: 40px !important;
+}
+
+.testimonials.py-24 {
+  padding-top: 3.5rem !important;
+  padding-bottom: 3.5rem !important;
+}
+
+.vbit-testimonial-card {
+  margin-bottom: 2.5rem !important;
+  background: linear-gradient(135deg, rgba(241, 90, 36, 0.04) 0%, rgba(248, 158, 27, 0.02) 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(241, 90, 36, 0.15);
+  box-shadow: var(--shadow-md);
+  padding: 2.25rem !important;
+  position: relative;
+  overflow: hidden;
+  border-left: 5px solid var(--primary-orange) !important;
+  text-align: left;
+}
+
+.vbit-testimonial-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.6rem !important;
+  color: var(--secondary);
+  margin-bottom: 0.35rem !important;
+  font-weight: 800;
+}
+
+.vbit-testimonial-quote-wrap {
+  color: var(--text-main);
+  font-size: 0.95rem !important;
+  line-height: 1.7 !important;
+  font-style: italic;
+  position: relative;
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  padding: 1.5rem !important;
+  background: var(--background);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border-top: 3px solid var(--primary-orange) !important;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.testimonial-text {
+  font-style: italic;
+  line-height: 1.55 !important;
+  margin-bottom: 1.15rem !important;
+  color: var(--text-main);
+  font-size: 0.86rem !important;
+}
+
+.testimonial-author-name {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 0.2rem !important;
+  font-size: 0.95rem !important;
+}
+
+.testimonial-author-sub {
+  font-size: 0.74rem !important;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.testimonial-author-college {
+  font-size: 0.68rem !important;
+  color: var(--primary-orange);
+  font-weight: 600;
+  margin-top: 0.1rem;
+}
+
+@media (max-width: 768px) {
+  .testimonials.py-24 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .vbit-testimonial-card {
+    padding: 1.25rem !important;
+  }
+  .vbit-testimonial-title {
+    font-size: 1.3rem !important;
+  }
+  .vbit-testimonial-quote-wrap {
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
+  }
+  .testimonial-card {
+    padding: 1.15rem !important;
+  }
+  .testimonial-text {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.85rem !important;
+  }
+}
+
 

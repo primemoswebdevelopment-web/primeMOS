@@ -1,4 +1,4 @@
-document.documentElement.classList.add('js-enabled');
+﻿document.documentElement.classList.add('js-enabled');
 
 document.addEventListener('DOMContentLoaded', () => {
   // Mobile Navigation Toggle
@@ -443,3 +443,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initGlobalSearch();
 });
+
