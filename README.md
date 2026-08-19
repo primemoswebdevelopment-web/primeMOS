@@ -69,8 +69,7 @@ For collaborations, project guidance applications, or consulting inquiries, reac
 | Channel | Details |
 | :--- | :--- |
 | **📧 Email** | [PrimeMOS.research@gmail.com](mailto:PrimeMOS.research@gmail.com) |
-| **📞 Contact 1** | [+91 8019847793](tel:8019847793) |
-| **📞 Contact 2** | [+91 9849925593](tel:9849925593) |
+| **📞 Contact** | [+91 8019847793](tel:8019847793) |
 | **📍 Office Location** | Hyderabad, Telangana, India |
 
 ---
