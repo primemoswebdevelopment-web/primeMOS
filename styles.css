@@ -3224,13 +3224,82 @@ a {
   transform: translateX(4px);
 }
 
+/* Upcoming Event Details & Accordion Styling */
+.update-details-wrap {
+  width: 100%;
+  padding-left: 3.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.enroll-details {
+  width: 100%;
+}
+
+.enroll-details summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary-orange);
+  outline: none;
+  margin-bottom: 0.5rem;
+  user-select: none;
+}
+
+.enroll-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.enroll-details summary::after {
+  content: '\f078'; /* FontAwesome chevron-down */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+  color: var(--primary-orange);
+}
+
+.enroll-details[open] summary::after {
+  transform: rotate(180deg);
+}
+
 @media (max-width: 768px) {
   .updates-list {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
   .updates-container {
-    padding: 1.5rem;
+    padding: 1.25rem;
+  }
+  .updates-title {
+    font-size: 1.25rem;
+  }
+  .update-item {
+    padding: 1rem !important;
+    gap: 1rem;
+  }
+  .update-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  .update-heading {
+    font-size: 1.05rem;
+  }
+  .update-text {
+    font-size: 0.82rem;
+  }
+  .update-link {
+    font-size: 0.78rem;
+  }
+  .update-details-wrap {
+    padding-left: 0 !important;
+    margin-top: 0.5rem;
   }
 }
 
