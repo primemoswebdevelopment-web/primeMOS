@@ -509,7 +509,7 @@
             <!-- Stats Strip -->
             <div class="events-stats">
                 <div class="stat-pill">
-                    <span class="num">3</span>
+                    <span class="num">4</span>
                     <span class="lbl">Events Hosted</span>
                 </div>
                 <div class="stat-pill">
@@ -552,6 +552,12 @@
             <div class="section-header fade-in">
                 <h2 class="section-title">Past Events</h2>
                 <p style="color: var(--text-muted); max-width: 560px; margin: 0 auto;">A record of our technical outreach — every session built to equip students with real VLSI and semiconductor industry exposure.</p>
+            </div>
+
+            <!-- Event Search Bar -->
+            <div class="event-search-container fade-in" style="max-width: 640px; margin: 2rem auto 0; position: relative;">
+                <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1.1rem;"></i>
+                <input type="text" id="eventSearchInput" placeholder="Search events by title, keyword, location, or tag..." style="width: 100%; padding: 1rem 1.25rem 1rem 3.25rem; border-radius: var(--radius-lg); border: 1px solid rgba(0,0,0,0.08); background: var(--surface); color: var(--secondary); font-size: 1rem; font-family: inherit; outline: none; box-shadow: var(--shadow-sm); transition: all 0.3s ease;">
             </div>
 
             <!-- Events Grid -->
@@ -632,6 +638,34 @@
                         </div>
                         <p class="event-desc">
                             A dual-session event highlighting the semiconductor ecosystem pathways followed by voluntary student technical project presentations and peer review.
+                        </p>
+                        <div class="event-card-footer" style="margin-top: auto; padding-top: 1rem;">
+                            <button class="btn btn-primary open-event-btn" style="width: 100%; justify-content: center; font-size: 0.85rem; padding: 0.6rem 1.25rem;">
+                                <i class="fa-solid fa-circle-info" style="margin-right: 6px;"></i> View Event Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── EVENT 4: 5-Day International VLSI Workshop ── -->
+                <div class="event-card fade-in delay-300" data-event-id="event4">
+                    <div class="event-card-image">
+                        <img src="../event4_cover.png"
+                             alt="5-Day International VLSI Workshop using Open Source EDA Tools"
+                             loading="lazy">
+                        <span class="event-badge badge-online">Online Workshop</span>
+                    </div>
+                    <div class="event-card-body">
+                        <div class="event-meta">
+                            <span class="event-meta-item"><i class="fa-solid fa-calendar-days"></i> 24 - 28 Aug 2026</span>
+                            <span class="event-meta-item"><i class="fa-solid fa-globe"></i> International · Virtual</span>
+                        </div>
+                        <div style="display: flex; align-items: flex-start; gap: 0.85rem; margin-bottom: 0.75rem;">
+                            <div class="event-number">4</div>
+                            <h2 class="event-title">VLSI Design Using Open Source Tools</h2>
+                        </div>
+                        <p class="event-desc">
+                            A 5-day international workshop covering the complete RTL-to-GDSII flow using open-source EDA tools, engaging students, faculty, and international participants.
                         </p>
                         <div class="event-card-footer" style="margin-top: auto; padding-top: 1rem;">
                             <button class="btn btn-primary open-event-btn" style="width: 100%; justify-content: center; font-size: 0.85rem; padding: 0.6rem 1.25rem;">
@@ -1025,6 +1059,92 @@
                 </a>
             </div>
         </div>
+
+        <!-- EVENT 4 DETAILS -->
+        <div id="details-event4">
+            <div class="event-modal-meta">
+                <span class="event-meta-item" style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted); display: inline-flex; align-items: center; gap: 0.35rem;"><i class="fa-solid fa-calendar-days" style="color: var(--primary-orange);"></i> 24 - 28 August 2026</span>
+                <span class="event-meta-item" style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted); display: inline-flex; align-items: center; gap: 0.35rem; margin-left: 1rem;"><i class="fa-solid fa-globe" style="color: var(--primary-orange);"></i> International · Virtual</span>
+                <span class="event-meta-item" style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted); display: inline-flex; align-items: center; gap: 0.35rem; margin-left: 1rem;"><i class="fa-solid fa-handshake" style="color: var(--primary-orange);"></i> PrimeMOS × IEEE SB RRU</span>
+            </div>
+            <p class="event-desc" style="font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); margin-top: 1rem;">
+                PrimeMOS Research &amp; Solutions, in collaboration with IEEE Student Branch RRU, successfully wrapped up its 5-day international workshop on <strong>VLSI Design Using Open Source Tools</strong>. The event brought together students, faculty, and international participants (including attendees from the Philippines) for a deep dive into the semiconductor ecosystem.
+            </p>
+            <p class="event-desc" style="font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); margin-top: 0.75rem;">
+                Spanning five interactive days, the workshop covered comprehensive concepts of Open-Source EDA, RTL-to-GDSII workflow, Analog IC flow, CMOS fundamentals, and open-source VLSI design tools, empowering aspiring VLSI engineers with practical industry knowledge.
+            </p>
+            <div class="event-participants" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; background: linear-gradient(135deg, rgba(241,90,36,0.06), rgba(248,158,27,0.04)); border-radius: var(--radius-sm); border: 1px solid rgba(241,90,36,0.1); margin-top: 1rem; margin-bottom: 1rem; font-size: 0.85rem; font-weight: 600; color: var(--primary-maroon);">
+                <i class="fa-solid fa-users" style="color: var(--primary-orange);"></i>
+                <span>27+ Voices · Students, Faculty &amp; International Participants</span>
+            </div>
+
+            <!-- Workshop Highlights (Days 1 to 5) -->
+            <div style="margin-top: 1.25rem; margin-bottom: 1.25rem;">
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.4rem;">
+                    <i class="fa-solid fa-layer-group" style="color: var(--primary-orange);"></i> 5 Days of Learning
+                </div>
+                <div class="project-list" style="margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="https://www.linkedin.com/posts/primemos-research-solutions_vlsi-semiconductor-icdesign-activity-7497925143365873665-oR9S" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" class="project-item">
+                        <i class="fa-solid fa-chevron-right" style="color: var(--primary-orange); font-size: 0.75rem; margin-top: 4px; flex-shrink: 0;"></i> <span><strong>Day 1:</strong> Introduction to VLSI &amp; Semiconductor IC Design <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem; color: #0077B5; margin-left: 6px;"></i></span>
+                    </a>
+                    <a href="https://www.linkedin.com/posts/primemos-research-solutions_vlsi-vlsidesign-semiconductor-activity-7498311087319318528-vqV5" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" class="project-item">
+                        <i class="fa-solid fa-chevron-right" style="color: var(--primary-orange); font-size: 0.75rem; margin-top: 4px; flex-shrink: 0;"></i> <span><strong>Day 2:</strong> Deep Dive into VLSI Design &amp; Workflows <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem; color: #0077B5; margin-left: 6px;"></i></span>
+                    </a>
+                    <a href="https://www.linkedin.com/posts/primemos-research-solutions_vlsi-semiconductor-vlsidesign-activity-7498701894744457216-RcV_" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" class="project-item">
+                        <i class="fa-solid fa-chevron-right" style="color: var(--primary-orange); font-size: 0.75rem; margin-top: 4px; flex-shrink: 0;"></i> <span><strong>Day 3:</strong> Exploring Open-Source EDA Tools <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem; color: #0077B5; margin-left: 6px;"></i></span>
+                    </a>
+                    <a href="https://www.linkedin.com/posts/primemos-research-solutions_vlsidesign-opensourceeda-rtltogdsii-activity-7498823062843310080-I6SX" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" class="project-item">
+                        <i class="fa-solid fa-chevron-right" style="color: var(--primary-orange); font-size: 0.75rem; margin-top: 4px; flex-shrink: 0;"></i> <span><strong>Day 4:</strong> RTL-to-GDSII Implementation (Part 1) <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem; color: #0077B5; margin-left: 6px;"></i></span>
+                    </a>
+                    <a href="https://www.linkedin.com/posts/primemos-research-solutions_vlsidesign-rtltogdsii-opensourceeda-activity-7499193372528750592-nowl" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" class="project-item">
+                        <i class="fa-solid fa-chevron-right" style="color: var(--primary-orange); font-size: 0.75rem; margin-top: 4px; flex-shrink: 0;"></i> <span><strong>Day 5:</strong> RTL-to-GDSII Conclusion &amp; Feedback <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem; color: #0077B5; margin-left: 6px;"></i></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Participant Feedback -->
+            <div style="margin-top: 1.5rem; margin-bottom: 1.25rem; border-top: 1px dashed rgba(0, 0, 0, 0.1); padding-top: 1.25rem;">
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.8rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem; font-family: 'Outfit', sans-serif;">
+                    <div style="display: flex; align-items: center; gap: 0.4rem;">
+                        <i class="fa-solid fa-star" style="color: #f89e1b;"></i> Highly Rated Participant Feedback (4.5/5)
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="background: rgba(0,0,0,0.02); border-left: 3px solid var(--primary-orange); padding: 0.75rem 1rem; border-radius: 0 4px 4px 0;">
+                        <p style="font-size: 0.82rem; font-style: italic; color: var(--text-main); margin-bottom: 0.3rem; line-height: 1.4;">"This was a very insightful and significant workshop for an aspiring VLSI engineer like me — thank you, PrimeMOS and IEEE SB RRU, for the opportunity! (5/5)"</p>
+                        <span style="font-size: 0.74rem; font-weight: 700; color: var(--primary-maroon);">- Nestor Luis Tappa Jr. (Job Aspirant, Philippines)</span>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.02); border-left: 3px solid var(--primary-orange); padding: 0.75rem 1rem; border-radius: 0 4px 4px 0;">
+                        <p style="font-size: 0.82rem; font-style: italic; color: var(--text-main); margin-bottom: 0.3rem; line-height: 1.4;">"An excellent workshop — Mallikarjuna's coverage of the Analog IC Flow and TCL/Linux was thorough. Would love a follow-up PrimeMOS session on Cadence and TCAD Sentaurus. (5/5)"</p>
+                        <span style="font-size: 0.74rem; font-weight: 700; color: var(--primary-maroon);">- Dr. Mathan N (Faculty)</span>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.02); border-left: 3px solid var(--primary-orange); padding: 0.75rem 1rem; border-radius: 0 4px 4px 0;">
+                        <p style="font-size: 0.82rem; font-style: italic; color: var(--text-main); margin-bottom: 0.3rem; line-height: 1.4;">"Thank you to the IEEE Student Branch RRU and PrimeMOS for organizing this workshop. The sessions were well coordinated and helped me gain practical exposure to open-source VLSI design tools. (5/5)"</p>
+                        <span style="font-size: 0.74rem; font-weight: 700; color: var(--primary-maroon);">- Yamini Sivakumar (B.Tech Student)</span>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.02); border-left: 3px solid var(--primary-orange); padding: 0.75rem 1rem; border-radius: 0 4px 4px 0;">
+                        <p style="font-size: 0.82rem; font-style: italic; color: var(--text-main); margin-bottom: 0.3rem; line-height: 1.4;">"A hands-on implementation of an SoC covering RTL to GDSII in depth would be great for freshers and novices. Thank you for the wonderful experience. (4.5/5)"</p>
+                        <span style="font-size: 0.74rem; font-weight: 700; color: var(--primary-maroon);">- Rohan Manuel Kurian (Industry Professional)</span>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.02); border-left: 3px solid var(--primary-orange); padding: 0.75rem 1rem; border-radius: 0 4px 4px 0;">
+                        <p style="font-size: 0.82rem; font-style: italic; color: var(--text-main); margin-bottom: 0.3rem; line-height: 1.4;">"A very informative and helpful program. I especially enjoyed the theory parts and look forward to practicing the tools touched upon in this course. (4.5/5)"</p>
+                        <span style="font-size: 0.74rem; font-weight: 700; color: var(--primary-maroon);">- Nivedha Gnanodharan (B.Tech Student)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-highlights" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+                <span class="event-tag" style="background: rgba(241,90,36,0.08); color: var(--primary-maroon); border-radius: 100px; padding: 0.25rem 0.7rem; font-size: 0.75rem; font-weight: 600;">Open-Source EDA</span>
+                <span class="event-tag" style="background: rgba(241,90,36,0.08); color: var(--primary-maroon); border-radius: 100px; padding: 0.25rem 0.7rem; font-size: 0.75rem; font-weight: 600;">RTL to GDSII</span>
+                <span class="event-tag" style="background: rgba(241,90,36,0.08); color: var(--primary-maroon); border-radius: 100px; padding: 0.25rem 0.7rem; font-size: 0.75rem; font-weight: 600;">International Workshop</span>
+                <span class="event-tag" style="background: rgba(241,90,36,0.08); color: var(--primary-maroon); border-radius: 100px; padding: 0.25rem 0.7rem; font-size: 0.75rem; font-weight: 600;">4.5/5 Rating</span>
+            </div>
+            <div class="event-modal-actions" style="margin-top: 1.75rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="https://www.linkedin.com/posts/primemos-research-solutions_vlsidesign-rtltogdsii-opensourceeda-activity-7499193372528750592-nowl" target="_blank" rel="noopener noreferrer" class="btn btn-founder-secondary" style="font-size: 0.85rem; padding: 0.6rem 1.25rem; background: white; border: 1px solid #ddd;">
+                    <i class="fa-brands fa-linkedin" style="margin-right: 6px; color: #0077B5;"></i> View Final Post on LinkedIn
+                </a>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -1101,6 +1221,53 @@
                     closeModal();
                 }
             });
+
+            // Event Search functionality
+            const searchInput = document.getElementById('eventSearchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const term = e.target.value.toLowerCase();
+                    const cards = document.querySelectorAll('.event-card');
+                    let hasVisible = false;
+
+                    cards.forEach(card => {
+                        const text = card.textContent.toLowerCase();
+                        if (text.includes(term)) {
+                            card.style.display = 'flex';
+                            hasVisible = true;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    let noResults = document.getElementById('noResultsMessage');
+                    if (!hasVisible) {
+                        if (!noResults) {
+                            noResults = document.createElement('div');
+                            noResults.id = 'noResultsMessage';
+                            noResults.style.textAlign = 'center';
+                            noResults.style.padding = '3rem 1rem';
+                            noResults.style.color = 'var(--text-muted)';
+                            noResults.style.gridColumn = '1 / -1';
+                            noResults.innerHTML = '<i class="fa-solid fa-magnifying-glass-minus" style="font-size: 2rem; color: var(--primary-orange); margin-bottom: 1rem;"></i><br><span style="font-size: 1.1rem; font-weight: 500;">No events found matching your search.</span>';
+                            document.querySelector('.events-grid').appendChild(noResults);
+                        }
+                        noResults.style.display = 'block';
+                    } else if (noResults) {
+                        noResults.style.display = 'none';
+                    }
+                });
+
+                // Add focus styles dynamically
+                searchInput.addEventListener('focus', () => {
+                    searchInput.style.borderColor = 'rgba(241,90,36,0.4)';
+                    searchInput.style.boxShadow = '0 0 0 4px rgba(241,90,36,0.1)';
+                });
+                searchInput.addEventListener('blur', () => {
+                    searchInput.style.borderColor = 'rgba(0,0,0,0.08)';
+                    searchInput.style.boxShadow = 'var(--shadow-sm)';
+                });
+            }
         });
     </script>
 </body>
