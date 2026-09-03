@@ -243,6 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
       { title: "IEEE Student Branch RRU Event", description: "5-day international workshop on VLSI Design Using Open Source Tools.", url: `${prefix}events/`, category: "event", icon: "fa-calendar-check" },
       { title: "Online VLSI Internship Enrollment", description: "Enrolment open for intensive 3 to 5 weeks remote chip design program.", url: `${prefix}services/#student-services`, category: "internship", icon: "fa-user-graduate" },
       { title: "IETE Hyderabad Centre Collaboration", description: "Strategic partnership with the Institution of Electronics and Telecommunication Engineers.", url: `${prefix}home/`, category: "page", icon: "fa-handshake" },
+      { title: "Collaborations & Institutional Partners", description: "5 active collaborations: IETE (Proposal under process), IEEE, VBIT, RRU, and TapeoutX.", url: `${prefix}events/#collaborations`, category: "institutional", icon: "fa-handshake" },
       { title: "About PVSDD Mallikarjuna (Founder)", description: "Semiconductor Innovator, Associate IETE member, AI-Enabled VLSI engineer.", url: `${prefix}about/`, category: "founder", icon: "fa-user-tie" },
       { title: "Contact Information & Location", description: "Reach out via WhatsApp or Email in Hyderabad, India.", url: `${prefix}contact/`, category: "contact", icon: "fa-envelope" },
       { title: "Student Testimonials & Reviews", description: "Read ratings and comments from VTU, OU, JNTUH students.", url: `${prefix}testimonials/`, category: "reviews", icon: "fa-comments" },

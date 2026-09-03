@@ -35,9 +35,12 @@
         .events-stats {
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: 1.5rem 2rem;
             flex-wrap: wrap;
             margin-top: 2.5rem;
+            max-width: 1060px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .stat-pill {
             display: flex;
@@ -46,8 +49,18 @@
             background: rgba(255,255,255,0.08);
             border: 1px solid rgba(255,255,255,0.12);
             border-radius: var(--radius-md);
-            padding: 1rem 2rem;
+            padding: 1rem 1.75rem;
             backdrop-filter: blur(10px);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .stat-pill:hover {
+            background: rgba(255,255,255,0.14);
+            border-color: rgba(241,90,36,0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
         }
         .stat-pill .num {
             font-size: 2rem;
@@ -56,7 +69,259 @@
             color: var(--primary-orange);
             line-height: 1;
         }
-        .stat-pill .lbl { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.35rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+        .stat-pill .lbl {
+            font-size: 0.76rem;
+            color: rgba(255,255,255,0.65);
+            margin-top: 0.35rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .stat-pill-sub {
+            font-size: 0.62rem;
+            color: var(--primary-gold);
+            margin-top: 0.35rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            letter-spacing: 0.03em;
+        }
+
+        /* Hero Collaborator Quick Strip */
+        .hero-collab-strip {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+        .collab-strip-inner {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.85rem;
+            background: rgba(15, 23, 42, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 100px;
+            padding: 0.5rem 1.25rem;
+            backdrop-filter: blur(12px);
+            flex-wrap: wrap;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        .collab-strip-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .collab-chips {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .collab-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 0.3rem 0.85rem;
+            border-radius: 100px;
+            color: white;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+        .collab-chip:hover {
+            background: rgba(241, 90, 36, 0.25);
+            border-color: var(--primary-orange);
+            color: var(--primary-orange);
+            transform: translateY(-2px);
+        }
+        .collab-chip.has-proposal {
+            border-color: rgba(248, 158, 27, 0.45);
+            background: rgba(248, 158, 27, 0.12);
+        }
+        .collab-proposal-tag {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            background: rgba(248, 158, 27, 0.22);
+            padding: 0.15rem 0.5rem;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        /* Compact Collaborations Section */
+        .collaborations-section {
+            background-color: var(--background);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            padding: 3.25rem 0 3.75rem;
+            position: relative;
+        }
+        .collab-proposal-notice {
+            background: linear-gradient(135deg, rgba(241, 90, 36, 0.06) 0%, rgba(248, 158, 27, 0.08) 100%);
+            border: 1px solid rgba(241, 90, 36, 0.22);
+            border-left: 4px solid var(--primary-orange);
+            border-radius: var(--radius-sm);
+            padding: 0.65rem 1.15rem;
+            margin-bottom: 1.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .collab-notice-left {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.84rem;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+        .collab-notice-icon {
+            color: var(--primary-orange);
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+        .proposal-notice-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(241, 90, 36, 0.12);
+            color: var(--primary-orange);
+            border: 1px solid rgba(241, 90, 36, 0.25);
+            padding: 0.2rem 0.65rem;
+            border-radius: 100px;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+        .collab-placards-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+        }
+        .collab-placard {
+            background: var(--surface);
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: var(--radius-md);
+            padding: 1.15rem 1rem 0.95rem;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .collab-placard:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-color: rgba(241, 90, 36, 0.35);
+        }
+        .collab-placard-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.65rem;
+            gap: 0.4rem;
+        }
+        .collab-placard-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: rgba(241, 90, 36, 0.08);
+            color: var(--primary-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+        .collab-placard:hover .collab-placard-icon {
+            background: var(--primary-orange);
+            color: white;
+        }
+        .collab-placard-badge {
+            font-size: 0.62rem;
+            font-weight: 700;
+            padding: 0.18rem 0.5rem;
+            border-radius: 100px;
+            background: rgba(0,0,0,0.04);
+            color: var(--text-muted);
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .collab-placard-badge.badge-proposal {
+            background: rgba(241, 90, 36, 0.12);
+            color: var(--primary-orange);
+            border: 1px solid rgba(241, 90, 36, 0.25);
+        }
+        .collab-placard-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--secondary);
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+        .collab-placard-org {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+            margin-bottom: 0.25rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 2rem;
+        }
+        .collab-placard-sub {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--primary-maroon);
+            margin-bottom: 0.65rem;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .collab-placard-btn {
+            font-weight: 700;
+            color: var(--primary-orange);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.76rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.45rem 0 0;
+            font-family: inherit;
+            margin-top: auto;
+            border-top: 1px solid rgba(0,0,0,0.04);
+            transition: transform 0.2s ease;
+        }
+        .collab-placard-btn:hover {
+            transform: translateX(3px);
+            color: var(--primary-hover);
+        }
 
         .events-grid {
             display: grid;
@@ -308,6 +573,15 @@
             .stat-pill { padding: 0.5rem 0.85rem; border-radius: var(--radius-sm); }
             .stat-pill .num { font-size: 1.2rem; }
             .stat-pill .lbl { font-size: 0.6rem; margin-top: 0.2rem; }
+            .stat-pill-sub { font-size: 0.55rem; margin-top: 0.2rem; }
+            .hero-collab-strip { margin-top: 1.25rem; }
+            .collab-strip-inner { padding: 0.4rem 0.85rem; gap: 0.5rem; }
+            .collab-strip-label { font-size: 0.72rem; }
+            .collab-chip { font-size: 0.74rem; padding: 0.25rem 0.6rem; }
+            .collab-proposal-tag { font-size: 0.58rem; }
+            .collab-placards-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+            .collab-placard { padding: 0.95rem 0.85rem 0.8rem; }
+            .collab-proposal-notice { flex-direction: column; align-items: flex-start; gap: 0.5rem; padding: 0.65rem 0.85rem; }
             .host-grid { grid-template-columns: 1fr; gap: 1.5rem; }
             .event-card-image { height: 160px; }
             .event-card-body { padding: 1.15rem; }
@@ -349,10 +623,8 @@
         }
 
         /* Prevent background scroll when modal is active */
-        html.modal-open,
         body.modal-open {
-            overflow: hidden !important;
-            height: 100% !important;
+            overflow: hidden;
         }
 
         /* ── Event Modal System ── */
@@ -504,6 +776,7 @@
             
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; margin-top: 1.5rem;" class="fade-in">
                 <a href="#past-events" class="btn btn-primary"><i class="fa-solid fa-calendar-check" style="margin-right: 6px;"></i> Past Events</a>
+                <a href="#collaborations" class="btn btn-outline" style="color: white; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); backdrop-filter: blur(8px);"><i class="fa-solid fa-handshake" style="margin-right: 6px; color: var(--primary-orange);"></i> Collaborations</a>
             </div>
 
             <!-- Stats Strip -->
@@ -518,15 +791,152 @@
                 </div>
                 <div class="stat-pill">
                     <span class="num">3</span>
-                    <span class="lbl">Colleges Engaged</span>
+                    <span class="lbl">University &amp; College Engaged</span>
                 </div>
+                <a href="#collaborations" class="stat-pill stat-pill-collab" title="5 Active Collaborations: IETE, IEEE, VBIT, RRU, TapeoutX">
+                    <span class="num">5</span>
+                    <span class="lbl">Collaborations</span>
+                    <span class="stat-pill-sub"><i class="fa-solid fa-arrow-down"></i> View 5 Partners</span>
+                </a>
                 <div class="stat-pill">
                     <span class="num">1k+</span>
                     <span class="lbl">Followers on LinkedIn</span>
                 </div>
             </div>
+
+            <!-- Hero Collaborators Quick Bar (In the circled area) -->
+            <div class="hero-collab-strip fade-in">
+                <div class="collab-strip-inner">
+                    <span class="collab-strip-label"><i class="fa-solid fa-handshake" style="color: var(--primary-orange);"></i> Collaborators:</span>
+                    <div class="collab-chips">
+                        <a href="#collab-iete" class="collab-chip has-proposal" title="IETE - 1 Proposal Under Process">
+                            <span>IETE</span>
+                            <span class="collab-proposal-tag"><i class="fa-solid fa-file-signature"></i> 1 Proposal Under Process</span>
+                        </a>
+                        <a href="#collab-ieee" class="collab-chip" title="IEEE Student Branch">
+                            <span>IEEE</span>
+                        </a>
+                        <a href="#collab-vbit" class="collab-chip" title="Vignan's Bharathi Institute of Technology">
+                            <span>VBIT</span>
+                        </a>
+                        <a href="#collab-rru" class="collab-chip" title="Rashtriya Raksha University">
+                            <span>RRU</span>
+                        </a>
+                        <a href="#collab-tapeoutx" class="collab-chip" title="TapeoutX Semiconductor Platform">
+                            <span>TapeoutX</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
+
+    <!-- Collaborations & Institutional Partners Section -->
+    <section id="collaborations" class="collaborations-section">
+        <div class="container">
+            <div class="section-header fade-in text-center" style="margin-bottom: 1.75rem; text-align: center;">
+                <span class="hero-tagline" style="color: var(--primary-orange); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.4rem;">
+                    <i class="fa-solid fa-handshake" style="margin-right: 6px;"></i> Strategic Alliances
+                </span>
+                <h2 class="section-title" style="margin-bottom: 0.4rem; font-size: 1.6rem;">Collaborations &amp; Institutional Partners</h2>
+                <p style="color: var(--text-muted); max-width: 620px; margin: 0 auto; font-size: 0.88rem;">
+                    Partnering with premier universities, professional societies, and semiconductor organizations to equip students with hands-on silicon design exposure.
+                </p>
+            </div>
+
+            <!-- Active Proposal Callout Strip (Compact) -->
+            <div class="collab-proposal-notice fade-in" id="collab-proposal">
+                <div class="collab-notice-left">
+                    <span class="collab-notice-icon"><i class="fa-solid fa-file-signature"></i></span>
+                    <span><strong>1 Proposal Under Process with IETE:</strong> Active collaboration proposal with IETE Hyderabad Centre for joint VLSI workshops, student design challenges &amp; research support.</span>
+                </div>
+                <span class="proposal-notice-badge"><i class="fa-solid fa-clock-rotate-left"></i> Active Proposal</span>
+            </div>
+
+            <!-- 5 Compact Collaboration Placards -->
+            <div class="collab-placards-grid">
+                <!-- 1. IETE -->
+                <div class="collab-placard fade-in" id="collab-iete">
+                    <div class="collab-placard-top">
+                        <div class="collab-placard-icon">
+                            <i class="fa-solid fa-tower-broadcast"></i>
+                        </div>
+                        <span class="collab-placard-badge badge-proposal"><i class="fa-solid fa-file-lines" style="margin-right: 3px;"></i> 1 Proposal</span>
+                    </div>
+                    <div>
+                        <h3 class="collab-placard-title">IETE</h3>
+                        <p class="collab-placard-org">Institution of Electronics &amp; Telecommunication Engineers</p>
+                        <span class="collab-placard-sub">Hyderabad Centre</span>
+                    </div>
+                    <a href="../home/#updates" class="collab-placard-btn">View Update <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 2. IEEE -->
+                <div class="collab-placard fade-in" id="collab-ieee">
+                    <div class="collab-placard-top">
+                        <div class="collab-placard-icon">
+                            <i class="fa-solid fa-atom"></i>
+                        </div>
+                        <span class="collab-placard-badge">Global Society</span>
+                    </div>
+                    <div>
+                        <h3 class="collab-placard-title">IEEE</h3>
+                        <p class="collab-placard-org">Institute of Electrical &amp; Electronics Engineers</p>
+                        <span class="collab-placard-sub">Student Branch RRU</span>
+                    </div>
+                    <button class="collab-placard-btn" data-open-event="event4">View Event <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <!-- 3. VBIT -->
+                <div class="collab-placard fade-in" id="collab-vbit">
+                    <div class="collab-placard-top">
+                        <div class="collab-placard-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <span class="collab-placard-badge">150+ Students</span>
+                    </div>
+                    <div>
+                        <h3 class="collab-placard-title">VBIT</h3>
+                        <p class="collab-placard-org">Vignan's Bharathi Institute of Technology</p>
+                        <span class="collab-placard-sub">College Partner · Hyderabad</span>
+                    </div>
+                    <button class="collab-placard-btn" data-open-event="event1">View Event <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <!-- 4. RRU -->
+                <div class="collab-placard fade-in" id="collab-rru">
+                    <div class="collab-placard-top">
+                        <div class="collab-placard-icon">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                        <span class="collab-placard-badge">5-Day Workshop</span>
+                    </div>
+                    <div>
+                        <h3 class="collab-placard-title">RRU</h3>
+                        <p class="collab-placard-org">Rashtriya Raksha University</p>
+                        <span class="collab-placard-sub">National University Partner</span>
+                    </div>
+                    <button class="collab-placard-btn" data-open-event="event4">View Event <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <!-- 5. TapeoutX -->
+                <div class="collab-placard fade-in" id="collab-tapeoutx">
+                    <div class="collab-placard-top">
+                        <div class="collab-placard-icon">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <span class="collab-placard-badge">Industry Partner</span>
+                    </div>
+                    <div>
+                        <h3 class="collab-placard-title">TapeoutX</h3>
+                        <p class="collab-placard-org">Industry Semiconductor Platform</p>
+                        <span class="collab-placard-sub">Silicon Ecosystem &amp; VLSI</span>
+                    </div>
+                    <button class="collab-placard-btn" data-open-event="event3">View Event <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Student Testimonials Section -->
     <section id="testimonials" class="testimonials py-16" style="background-color: var(--surface); border-top: 1px solid rgba(0,0,0,0.03);">
@@ -541,8 +951,6 @@
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
         </div>
     </section>
 
@@ -765,13 +1173,24 @@
                             <i class="fa-solid fa-arrow-right" style="color: rgba(255,255,255,0.3); font-size: 0.85rem;"></i>
                         </a>
 
-                        <a href="https://www.linkedin.com/company/primemos-research-solutions" target="_blank" rel="noopener noreferrer" class="contact-option" style="margin-bottom: 0;">
+                        <a href="https://www.linkedin.com/company/primemos-research-solutions" target="_blank" rel="noopener noreferrer" class="contact-option">
                             <div class="contact-option-icon" style="background: rgba(0,119,181,0.2);">
                                 <i class="fa-brands fa-linkedin" style="color: #0077B5; font-size: 1.1rem;"></i>
                             </div>
                             <div class="contact-option-text">
                                 <div class="label">LinkedIn</div>
                                 <div class="value">PrimeMOS Research &amp; Solutions™</div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right" style="color: rgba(255,255,255,0.3); font-size: 0.85rem;"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/primemos_research_solutions/" target="_blank" rel="noopener noreferrer" class="contact-option" style="margin-bottom: 0;">
+                            <div class="contact-option-icon" style="background: rgba(228,64,95,0.2);">
+                                <i class="fa-brands fa-instagram" style="color: #E4405F; font-size: 1.1rem;"></i>
+                            </div>
+                            <div class="contact-option-text">
+                                <div class="label">Instagram</div>
+                                <div class="value">@primemos_research_solutions</div>
                             </div>
                             <i class="fa-solid fa-arrow-right" style="color: rgba(255,255,255,0.3); font-size: 0.85rem;"></i>
                         </a>
@@ -803,6 +1222,9 @@
                     <a href="https://www.linkedin.com/company/primemos-research-solutions" target="_blank" rel="noopener noreferrer" class="btn btn-founder-secondary" style="background: white;">
                         <i class="fa-brands fa-linkedin" style="margin-right: 8px; color: #0077B5;"></i> Follow on LinkedIn
                     </a>
+                    <a href="https://www.instagram.com/primemos_research_solutions/" target="_blank" rel="noopener noreferrer" class="btn btn-founder-secondary" style="background: white;">
+                        <i class="fa-brands fa-instagram" style="margin-right: 8px; color: #E4405F;"></i> Follow on Instagram
+                    </a>
                 </div>
             </div>
         </div>
@@ -812,51 +1234,106 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div>
-                    <a href="../home/" class="footer-brand"><img src="../logo_transparent.png" alt="PrimeMOS Logo" class="footer-logo"><span class="brand-text">PrimeMOS</span></a>
-                    <p style="color: rgba(255,255,255,0.6); margin-top: 1rem; margin-bottom: 1.5rem;">Transforming Digital Visions into Silicon Reality.</p>
-                    <div class="msme-badge" style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255, 255, 255, 0.05); padding: 0.6rem 1rem; border-radius: var(--radius-sm); border: 1px solid rgba(255, 255, 255, 0.1); width: fit-content; max-width: 260px;">
-                        <img src="../msme_logo.png" alt="MSME Logo" style="height: 34px; width: auto; filter: invert(1); mix-blend-mode: screen; display: block;" />
-                        <div style="font-size: 0.72rem; line-height: 1.3; color: rgba(255, 255, 255, 0.85); font-weight: 500; font-family: 'Inter', sans-serif;">
-                            MSME Registered<br><span style="font-size: 0.62rem; color: rgba(255, 255, 255, 0.55); font-weight: 400;">Govt of India</span>
+                <!-- Col 1: Brand & Identity -->
+                <div class="footer-brand-col">
+                    <a href="../home/" class="footer-brand">
+                        <img src="../logo_transparent.png" alt="PrimeMOS Logo" class="footer-logo">
+                        <span class="brand-text">PrimeMOS</span>
+                    </a>
+                    <p class="footer-tagline">Transforming Digital Visions into Silicon Reality.</p>
+                    <div class="footer-msme-badge">
+                        <img src="../msme_logo.png" alt="MSME Logo">
+                        <div class="footer-msme-text">
+                            MSME Registered
+                            <span>Govt of India</span>
                         </div>
                     </div>
+                    <div class="footer-social-links">
+                        <a href="https://www.linkedin.com/company/primemos-research-solutions" target="_blank" rel="noopener noreferrer" class="footer-social-icon linkedin" title="LinkedIn" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/primemos_research_solutions/" target="_blank" rel="noopener noreferrer" class="footer-social-icon instagram" title="Instagram" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/918019847793?text=Hi%20PrimeMOS" target="_blank" rel="noopener noreferrer" class="footer-social-icon whatsapp" title="WhatsApp" aria-label="WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:PrimeMOS.research@gmail.com" class="footer-social-icon email" title="Email" aria-label="Email">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
                 </div>
+
+                <!-- Col 2: Programs & Exploration -->
                 <div>
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="../home/">Home</a></li>
-                        <li><a href="../services/">Programs & Exploration</a></li>
+                    <h4 class="footer-heading">Programs</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="../services/">All Programs &amp; Exploration</a></li>
+                        <li><a href="../services/#courses">Core &amp; Advanced Tracks</a></li>
                         <li><a href="../research/">Research &amp; Internships</a></li>
-                        <li><a href="../about/">About</a></li>
-                        <li><a href="../events/">Events</a></li>
-                        <li><a href="../contact/">Contact</a></li>
+                        <li><a href="../events/">Workshops &amp; Bootcamps</a></li>
+                        <li><a href="../events/#host-workshop">Campus Training Sessions</a></li>
                     </ul>
                 </div>
+
+                <!-- Col 3: Company & Trust -->
                 <div>
-                    <h4>Contact</h4>
-                    <ul class="footer-links">
-                        <li><a href="mailto:PrimeMOS.research@gmail.com"><i class="fa-solid fa-envelope mr-2"></i> PrimeMOS.research@gmail.com</a></li>
-                        <li><a href="tel:8019847793"><i class="fa-solid fa-phone mr-2"></i> +91 8019847793</a></li>
-                        <li><i class="fa-solid fa-location-dot mr-2"></i> Hyderabad, Telangana, India</li>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="../about/">About PrimeMOS</a></li>
+                        <li><a href="../events/#collaborations">Institutional Partners</a></li>
+                        <li><a href="../testimonials/">Student Testimonials</a></li>
+                        <li><a href="../contact/">Contact &amp; Support</a></li>
+                        <li><a href="../privacy/">Trust &amp; Compliance</a></li>
                     </ul>
                 </div>
-                <div class="footer-note">
-                    PrimeMOS™ Research &amp; Solutions is a privately held MSME-registered organization focused on semiconductor research, VLSI design, and engineering-oriented technical exploration using open-source and licensed EDA tools.
+
+                <!-- Col 4: Connect & Support -->
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <ul class="footer-connect-list">
+                        <li class="footer-connect-item">
+                            <span class="footer-connect-icon" style="color: var(--primary-orange);"><i class="fa-solid fa-envelope"></i></span>
+                            <a href="mailto:PrimeMOS.research@gmail.com">PrimeMOS.research@gmail.com</a>
+                        </li>
+                        <li class="footer-connect-item">
+                            <span class="footer-connect-icon" style="color: #25D366;"><i class="fa-brands fa-whatsapp"></i></span>
+                            <a href="https://wa.me/918019847793?text=Hi%20PrimeMOS" target="_blank" rel="noopener noreferrer">+91 8019847793 (WhatsApp)</a>
+                        </li>
+                        <li class="footer-connect-item">
+                            <span class="footer-connect-icon" style="color: #0077B5;"><i class="fa-brands fa-linkedin"></i></span>
+                            <a href="https://www.linkedin.com/company/primemos-research-solutions" target="_blank" rel="noopener noreferrer">PrimeMOS Official LinkedIn</a>
+                        </li>
+                        <li class="footer-connect-item">
+                            <span class="footer-connect-icon" style="color: #E4405F;"><i class="fa-brands fa-instagram"></i></span>
+                            <a href="https://www.instagram.com/primemos_research_solutions/" target="_blank" rel="noopener noreferrer">@primemos_research_solutions</a>
+                        </li>
+                        <li class="footer-connect-item">
+                            <span class="footer-connect-icon" style="color: rgba(255,255,255,0.4);"><i class="fa-solid fa-location-dot"></i></span>
+                            <span>Hyderabad, Telangana, India</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-legal">
-                <a href="../privacy/">Privacy Policy</a>
-                <span>|</span>
-                <a href="../terms/">Terms &amp; Conditions</a>
-                <span>|</span>
-                <a href="../cancellation/">Cancellation &amp; Refund</a>
-                <span>|</span>
-                <a href="../disclaimer/">Disclaimer</a>
+
+            <!-- Statutory Organization Note -->
+            <div class="footer-org-note">
+                PrimeMOS™ Research &amp; Solutions is a privately held MSME-registered Indian organization dedicated to semiconductor research, VLSI design, and engineering-oriented technical exploration using open-source and licensed EDA tools.
             </div>
-            <div class="footer-bottom">
-                <div style="margin-top: 0.4rem;">
+
+            <!-- Bottom Legal Bar -->
+            <div class="footer-bottom-bar">
+                <div>
                     &copy; 2026 PrimeMOS™ Research &amp; Solutions. All rights reserved.
+                </div>
+                <div class="footer-legal-links">
+                    <a href="../privacy/">Privacy Policy</a>
+                    <span class="footer-legal-divider">|</span>
+                    <a href="../terms/">Terms &amp; Conditions</a>
+                    <span class="footer-legal-divider">|</span>
+                    <a href="../cancellation/">Cancellation &amp; Refund</a>
+                    <span class="footer-legal-divider">|</span>
+                    <a href="../disclaimer/">Disclaimer</a>
                 </div>
             </div>
         </div>
@@ -1051,8 +1528,8 @@
                 <span class="event-tag" style="background: rgba(241,90,36,0.08); color: var(--primary-maroon); border-radius: 100px; padding: 0.25rem 0.7rem; font-size: 0.75rem; font-weight: 600;">Career Guidance</span>
             </div>
             <div class="event-modal-actions" style="margin-top: 1.75rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                <a href="https://www.linkedin.com/posts/primemos-research-solutions_successfully-conducted-we-are-delighted-activity-7478434643931754496-DWaF" target="_blank" rel="noopener noreferrer" class="btn btn-founder-secondary" style="font-size: 0.85rem; padding: 0.6rem 1.25rem; background: white; border: 1px solid #ddd;">
-                    <i class="fa-brands fa-linkedin" style="margin-right: 6px; color: #0077B5;"></i> View on LinkedIn
+                <a href="https://www.linkedin.com/posts/primemos-research-solutions_successfully-conducted-we-are-delighted-activity-7478434643931754496-DWaF?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAFrP5DUBWya1HMytKDW0h8UxxkTGx839KoU" target="_blank" rel="noopener noreferrer" class="btn btn-founder-secondary" style="font-size: 0.85rem; padding: 0.6rem 1.25rem; background: white; border: 1px solid #ddd;">
+                    <i class="fa-brands fa-linkedin" style="margin-right: 6px; color: #0077B5;"></i> View Final Post on LinkedIn
                 </a>
                 <a href="https://wa.me/918019847793?text=Hi, I would like to enquire about student project mentorship at PrimeMOS." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="font-size: 0.85rem; padding: 0.6rem 1.25rem;">
                     <i class="fa-brands fa-whatsapp" style="margin-right: 6px;"></i> Get Mentorship
@@ -1175,11 +1652,19 @@
             const modalContent = document.getElementById('modalEventContent');
             const closeBtn = document.getElementById('closeEventModal');
 
+            let savedScrollPosition = 0;
+
             // Open Modal Handler
             document.querySelectorAll('.event-card').forEach(card => {
                 const openBtn = card.querySelector('.open-event-btn');
                 const triggerOpen = (e) => {
-                    if (e) e.stopPropagation();
+                    if (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                    // Save exact scroll position before opening modal
+                    savedScrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+
                     const eventId = card.getAttribute('data-event-id');
                     const imgUrl = card.querySelector('.event-card-image img').getAttribute('src');
                     const titleText = card.querySelector('.event-title').textContent;
@@ -1196,9 +1681,6 @@
                         // Show modal
                         modal.classList.add('active');
                         document.body.classList.add('modal-open');
-                        document.documentElement.classList.add('modal-open');
-                        document.body.style.overflow = 'hidden';
-                        document.documentElement.style.overflow = 'hidden';
                     }
                 };
 
@@ -1210,13 +1692,39 @@
                 card.addEventListener('click', triggerOpen);
             });
 
+            // Trigger modal from collaboration buttons
+            document.querySelectorAll('[data-open-event]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const eventId = btn.getAttribute('data-open-event');
+                    const targetCard = document.querySelector(`.event-card[data-event-id="${eventId}"]`);
+                    if (targetCard) {
+                        targetCard.click();
+                    }
+                });
+            });
+
             // Close Modal Handler
             const closeModal = () => {
                 modal.classList.remove('active');
                 document.body.classList.remove('modal-open');
-                document.documentElement.classList.remove('modal-open');
-                document.body.style.overflow = '';
-                document.documentElement.style.overflow = '';
+
+                // Restore user's exact scroll position without jumping
+                window.scrollTo({
+                    top: savedScrollPosition,
+                    left: 0,
+                    behavior: 'instant'
+                });
+
+                requestAnimationFrame(() => {
+                    window.scrollTo({
+                        top: savedScrollPosition,
+                        left: 0,
+                        behavior: 'instant'
+                    });
+                });
+
                 // Clear content after animation completes
                 setTimeout(() => {
                     modalImg.setAttribute('src', '');
@@ -1226,11 +1734,16 @@
             };
 
             if (closeBtn) {
-                closeBtn.addEventListener('click', closeModal);
+                closeBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeModal();
+                });
             }
 
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
+                    e.preventDefault();
                     closeModal();
                 }
             });
