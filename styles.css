@@ -3215,6 +3215,115 @@ a {
   text-align: left;
 }
 
+/* ── GCET Institutional Appreciation Card ── */
+.gcet-appreciation-card {
+  margin-bottom: 2.5rem !important;
+  background: linear-gradient(135deg, rgba(248, 158, 27, 0.06) 0%, rgba(241, 90, 36, 0.03) 50%, #ffffff 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(248, 158, 27, 0.25);
+  box-shadow: 0 10px 30px rgba(241, 90, 36, 0.06);
+  padding: 2.25rem !important;
+  position: relative;
+  overflow: hidden;
+  border-left: 6px solid var(--primary-orange) !important;
+  text-align: left;
+}
+
+.gcet-appreciation-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.inst-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.inst-pill-gold {
+  background: rgba(248, 158, 27, 0.12);
+  color: #b45309;
+  border: 1px solid rgba(248, 158, 27, 0.25);
+}
+
+.inst-pill-orange {
+  background: rgba(241, 90, 36, 0.09);
+  color: var(--primary-maroon);
+  border: 1px solid rgba(241, 90, 36, 0.2);
+}
+
+.stars-rating-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: #f59e0b;
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.topic-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.topic-tag-item {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.18rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(241, 90, 36, 0.08);
+  color: var(--primary-maroon);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.student-roll-chip {
+  font-family: monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #64748b;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.12rem 0.45rem;
+  border-radius: 4px;
+  margin-left: 0.35rem;
+  letter-spacing: 0.03em;
+}
+
+.testimonial-group-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 2.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(241, 90, 36, 0.12);
+}
+
+.testimonial-group-count {
+  font-size: 0.75rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  background: rgba(241, 90, 36, 0.1);
+  color: var(--primary-orange);
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+}
+
 .vbit-testimonial-title {
   font-family: 'Outfit', sans-serif;
   font-size: 1.6rem !important;
@@ -3283,7 +3392,8 @@ a {
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
   }
-  .vbit-testimonial-card {
+  .vbit-testimonial-card,
+  .gcet-appreciation-card {
     padding: 1.25rem !important;
   }
   .vbit-testimonial-title {
