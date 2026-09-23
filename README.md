@@ -72,6 +72,9 @@ For collaborations, project guidance applications, or consulting inquiries, reac
 | **📞 Contact** | [+91 8019847793](tel:8019847793) |
 | **📍 Office Location** | Hyderabad, Telangana, India |
 
+Copyright © 2026 PrimeMOS™ Research & Solutions.
+All rights reserved.
+
 ---
 
 <p align="center">
