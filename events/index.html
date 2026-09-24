@@ -1726,7 +1726,7 @@
                 <div class="gallery-card" data-category="iete" data-lightbox-src="../iete_meeting1.jpg" data-title="IETE Hyderabad Strategic Meeting" data-caption="Deliberations and strategic planning at IETE Hyderabad Centre for co-organizing academic workshops and joint training initiatives." data-date="July 2026">
                     <div class="gallery-img-wrap">
                         <img src="../iete_meeting1.jpg" alt="IETE Hyderabad Strategic Partnership Meeting" loading="lazy">
-                        <div class="gallery-overlay-badge"><i class="fa-solid fa-handshake" style="color: var(--primary-gold);"></i> Strategic MoU</div>
+                        <div class="gallery-overlay-badge"><i class="fa-solid fa-handshake" style="color: var(--primary-gold);"></i> Collaboration Proposal</div>
                         <div class="gallery-zoom-icon"><div class="zoom-circle"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
                     </div>
                     <div class="gallery-card-body">
@@ -2479,6 +2479,9 @@
                 <span class="event-tag" style="background: rgba(241,90,36,0.08); color: var(--primary-maroon); border-radius: 100px; padding: 0.25rem 0.7rem; font-size: 0.75rem; font-weight: 600;">Career Guidance</span>
             </div>
             <div class="event-modal-actions" style="margin-top: 1.75rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="../event3_cover.png" target="_blank" class="btn btn-founder-secondary" style="font-size: 0.85rem; padding: 0.6rem 1.25rem; background: white; border: 1px solid #ddd;">
+                    <i class="fa-solid fa-image" style="margin-right: 6px; color: var(--primary-orange);"></i> View Full Poster
+                </a>
                 <a href="https://www.linkedin.com/posts/primemos-research-solutions_successfully-conducted-we-are-delighted-activity-7478434643931754496-DWaF?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAFrP5DUBWya1HMytKDW0h8UxxkTGx839KoU" target="_blank" rel="noopener noreferrer" class="btn btn-founder-secondary" style="font-size: 0.85rem; padding: 0.6rem 1.25rem; background: white; border: 1px solid #ddd;">
                     <i class="fa-brands fa-linkedin" style="margin-right: 6px; color: #0077B5;"></i> View Final Post on LinkedIn
                 </a>
@@ -2602,6 +2605,14 @@
             const modalTitle = document.getElementById('modalEventTitle');
             const modalContent = document.getElementById('modalEventContent');
             const closeBtn = document.getElementById('closeEventModal');
+
+            if (modalImg) {
+                modalImg.style.cursor = 'pointer';
+                modalImg.title = 'Click to view full image';
+                modalImg.addEventListener('click', () => {
+                    if (modalImg.src) window.open(modalImg.src, '_blank');
+                });
+            }
 
             let savedScrollPosition = 0;
 
