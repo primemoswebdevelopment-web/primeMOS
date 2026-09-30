@@ -2718,6 +2718,29 @@
                 }
             });
 
+            // Auto-open specific event modal if targeted via URL query param (?event=eventX) or hash (#eventX)
+            const checkAndOpenEventFromUrl = () => {
+                const params = new URLSearchParams(window.location.search);
+                let targetEventId = params.get('event');
+                if (!targetEventId && window.location.hash) {
+                    const hash = window.location.hash.replace('#', '');
+                    if (hash.startsWith('event') || hash.startsWith('details-event')) {
+                        targetEventId = hash.replace('details-', '');
+                    }
+                }
+                if (targetEventId) {
+                    const targetCard = document.querySelector(`.event-card[data-event-id="${targetEventId}"]`);
+                    if (targetCard) {
+                        setTimeout(() => {
+                            targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            targetCard.click();
+                        }, 250);
+                    }
+                }
+            };
+            checkAndOpenEventFromUrl();
+            window.addEventListener('hashchange', checkAndOpenEventFromUrl);
+
             // Event Search functionality
             const searchInput = document.getElementById('eventSearchInput');
             if (searchInput) {
