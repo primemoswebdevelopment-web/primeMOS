@@ -3702,13 +3702,19 @@ a {
   padding: 0.25rem 0.75rem;
   border-radius: 100px;
   flex-shrink: 0;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .collab-placards-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.15rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .collab-placard {
@@ -3721,7 +3727,13 @@ a {
   flex-direction: column;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  min-height: 240px;
+  min-height: auto;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .collab-placard:hover {
@@ -3736,6 +3748,8 @@ a {
   justify-content: space-between;
   margin-bottom: 0.75rem;
   gap: 0.4rem;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .collab-placard-icon {
@@ -3766,7 +3780,10 @@ a {
   color: var(--text-muted);
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: right;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .collab-placard-badge.badge-proposal {
@@ -3785,6 +3802,8 @@ a {
   align-items: center;
   gap: 5px;
   margin-bottom: 0.35rem;
+  flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .collab-placard-title {
@@ -3794,6 +3813,7 @@ a {
   font-family: 'Outfit', sans-serif;
   margin-bottom: 0.25rem;
   line-height: 1.2;
+  word-break: break-word;
 }
 
 .collab-placard-org {
@@ -3806,6 +3826,7 @@ a {
   -webkit-box-orient: vertical;
   overflow: hidden;
   min-height: 2.1rem;
+  word-break: break-word;
 }
 
 .collab-placard-sub {
@@ -3814,9 +3835,8 @@ a {
   color: var(--primary-maroon);
   margin-bottom: 0.75rem;
   display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .collab-placard-btn {
@@ -3835,6 +3855,8 @@ a {
   margin-top: auto;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .collab-placard-btn:hover {
@@ -3845,14 +3867,14 @@ a {
 /* Collaborations Grid Responsive Breakpoints */
 @media (max-width: 1200px) {
   .collab-placards-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
   }
 }
 
 @media (max-width: 768px) {
   .collab-placards-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
     gap: 0.75rem;
   }
   .collab-placard {
@@ -3861,7 +3883,7 @@ a {
     border-radius: var(--radius-sm);
   }
   .collab-placard-brand {
-    font-size: 0.64rem;
+    font-size: 0.66rem;
     gap: 4px;
     margin-bottom: 0.2rem;
   }
@@ -3876,7 +3898,7 @@ a {
     font-size: 0.72rem;
     line-height: 1.35;
     margin-bottom: 0.25rem;
-    min-height: 1.95rem;
+    min-height: auto;
   }
   .collab-placard-sub {
     font-size: 0.68rem;
@@ -3896,32 +3918,44 @@ a {
     padding-top: 0.4rem;
   }
   .collab-proposal-notice {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.6rem;
-    padding: 0.75rem 0.95rem;
-    margin-bottom: 1.25rem;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.6rem !important;
+    padding: 0.75rem 0.85rem !important;
+    margin-bottom: 1.25rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .collab-notice-left {
     font-size: 0.78rem;
     line-height: 1.4;
+    width: 100%;
+    box-sizing: border-box;
   }
   .proposal-notice-badge {
     font-size: 0.65rem;
     padding: 0.2rem 0.55rem;
+    align-self: flex-start;
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 540px) {
   .collab-placards-grid {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
   }
   .collab-placard {
-    padding: 1rem;
+    padding: 1rem 0.9rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .collab-placard-top {
+    flex-wrap: wrap !important;
+    gap: 0.35rem !important;
   }
   .collab-placard-org {
-    min-height: auto;
+    min-height: auto !important;
   }
 }
 
