@@ -1359,6 +1359,22 @@
                     </div>
                     <button class="collab-placard-btn" data-open-event="event5">View Event Details <i class="fa-solid fa-arrow-right"></i></button>
                 </div>
+
+                <!-- 7. ALIET -->
+                <div class="collab-placard fade-in" id="collab-aliet">
+                    <div class="collab-placard-top">
+                        <div class="collab-placard-icon">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <span class="collab-placard-badge" style="background: rgba(34,197,94,0.12); color: #16a34a; font-weight: 700;"><i class="fa-solid fa-star" style="margin-right: 3px;"></i> Latest Workshop</span>
+                    </div>
+                    <div>
+                        <h3 class="collab-placard-title">ALIET</h3>
+                        <p class="collab-placard-org">Andhra Loyola Inst. of Engg. &amp; Technology</p>
+                        <span class="collab-placard-sub">ElectroCratZ Technical Club &bull; Vijayawada</span>
+                    </div>
+                    <button class="collab-placard-btn" data-open-event="event6">View Workshop Details <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
             </div>
         </div>
     </section>
@@ -1468,14 +1484,52 @@
             <!-- Events Grid (Ordered Newest to Oldest) -->
             <div class="events-grid">
 
-                <!-- 1. GCET Workshop (19 Sept 2026) -->
-                <div class="event-card fade-in" data-event-id="event5" style="border: 2px solid rgba(241,90,36,0.3); box-shadow: 0 12px 30px rgba(241,90,36,0.09);">
+                <!-- 1. ALIET Workshop (5th & 6th Oct 2026) -->
+                <div class="event-card fade-in" data-event-id="event6" style="border: 2px solid rgba(241,90,36,0.3); box-shadow: 0 12px 30px rgba(241,90,36,0.09);">
+                    <div class="event-card-image">
+                        <img src="../event6_cover.jpg"
+                             alt="Two-Day Workshop on Fundamentals of VLSI Design: Complete RTL to GDSII Flow at ALIET"
+                             loading="lazy">
+                        <span class="event-badge badge-hybrid" style="background: linear-gradient(135deg, var(--primary-orange), #ea580c); color: white; border: none; font-weight: 700; box-shadow: 0 4px 12px rgba(241,90,36,0.4);">
+                            <i class="fa-solid fa-sparkles" style="margin-right: 4px;"></i> Latest Announcement · 5th &amp; 6th Oct 2026
+                        </span>
+                    </div>
+                    <div class="event-card-body">
+                        <div class="event-meta">
+                            <span class="event-meta-item"><i class="fa-solid fa-calendar-days"></i> 5th &amp; 6th Oct 2026</span>
+                            <span class="event-meta-item"><i class="fa-solid fa-location-dot"></i> ALIET, Vijayawada</span>
+                            <span class="event-meta-item"><i class="fa-solid fa-users"></i> ElectroCratZ &amp; Dept. of ECE</span>
+                            <span class="event-meta-item" style="color: var(--primary-orange); font-weight: 700;"><i class="fa-solid fa-microchip"></i> RTL to GDSII Flow</span>
+                        </div>
+                        <h2 class="event-title" style="margin-bottom: 0.75rem;">Two-Day Workshop on Fundamentals of VLSI Design: Complete RTL to GDSII Flow — ALIET</h2>
+                        <p class="event-desc">
+                            ElectroCratZ – ECE Technical Club, Department of ECE, Andhra Loyola Institute of Engineering and Technology (Autonomous), in collaboration with PrimeMOS Research &amp; Solutions, presents a comprehensive 2-day hands-on workshop led by Mr. P V S D D Mallikarjuna (AMIETE, Founder). Covering practical hands-on sessions using open-source EDA tools for III &amp; IV B.Tech ECE Students.
+                        </p>
+                        
+                        <!-- Mini Photo Preview Strip -->
+                        <div class="event-mini-gallery" title="Click to view event poster">
+                            <div class="mini-thumb" style="width: 70px; height: 50px;"><img src="../event6_poster.jpg" alt="Poster thumbnail" style="object-fit: contain; background: #0f172a;"></div>
+                        </div>
+
+                        <div class="event-card-footer" style="margin-top: auto; padding-top: 0.75rem; display: flex; gap: 0.6rem;">
+                            <button class="btn btn-primary open-event-btn" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 0.6rem 1rem;">
+                                <i class="fa-solid fa-circle-info" style="margin-right: 6px;"></i> View Event Details
+                            </button>
+                            <a href="../event6_poster.jpg" target="_blank" class="btn btn-outline" style="border: 1px solid rgba(241,90,36,0.3); color: var(--primary-orange); font-size: 0.85rem; padding: 0.6rem 1rem;" onclick="event.stopPropagation();">
+                                <i class="fa-solid fa-file-image" style="margin-right: 4px;"></i> View Poster
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. GCET Workshop (19 Sept 2026) -->
+                <div class="event-card fade-in delay-100" data-event-id="event5">
                     <div class="event-card-image">
                         <img src="../event5_cover.jpg"
                              alt="Workshop on ECE to VLSI Chip Design Using Open-Source Tools at GCET Hyderabad"
                              loading="lazy">
-                        <span class="event-badge badge-hybrid" style="background: linear-gradient(135deg, var(--primary-orange), #ea580c); color: white; border: none; font-weight: 700; box-shadow: 0 4px 12px rgba(241,90,36,0.4);">
-                            <i class="fa-solid fa-sparkles" style="margin-right: 4px;"></i> Latest Event · 4.8/5 Rating
+                        <span class="event-badge badge-hybrid" style="background: linear-gradient(135deg, #16a34a, #15803d); color: white; border: none; font-weight: 700;">
+                            <i class="fa-solid fa-star" style="margin-right: 4px;"></i> Completed Event · 4.8/5 Rating
                         </span>
                     </div>
                     <div class="event-card-body">
@@ -2134,6 +2188,96 @@
 
     <!-- Hidden source details for modals (SEO Friendly) -->
     <div class="hidden-details-container" style="display: none;">
+        <!-- EVENT 6 DETAILS (ALIET Two-Day Workshop) -->
+        <div id="details-event6">
+            <div class="event-modal-meta">
+                <span class="event-meta-item" style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted); display: inline-flex; align-items: center; gap: 0.35rem;"><i class="fa-solid fa-calendar-days" style="color: var(--primary-orange);"></i> 5th &amp; 6th October 2026</span>
+                <span class="event-meta-item" style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted); display: inline-flex; align-items: center; gap: 0.35rem; margin-left: 1rem;"><i class="fa-solid fa-location-dot" style="color: var(--primary-orange);"></i> Andhra Loyola Inst. of Engg. &amp; Tech. (ALIET), Vijayawada</span>
+                <span class="event-meta-item" style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted); display: inline-flex; align-items: center; gap: 0.35rem; margin-left: 1rem;"><i class="fa-solid fa-users" style="color: var(--primary-orange);"></i> ElectroCratZ &bull; ECE Technical Club</span>
+                <span class="event-meta-item" style="font-size: 0.8rem; font-weight: 700; color: #16a34a; display: inline-flex; align-items: center; gap: 0.35rem; margin-left: 1rem;"><i class="fa-solid fa-user-graduate" style="color: #16a34a;"></i> III &amp; IV B.Tech ECE (Max 45 Students)</span>
+            </div>
+
+            <p class="event-desc" style="font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); margin-top: 1rem;">
+                <strong>ElectroCratZ – ECE Technical Club</strong>, Department of Electronics and Communication Engineering, <strong>Andhra Loyola Institute of Engineering and Technology (ALIET - Autonomous)</strong>, Vijayawada in collaboration with <strong>PrimeMOS Research &amp; Solutions</strong> presents an intensive <strong>Two-Day Workshop on "Fundamentals of VLSI Design: Complete RTL to GDSII Flow Using Open Source EDA Tools"</strong>.
+            </p>
+            <p class="event-desc" style="font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); margin-top: 0.75rem;">
+                The workshop is presented and mentored by <strong>Mr. P V S D D Mallikarjuna</strong> (AMIETE, Founder of PrimeMOS Research &amp; Solutions), designed to bridge the gap between academic textbook theory and real-world semiconductor industry practice.
+            </p>
+
+            <div class="event-participants" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1rem; background: linear-gradient(135deg, rgba(241,90,36,0.08), rgba(248,158,27,0.06)); border-radius: var(--radius-sm); border: 1px solid rgba(241,90,36,0.2); margin-top: 1rem; margin-bottom: 0.75rem; font-size: 0.85rem; font-weight: 600; color: var(--primary-maroon);">
+                <i class="fa-solid fa-microchip" style="color: var(--primary-orange);"></i>
+                <span>Theme: "Design Your Future with VLSI — Learn &bull; Design &bull; Implement &bull; Innovate"</span>
+            </div>
+
+            <!-- Complete RTL to GDSII Flow Grid -->
+            <div style="margin: 1.5rem 0;">
+                <div style="font-size: 0.88rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; font-family: 'Outfit', sans-serif;">
+                    <i class="fa-solid fa-diagram-project" style="color: var(--primary-orange);"></i> Complete RTL to GDSII Flow Covered
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.5rem;">
+                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
+                        <i class="fa-solid fa-code" style="color: var(--primary-orange); font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
+                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">RTL Design &amp; Verification</div>
+                    </div>
+                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
+                        <i class="fa-solid fa-gear" style="color: #0284c7; font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
+                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">Logic Synthesis</div>
+                    </div>
+                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
+                        <i class="fa-solid fa-table-cells-large" style="color: #16a34a; font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
+                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">Floorplanning</div>
+                    </div>
+                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
+                        <i class="fa-solid fa-microchip" style="color: #d97706; font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
+                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">Standard Cell Placement</div>
+                    </div>
+                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
+                        <i class="fa-solid fa-clock" style="color: #9333ea; font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
+                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">CTS (Clock Tree)</div>
+                    </div>
+                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
+                        <i class="fa-solid fa-route" style="color: #2563eb; font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
+                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">Detailed Routing</div>
+                    </div>
+                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
+                        <i class="fa-solid fa-shield-halved" style="color: #dc2626; font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
+                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">Physical Verification (DRC/LVS)</div>
+                    </div>
+                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
+                        <i class="fa-solid fa-border-all" style="color: #059669; font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
+                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">GDSII Tapeout Stream</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workshop Poster View -->
+            <div style="margin: 1.5rem 0;">
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.6rem; display: flex; align-items: center; justify-content: space-between;">
+                    <span style="display: inline-flex; align-items: center; gap: 0.4rem;"><i class="fa-solid fa-image" style="color: var(--primary-orange);"></i> Official Workshop Poster</span>
+                    <a href="../event6_poster.jpg" target="_blank" style="font-size: 0.76rem; color: var(--primary-orange); font-weight: 600;">Open Full Poster <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                <div style="text-align: center; background: #0f172a; border-radius: var(--radius-md); overflow: hidden; padding: 1rem; border: 1px solid rgba(255,255,255,0.1);">
+                    <a href="../event6_poster.jpg" target="_blank" title="Click to view high-resolution poster">
+                        <img src="../event6_poster.jpg" alt="ALIET VLSI Workshop Official Poster" style="max-height: 480px; width: auto; max-width: 100%; border-radius: var(--radius-sm); box-shadow: 0 8px 24px rgba(0,0,0,0.4); margin: 0 auto; display: block;">
+                    </a>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.78rem; margin-top: 0.75rem;"><i class="fa-solid fa-magnifying-glass-plus"></i> Click poster to open full high-resolution image</p>
+                </div>
+            </div>
+
+            <!-- Key Workshop Features -->
+            <div style="margin-top: 1.25rem; margin-bottom: 1.25rem;">
+                <div style="font-size: 0.88rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; font-family: 'Outfit', sans-serif;">
+                    <i class="fa-solid fa-list-check" style="color: var(--primary-orange);"></i> Key Workshop Highlights &amp; Outcomes
+                </div>
+                <div class="project-list" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <div class="project-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Practical Hands-On Sessions:</strong> Live walkthroughs and practical implementation using industry-grade open-source EDA tools.</span></div>
+                    <div class="project-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Learn Open Source EDA Tools:</strong> Comprehensive mastery of open tools for simulation, synthesis, placement, routing, and timing closure.</span></div>
+                    <div class="project-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Bridge Theory &amp; Practice:</strong> Transitioning semiconductor physics and digital logic theories into taped-out physical layouts for industry readiness.</span></div>
+                    <div class="project-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Exclusive Cohort:</strong> Focused mentor attention with a limited batch of maximum 45 students from III &amp; IV B.Tech ECE.</span></div>
+                </div>
+            </div>
+        </div>
+
         <!-- EVENT 5 DETAILS -->
         <div id="details-event5">
             <div class="event-modal-meta">
