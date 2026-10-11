@@ -3845,28 +3845,420 @@ a {
   border-bottom: none;
 }
 
+/* ── Testimonials Page Responsive Styles & Mobile Alignment ── */
+.testimonials {
+  overflow-x: hidden;
+}
+
+.testimonials-quick-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.quick-nav-btn {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.9rem;
+  background: #ffffff;
+  color: var(--secondary);
+  border-color: rgba(0, 0, 0, 0.12);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.quick-nav-btn.aliet-nav-chip {
+  border-color: rgba(34, 197, 94, 0.4);
+  color: #15803d;
+}
+
+.aliet-analytics-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.aliet-analytics-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: 0.85rem;
+}
+
+.aliet-analytics-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--secondary);
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+}
+
+.aliet-analytics-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.aliet-stats-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.aliet-stat-counter-box {
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  text-align: center;
+}
+.aliet-stat-counter-box.stat-green {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(34, 197, 94, 0.02));
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: #15803d;
+}
+.aliet-stat-counter-box.stat-orange {
+  background: linear-gradient(135deg, rgba(241, 90, 36, 0.08), rgba(241, 90, 36, 0.02));
+  border: 1px solid rgba(241, 90, 36, 0.25);
+  color: var(--primary-orange);
+}
+.aliet-stat-counter-box.stat-blue {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(59, 130, 246, 0.02));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: #1d4ed8;
+}
+.aliet-stat-counter-box.stat-amber {
+  background: linear-gradient(135deg, rgba(248, 158, 27, 0.08), rgba(248, 158, 27, 0.02));
+  border: 1px solid rgba(248, 158, 27, 0.25);
+  color: #b45309;
+}
+.aliet-stat-counter-box .stat-val {
+  font-size: 1.85rem;
+  font-weight: 800;
+  font-family: 'Outfit', sans-serif;
+  line-height: 1;
+}
+.aliet-stat-counter-box .stat-lbl {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-top: 0.35rem;
+}
+.aliet-stat-counter-box .stat-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.aliet-scorecard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.gcet-letters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.testimonial-group-heading {
+  flex-wrap: wrap;
+}
+
 @media (max-width: 768px) {
   .testimonials.py-24 {
-    padding-top: 2rem !important;
+    padding-top: 1.75rem !important;
     padding-bottom: 2rem !important;
   }
-  .vbit-testimonial-card,
-  .gcet-appreciation-card {
-    padding: 1.25rem !important;
+
+  /* Quick Navigation Chips */
+  .testimonials-quick-nav {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.45rem !important;
+    margin-bottom: 1.5rem !important;
   }
+  .testimonials-quick-nav .btn {
+    font-size: 0.72rem !important;
+    padding: 0.45rem 0.5rem !important;
+    text-align: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Institutional Endorsement Cards */
+  .aliet-appreciation-card,
+  .gcet-appreciation-card,
+  .vbit-testimonial-card {
+    padding: 1.15rem 1rem !important;
+    margin-bottom: 1.75rem !important;
+    border-left-width: 4px !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  /* Hide overflowing background watermark icons on mobile */
+  .aliet-appreciation-card > div[style*="font-size: 11rem"],
+  .gcet-appreciation-card > div[style*="font-size: 11rem"],
+  .vbit-testimonial-card > div[style*="font-size: 10rem"] {
+    display: none !important;
+  }
+
+  .gcet-appreciation-header {
+    padding-bottom: 0.85rem !important;
+    margin-bottom: 1rem !important;
+  }
+
   .vbit-testimonial-title {
-    font-size: 1.3rem !important;
+    font-size: 1.15rem !important;
+    line-height: 1.35 !important;
+    word-break: break-word !important;
   }
-  .vbit-testimonial-quote-wrap {
-    font-size: 0.88rem !important;
+
+  .inst-pill {
+    font-size: 0.65rem !important;
+    padding: 0.2rem 0.5rem !important;
+    gap: 0.25rem !important;
+  }
+
+  /* ALIET Letter Grid */
+  .aliet-letter-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.15rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .aliet-doc-frame {
+    max-width: 280px !important;
+    margin: 0 auto !important;
+    padding: 0.4rem !important;
+  }
+  .aliet-doc-badge {
+    font-size: 0.7rem !important;
+    padding: 0.3rem 0.75rem !important;
+    bottom: 0.75rem !important;
+  }
+  .aliet-letter-body {
+    padding: 1rem 0.95rem !important;
+    font-size: 0.84rem !important;
     line-height: 1.6 !important;
   }
-  .testimonial-card {
-    padding: 1.15rem !important;
+  .aliet-letter-body p {
+    text-align: left !important;
+  }
+
+  /* Analytics & Stats Bar */
+  .aliet-analytics-card {
+    padding: 1rem 0.85rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .aliet-analytics-title {
+    font-size: 1rem !important;
+  }
+  .aliet-stats-grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.55rem !important;
+  }
+  .aliet-stat-counter-box {
+    padding: 0.75rem 0.5rem !important;
+  }
+  .aliet-stat-counter-box .stat-val {
+    font-size: 1.35rem !important;
+  }
+  .aliet-stat-counter-box .stat-lbl {
+    font-size: 0.68rem !important;
+  }
+  .aliet-stat-counter-box .stat-sub {
+    font-size: 0.62rem !important;
+  }
+
+  /* Scorecard & Collapsible Table */
+  .aliet-scorecard-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.6rem !important;
+  }
+  .aliet-collapse-toggle {
+    width: 100% !important;
+    justify-content: center !important;
+    margin: 0.5rem 0 !important;
+    font-size: 0.76rem !important;
+    padding: 0.45rem 0.85rem !important;
+  }
+  .aliet-feedback-table-wrapper {
+    margin: 0.5rem 0 1rem !important;
+    border-radius: var(--radius-sm) !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .aliet-feedback-table {
+    min-width: 580px !important;
+    font-size: 0.76rem !important;
+  }
+  .aliet-feedback-table th,
+  .aliet-feedback-table td {
+    padding: 0.5rem 0.65rem !important;
+  }
+
+  /* Interactive Explorer Console */
+  .aliet-explorer-box {
+    padding: 0.95rem 0.85rem !important;
+  }
+  .aliet-controls-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.65rem !important;
+  }
+  .aliet-search-input-wrap {
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+  .aliet-filter-chips {
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    padding-bottom: 0.35rem !important;
+    scrollbar-width: thin !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 0.3rem !important;
+  }
+  .aliet-filter-chip {
+    flex-shrink: 0 !important;
+    padding: 0.28rem 0.6rem !important;
+    font-size: 0.7rem !important;
+  }
+  .aliet-ribbon-btn {
+    padding: 0.35rem 0.7rem !important;
+    font-size: 0.72rem !important;
+  }
+  .aliet-inspector-card {
+    padding: 0.95rem 0.85rem !important;
+  }
+  .aliet-inspector-header {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+  }
+  .aliet-inspector-nav {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+  .aliet-nav-btn {
+    flex: 1 !important;
+    justify-content: center !important;
+    padding: 0.35rem 0.5rem !important;
+  }
+  .aliet-student-items-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .aliet-student-item-card {
+    padding: 0.85rem 0.9rem !important;
+  }
+  .aliet-day-block {
+    font-size: 0.76rem !important;
+    padding: 0.45rem 0.55rem !important;
+  }
+
+  /* Testimonial Section Headings */
+  .testimonial-group-heading {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.35rem !important;
+    font-size: 1.12rem !important;
+    margin-top: 2rem !important;
+    margin-bottom: 1.15rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  .testimonial-group-count {
+    font-size: 0.66rem !important;
+    padding: 0.15rem 0.5rem !important;
+    white-space: normal !important;
+  }
+
+  /* All Testimonial Grids & Cards */
+  .testimonials .features-grid,
+  .features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.1rem !important;
+    margin-bottom: 2rem !important;
+  }
+  .gcet-letters-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .testimonial-card,
+  .feature-card.testimonial-card {
+    padding: 1.15rem 1rem !important;
   }
   .testimonial-text {
-    font-size: 0.8rem !important;
+    font-size: 0.82rem !important;
+    line-height: 1.55 !important;
     margin-bottom: 0.85rem !important;
+  }
+  .testimonial-author-name {
+    font-size: 0.88rem !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 0.3rem !important;
+    line-height: 1.35 !important;
+  }
+  .student-roll-chip {
+    margin-left: 0 !important;
+    font-size: 0.65rem !important;
+    display: inline-block !important;
+  }
+  .testimonial-author-sub {
+    font-size: 0.72rem !important;
+  }
+  .testimonial-author-college {
+    font-size: 0.68rem !important;
+  }
+  .topic-tag-list {
+    margin-top: 0.6rem !important;
+    margin-bottom: 0.4rem !important;
+    gap: 0.25rem !important;
+  }
+  .topic-tag-item {
+    font-size: 0.64rem !important;
+    padding: 0.15rem 0.45rem !important;
+  }
+
+  /* VBIT Quote Wrap */
+  .vbit-testimonial-quote-wrap {
+    font-size: 0.86rem !important;
+    line-height: 1.6 !important;
+    padding-left: 0 !important;
+  }
+  .vbit-quote-icon {
+    position: static !important;
+    display: inline-block !important;
+    font-size: 1.25rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+}
+
+/* Extra Small Phones (< 360px) */
+@media (max-width: 360px) {
+  .testimonials-quick-nav {
+    grid-template-columns: 1fr !important;
+  }
+  .aliet-stats-grid-4 {
+    grid-template-columns: 1fr !important;
   }
 }
 
