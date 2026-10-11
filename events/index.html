@@ -641,9 +641,11 @@
             .contact-option .fa-arrow-right { display: none; }
         }
 
-        /* Prevent background scroll when modal is active */
+        /* Prevent background scroll when modal is active - freeze page in place */
+        html.modal-open,
         body.modal-open {
-            overflow: hidden;
+            overflow: hidden !important;
+            overscroll-behavior: none !important;
         }
 
         /* ── Event Modal System ── */
@@ -661,6 +663,7 @@
             pointer-events: none;
             transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             padding: 1rem;
+            overscroll-behavior: contain !important;
         }
         .event-modal-overlay.active {
             opacity: 1;
@@ -680,6 +683,7 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            overscroll-behavior: contain !important;
         }
         .event-modal-overlay.active .event-modal-container {
             transform: scale(1) translateY(0);
@@ -725,6 +729,8 @@
             overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: rgba(241, 90, 36, 0.3) transparent;
+            overscroll-behavior: contain !important;
+            -webkit-overflow-scrolling: touch;
         }
         .event-modal-body::-webkit-scrollbar {
             width: 6px;
@@ -961,6 +967,7 @@
             pointer-events: none;
             transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             padding: 1.5rem;
+            overscroll-behavior: contain !important;
         }
         .gallery-lightbox-overlay.active {
             opacity: 1;
@@ -1168,6 +1175,356 @@
             .lightbox-img-container img { max-height: 50vh; }
             .modal-photo-grid { grid-template-columns: 1fr; }
         }
+
+        /* ── ALIET Completed Workshop Interactive Styles ── */
+        .aliet-interactive-container {
+            margin-top: 0.5rem;
+        }
+        .aliet-success-banner {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(241, 90, 36, 0.06));
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-left: 4px solid #16a34a;
+            border-radius: var(--radius-sm);
+            padding: 0.9rem 1.15rem;
+            margin-bottom: 1.25rem;
+        }
+        .aliet-success-badge-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #15803d;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.35rem;
+            font-family: 'Outfit', sans-serif;
+        }
+        .aliet-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.65rem;
+            margin-bottom: 1.25rem;
+        }
+        @media (max-width: 600px) {
+            .aliet-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .aliet-stat-card {
+            background: var(--surface);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: var(--radius-sm);
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.25s ease;
+        }
+        .aliet-stat-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-orange);
+            box-shadow: 0 4px 12px rgba(241, 90, 36, 0.12);
+        }
+        .aliet-stat-num {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-orange);
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.1;
+        }
+        .aliet-stat-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+        .aliet-tech-box {
+            background: rgba(15, 23, 42, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.15rem;
+            margin-bottom: 1.25rem;
+        }
+        .aliet-section-title {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.65rem;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-family: 'Outfit', sans-serif;
+        }
+        .aliet-tech-badges-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+        .aliet-tech-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: var(--surface);
+            transition: all 0.2s ease;
+        }
+        .aliet-tech-pill:hover {
+            transform: translateY(-1px);
+        }
+        .aliet-tech-pill.cadence {
+            background: rgba(220, 38, 38, 0.08);
+            border-color: rgba(220, 38, 38, 0.25);
+            color: #b91c1c;
+        }
+        .aliet-tech-pill.open-source {
+            background: rgba(14, 165, 233, 0.08);
+            border-color: rgba(14, 165, 233, 0.25);
+            color: #0369a1;
+        }
+        .aliet-tech-pill.env {
+            background: rgba(234, 88, 12, 0.08);
+            border-color: rgba(234, 88, 12, 0.25);
+            color: #c2410c;
+        }
+        .aliet-tech-pill.script {
+            background: rgba(147, 51, 234, 0.08);
+            border-color: rgba(147, 51, 234, 0.25);
+            color: #7e22ce;
+        }
+        .aliet-tabs-nav {
+            display: flex;
+            gap: 0.4rem;
+            background: rgba(0, 0, 0, 0.04);
+            padding: 0.3rem;
+            border-radius: var(--radius-md);
+            margin: 1.25rem 0 1rem;
+        }
+        .aliet-tab-btn {
+            flex: 1;
+            padding: 0.65rem 0.75rem;
+            border-radius: var(--radius-sm);
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.84rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            transition: all 0.25s ease;
+        }
+        .aliet-tab-btn:hover {
+            color: var(--secondary);
+        }
+        .aliet-tab-btn.active {
+            background: var(--surface);
+            color: var(--primary-orange);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .aliet-tab-panel {
+            background: var(--surface);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: var(--radius-md);
+            padding: 1.15rem;
+            margin-bottom: 1.25rem;
+        }
+        .aliet-timeline-card {
+            display: flex;
+            gap: 0.85rem;
+            align-items: flex-start;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .aliet-timeline-card:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .aliet-timeline-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+        .aliet-timeline-content h4 {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.2rem;
+        }
+        .aliet-timeline-content p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+        .aliet-flow-chips {
+            display: flex;
+            gap: 0.4rem;
+            overflow-x: auto;
+            padding: 0.4rem 0 0.6rem;
+            scrollbar-width: thin;
+        }
+        .aliet-flow-step {
+            flex: 0 0 auto;
+            padding: 0.45rem 0.8rem;
+            border-radius: 100px;
+            background: var(--surface);
+            border: 1px solid rgba(0,0,0,0.1);
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: all 0.2s ease;
+        }
+        .aliet-flow-step:hover, .aliet-flow-step.active {
+            background: linear-gradient(135deg, var(--primary-orange), #ea580c);
+            color: white;
+            border-color: var(--primary-orange);
+            box-shadow: 0 4px 10px rgba(241, 90, 36, 0.25);
+        }
+        .aliet-step-inspector {
+            background: rgba(241, 90, 36, 0.04);
+            border: 1px solid rgba(241, 90, 36, 0.2);
+            border-radius: var(--radius-sm);
+            padding: 0.75rem 1rem;
+            margin-top: 0.5rem;
+            font-size: 0.82rem;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+        .aliet-proj-chips-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin: 0.6rem 0 0.85rem;
+        }
+        .aliet-proj-chip {
+            padding: 0.3rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.74rem;
+            font-weight: 700;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: var(--surface);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .aliet-proj-chip.active, .aliet-proj-chip:hover {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        .aliet-proj-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 0.6rem;
+        }
+        .aliet-proj-card {
+            background: var(--surface);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: var(--radius-sm);
+            padding: 0.75rem 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            transition: all 0.2s ease;
+        }
+        .aliet-proj-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-orange);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .aliet-proj-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .aliet-proj-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            line-height: 1.25;
+        }
+        .aliet-proj-meta {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* ── ALIET Card in Events Grid ── */
+        .event-card[data-event-id="event6"] {
+            border: 2px solid rgba(34, 197, 94, 0.35) !important;
+            box-shadow: 0 12px 30px rgba(34, 197, 94, 0.08) !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .event-card[data-event-id="event6"]:hover {
+            border-color: rgba(34, 197, 94, 0.6) !important;
+            box-shadow: 0 16px 36px rgba(34, 197, 94, 0.16), 0 0 20px rgba(34, 197, 94, 0.1) !important;
+            transform: translateY(-4px);
+        }
+        .event-card[data-event-id="event6"] .event-badge {
+            background: linear-gradient(135deg, #16a34a, #15803d) !important;
+            color: white !important;
+            border: none !important;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35) !important;
+        }
+        .aliet-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin: 0.65rem 0 0.85rem;
+        }
+        .aliet-tag-chip {
+            font-size: 0.72rem;
+            padding: 0.22rem 0.65rem;
+            border-radius: 100px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: transform 0.2s ease;
+        }
+        .aliet-tag-chip:hover {
+            transform: translateY(-1px);
+        }
+        .aliet-tag-chip.cadence {
+            background: rgba(220, 38, 38, 0.08);
+            color: #b91c1c;
+            border: 1px solid rgba(220, 38, 38, 0.22);
+        }
+        .aliet-tag-chip.open-source {
+            background: rgba(14, 165, 233, 0.08);
+            color: #0369a1;
+            border: 1px solid rgba(14, 165, 233, 0.22);
+        }
+        .aliet-tag-chip.env {
+            background: rgba(234, 88, 12, 0.08);
+            color: #c2410c;
+            border: 1px solid rgba(234, 88, 12, 0.22);
+        }
+        .aliet-tag-chip.script {
+            background: rgba(147, 51, 234, 0.08);
+            color: #7e22ce;
+            border: 1px solid rgba(147, 51, 234, 0.22);
+        }
     </style>
 </head>
 <body>
@@ -1206,21 +1563,21 @@
             <!-- Stats Strip -->
             <div class="events-stats">
                 <div class="stat-pill">
-                    <span class="num">5</span>
+                    <span class="num">6</span>
                     <span class="lbl">Events Hosted</span>
                 </div>
                 <div class="stat-pill">
-                    <span class="num">650+</span>
+                    <span class="num">700+</span>
                     <span class="lbl">Students Engaged</span>
                 </div>
                 <div class="stat-pill">
-                    <span class="num">4</span>
+                    <span class="num">5</span>
                     <span class="lbl">University &amp; College Engaged</span>
                 </div>
-                <a href="#collaborations" class="stat-pill stat-pill-collab" title="6 Active Collaborations: IETE, IEEE, GCET, VBIT, RRU, TapeoutX">
-                    <span class="num">6</span>
+                <a href="#collaborations" class="stat-pill stat-pill-collab" title="7 Active Collaborations: ALIET, GCET, IETE, IEEE, VBIT, RRU, TapeoutX">
+                    <span class="num">7</span>
                     <span class="lbl">Collaborations</span>
-                    <span class="stat-pill-sub"><i class="fa-solid fa-arrow-down"></i> View 6 Partners</span>
+                    <span class="stat-pill-sub"><i class="fa-solid fa-arrow-down"></i> View 7 Partners</span>
                 </a>
                 <div class="stat-pill">
                     <span class="num">1k+</span>
@@ -1233,6 +1590,9 @@
                 <div class="collab-strip-inner">
                     <span class="collab-strip-label"><i class="fa-solid fa-handshake" style="color: var(--primary-orange);"></i> Collaborators:</span>
                     <div class="collab-chips">
+                        <a href="#collab-aliet" class="collab-chip" title="ALIET - Andhra Loyola Institute of Engineering and Technology (Autonomous)">
+                            <span>ALIET</span>
+                        </a>
                         <a href="#collab-gcet" class="collab-chip has-proposal" title="GCET - Collaboration Proposal Under Process">
                             <span>GCET</span>
                             <span class="collab-proposal-tag"><i class="fa-solid fa-file-signature"></i> Proposal Under Process</span>
@@ -1281,7 +1641,7 @@
                 <span class="proposal-notice-badge"><i class="fa-solid fa-clock-rotate-left"></i> 2 Proposals Under Process</span>
             </div>
 
-            <!-- 5 Compact Collaboration Placards -->
+            <!-- 7 Compact Collaboration Placards -->
             <div class="collab-placards-grid">
                 <!-- 1. IETE -->
                 <div class="collab-placard fade-in" id="collab-iete">
@@ -1385,7 +1745,7 @@
                         <div class="collab-placard-icon">
                             <i class="fa-solid fa-bolt"></i>
                         </div>
-                        <span class="collab-placard-badge" style="background: rgba(34,197,94,0.12); color: #16a34a; font-weight: 700;"><i class="fa-solid fa-star" style="margin-right: 3px;"></i> Latest Workshop</span>
+                        <span class="collab-placard-badge" style="background: rgba(34,197,94,0.12); color: #16a34a; font-weight: 700;"><i class="fa-solid fa-circle-check" style="margin-right: 3px;"></i> Successfully Completed</span>
                     </div>
                     <div>
                         <h3 class="collab-placard-title">ALIET</h3>
@@ -1403,77 +1763,73 @@
         <div class="container">
             <div class="section-header fade-in text-center" style="margin-bottom: 2rem; text-align: center;">
                 <span class="hero-tagline" style="color: var(--primary-orange); font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.75rem;">Social Proof</span>
-                <h2 class="section-title" style="margin-bottom: 1.5rem;">What Our Students &amp; Partner Colleges Say</h2>
-                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem;">Read feedback and official letters of appreciation from institutions and students across JNTUH, JNTUK, OU, and VTU.</p>
+                <h2 class="section-title" style="margin-bottom: 1.5rem;">What Our Students Say</h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem;">Official institutional appreciation and student project outcomes from our hands-on VLSI &amp; EDA tools programs.</p>
             </div>
 
             <!-- Preview Testimonials Grid -->
             <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
-                <!-- GCET Institutional Endorsement Card -->
-                <div class="feature-card fade-in testimonial-card" style="border-top: 3px solid var(--primary-orange) !important; background: linear-gradient(135deg, rgba(248,158,27,0.04), #ffffff);">
+                <!-- ALIET Institutional Endorsement Card -->
+                <div class="feature-card fade-in testimonial-card" style="border-top: 3px solid #16a34a !important; background: linear-gradient(135deg, rgba(34,197,94,0.04), #ffffff);">
                     <div>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
-                            <span class="inst-pill inst-pill-orange" style="font-size: 0.68rem; padding: 0.2rem 0.55rem;">
-                                <i class="fa-solid fa-award"></i> Official Appreciation
+                            <span class="inst-pill" style="font-size: 0.68rem; padding: 0.2rem 0.55rem; background: rgba(34,197,94,0.12); color: #16a34a; font-weight: 700;">
+                                <i class="fa-solid fa-file-circle-check"></i> Official Letter of Appreciation
                             </span>
-                            <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">19 Sept 2026</span>
+                            <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">6 Oct 2026</span>
                         </div>
-                        <p class="testimonial-text">“Appreciation to PrimeMOS Research &amp; Solutions for conducting the ECE to VLSI Chip Design Using Open-Source Tools workshop. The session provided students with valuable exposure to VLSI, semiconductor technology, practical learning, and industry-relevant tools.”</p>
+                        <div class="stars-rating-row" style="margin-bottom: 0.45rem;">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span style="font-size: 0.74rem; font-weight: 700; color: #15803d; margin-left: 4px;">4.62 / 5.0 (16 Teams)</span>
+                        </div>
+                        <p class="testimonial-text">“We sincerely appreciate PrimeMOS Research &amp; Solutions for its valuable contribution as Technical Resource Organization for the Two-Day Workshop 'Fundamentals of VLSI: RTL-to-GDSII Flow Using EDA Tools'. The sessions provided students with valuable semiconductor design exposure.”</p>
                     </div>
                     <div style="border-top: 1px solid rgba(0,0,0,0.05); padding-top: 0.75rem; margin-top: auto;">
-                        <h4 class="testimonial-author-name">Geethanjali College of Engg. &amp; Tech.</h4>
-                        <div class="testimonial-author-sub">Dept. of ECE &amp; IETE (ISF) GCET</div>
-                        <div class="testimonial-author-college">Autonomous &bull; NAAC "A+" &bull; Affiliated to JNTUH</div>
+                        <h4 class="testimonial-author-name">Andhra Loyola Inst. of Engg. &amp; Tech.</h4>
+                        <div class="testimonial-author-sub">Dept. of ECE &amp; ElectroCratZ Club &bull; ALIET Vijayawada</div>
+                        <div class="testimonial-author-college" style="color: #16a34a;">Autonomous &bull; NBA Accredited &bull; NAAC "A+ &amp; A" &bull; JNTUK</div>
                     </div>
                 </div>
 
-                <!-- Karthikeya Reddy -->
-                <div class="feature-card fade-in testimonial-card" style="border-top: 3px solid #f89e1b !important;">
+                <!-- ALIET Student Review: Team 06 (Down Counter - 5.0/5.0) -->
+                <div class="feature-card fade-in testimonial-card" style="border-top: 3px solid #16a34a !important; background: linear-gradient(135deg, rgba(34,197,94,0.04), #ffffff);">
                     <div>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
                             <div class="stars-rating-row">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <span style="font-size: 0.74rem; font-weight: 700; color: #b45309; margin-left: 4px;">5.0 / 5.0</span>
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <span style="font-size: 0.74rem; font-weight: 700; color: #15803d; margin-left: 4px;">5.0 / 5.0</span>
                             </div>
-                            <span class="hero-tagline" style="color: var(--primary-orange); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; background: rgba(241,90,36,0.08); padding: 0.15rem 0.5rem; border-radius: 4px;">
-                                GCET Workshop
+                            <span class="hero-tagline" style="color: #16a34a; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; background: rgba(34,197,94,0.1); padding: 0.15rem 0.5rem; border-radius: 4px;">
+                                Team 06 &bull; Perfect Score
                             </span>
                         </div>
-                        <p class="testimonial-text">“Gained practical knowledge of LTspice, MOSFET, BJT, and physical design basics. The session clearly demystified how transistor physics translate into actual IC layout and switching performance.”</p>
+                        <p class="testimonial-text">“Project of 4-bit down counter and got output — Excellent! The complete RTL-to-GDSII flow covering synthesis, floorplanning, CTS, routing, physical verification and GDSII generation was executed with remarkable clarity.”</p>
                     </div>
                     <div style="border-top: 1px solid rgba(0,0,0,0.05); padding-top: 0.75rem; margin-top: auto;">
-                        <h4 class="testimonial-author-name">A. Karthikeya Reddy <span class="student-roll-chip">24R11A0404</span></h4>
-                        <div class="testimonial-author-sub">B.Tech ECE &bull; GCET Hyderabad</div>
-                        <div class="testimonial-author-college">Topics: LTspice, MOSFET, BJT, Physical Design</div>
+                        <h4 class="testimonial-author-name">Challa Niveditha Reddy &amp; Mandagiri Bhavya</h4>
+                        <div class="testimonial-author-sub">B.Tech ECE &bull; ALIET Vijayawada</div>
+                        <div class="testimonial-author-college">Project: 4-bit Down Counter (Full Physical Design Flow)</div>
                     </div>
                 </div>
 
-                <!-- Rishi -->
-                <div class="feature-card fade-in testimonial-card" style="border-top: 3px solid #f89e1b !important;">
+                <!-- ALIET Student Review: Team 16 (4-bit ALU - 5.0/5.0) -->
+                <div class="feature-card fade-in testimonial-card" style="border-top: 3px solid #16a34a !important; background: linear-gradient(135deg, rgba(34,197,94,0.04), #ffffff);">
                     <div>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
                             <div class="stars-rating-row">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <span style="font-size: 0.74rem; font-weight: 700; color: #b45309; margin-left: 4px;">5.0 / 5.0</span>
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <span style="font-size: 0.74rem; font-weight: 700; color: #15803d; margin-left: 4px;">5.0 / 5.0</span>
                             </div>
-                            <span class="hero-tagline" style="color: var(--primary-orange); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; background: rgba(241,90,36,0.08); padding: 0.15rem 0.5rem; border-radius: 4px;">
-                                GCET Workshop
+                            <span class="hero-tagline" style="color: #16a34a; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; background: rgba(34,197,94,0.1); padding: 0.15rem 0.5rem; border-radius: 4px;">
+                                Team 16 &bull; Perfect Score
                             </span>
                         </div>
-                        <p class="testimonial-text">“Gained practical exposure to LTspice and CMOS basics. From understanding NMOS and PMOS operation to building and simulating NOT and NAND logic gates from scratch, the hands-on approach made chip design concepts crystal clear.”</p>
+                        <p class="testimonial-text">“Software implementation of our 4-bit ALU project was excellent. The hands-on training using Linux EDA toolchains, TCL scripting, and understanding real-time digital cell placement made this workshop stand out.”</p>
                     </div>
                     <div style="border-top: 1px solid rgba(0,0,0,0.05); padding-top: 0.75rem; margin-top: auto;">
-                        <h4 class="testimonial-author-name">A. Rishi <span class="student-roll-chip">24R11A0487</span></h4>
-                        <div class="testimonial-author-sub">B.Tech ECE &bull; GCET Hyderabad</div>
-                        <div class="testimonial-author-college">Topics: LTspice, CMOS Basics, NOT &amp; NAND</div>
+                        <h4 class="testimonial-author-name">Balamarthi Ravindra &amp; Snamala Seetaram</h4>
+                        <div class="testimonial-author-sub">B.Tech ECE &bull; ALIET Vijayawada</div>
+                        <div class="testimonial-author-college">Project: 4-bit ALU (Arithmetic Logic Unit in Linux/EDA)</div>
                     </div>
                 </div>
             </div>
@@ -1503,39 +1859,59 @@
             <!-- Events Grid (Ordered Newest to Oldest) -->
             <div class="events-grid">
 
-                <!-- 1. ALIET Workshop (5th & 6th Oct 2026) -->
-                <div class="event-card fade-in" data-event-id="event6" style="border: 2px solid rgba(241,90,36,0.3); box-shadow: 0 12px 30px rgba(241,90,36,0.09);">
+                <!-- 1. ALIET Workshop (5th & 6th Oct 2026 - Successfully Completed) -->
+                <div class="event-card fade-in" data-event-id="event6" style="border: 2px solid rgba(34, 197, 94, 0.35); box-shadow: 0 12px 30px rgba(34, 197, 94, 0.08);">
                     <div class="event-card-image">
                         <img src="../event6_cover.jpg"
                              alt="Two-Day Workshop on Fundamentals of VLSI Design: Complete RTL to GDSII Flow at ALIET"
                              loading="lazy">
-                        <span class="event-badge badge-hybrid" style="background: linear-gradient(135deg, var(--primary-orange), #ea580c); color: white; border: none; font-weight: 700; box-shadow: 0 4px 12px rgba(241,90,36,0.4);">
-                            <i class="fa-solid fa-sparkles" style="margin-right: 4px;"></i> Latest Announcement · 5th &amp; 6th Oct 2026
+                        <span class="event-badge badge-hybrid" style="background: linear-gradient(135deg, #16a34a, #15803d); color: white; border: none; font-weight: 700; box-shadow: 0 4px 12px rgba(22,163,74,0.35);">
+                            <i class="fa-solid fa-circle-check" style="margin-right: 4px;"></i> Successfully Completed · 16 Student Projects
                         </span>
                     </div>
                     <div class="event-card-body">
                         <div class="event-meta">
                             <span class="event-meta-item"><i class="fa-solid fa-calendar-days"></i> 5th &amp; 6th Oct 2026</span>
                             <span class="event-meta-item"><i class="fa-solid fa-location-dot"></i> ALIET, Vijayawada</span>
-                            <span class="event-meta-item"><i class="fa-solid fa-users"></i> ElectroCratZ &amp; Dept. of ECE</span>
-                            <span class="event-meta-item" style="color: var(--primary-orange); font-weight: 700;"><i class="fa-solid fa-microchip"></i> RTL to GDSII Flow</span>
+                            <span class="event-meta-item" style="color: #16a34a; font-weight: 700;"><i class="fa-solid fa-award"></i> 16 Teams · 16 Projects Delivered</span>
+                            <span class="event-meta-item" style="color: var(--primary-orange); font-weight: 700;"><i class="fa-solid fa-layer-group"></i> Cadence + Open Source EDA</span>
                         </div>
                         <h2 class="event-title" style="margin-bottom: 0.75rem;">Two-Day Workshop on Fundamentals of VLSI Design: Complete RTL to GDSII Flow — ALIET</h2>
                         <p class="event-desc">
-                            ElectroCratZ – ECE Technical Club, Department of ECE, Andhra Loyola Institute of Engineering and Technology (Autonomous), in collaboration with PrimeMOS Research &amp; Solutions, presents a comprehensive 2-day hands-on workshop led by Mr. P V S D D Mallikarjuna (AMIETE, Founder). Covering practical hands-on sessions using open-source EDA tools for III &amp; IV B.Tech ECE Students.
+                            The intensive 2-day workshop <em>“VLSI Design Fundamentals: RTL to GDSII using EDA Tools”</em> was successfully concluded at ALIET in collaboration with ElectroCratZ Technical Club. Led by Mr. P V S D D Mallikarjuna, 16 student teams successfully built and verified 16 complete RTL-to-GDSII digital designs (ALUs, Counters, Sequence Detectors) bridging theory with Cadence &amp; open-source toolchains.
                         </p>
+
+                        <!-- Tech & Accomplishment Quick Badges -->
+                        <div class="aliet-card-tags">
+                            <span class="aliet-tag-chip cadence"><i class="fa-solid fa-microchip"></i> Cadence (Xcelium · Genus · Innovus)</span>
+                            <span class="aliet-tag-chip open-source"><i class="fa-solid fa-code-fork"></i> Open-Source EDA</span>
+                            <span class="aliet-tag-chip env"><i class="fa-brands fa-ubuntu"></i> WSL &amp; Ubuntu</span>
+                            <span class="aliet-tag-chip script"><i class="fa-solid fa-terminal"></i> TCL Scripting</span>
+                        </div>
                         
                         <!-- Mini Photo Preview Strip -->
-                        <div class="event-mini-gallery" title="Click to view event poster">
-                            <div class="mini-thumb" style="width: 70px; height: 50px;"><img src="../event6_poster.jpg" alt="Poster thumbnail" style="object-fit: contain; background: #0f172a;"></div>
+                        <div class="event-mini-gallery" title="Click to view event gallery">
+                            <div class="mini-thumb" onclick="event.stopPropagation(); window.openLightboxImage('../event6_felicitation.jpg', 'Memento & Felicitation Ceremony — ALIET', 'Memento presentation and felicitation by ALIET faculty to Mr. P V S D D Mallikarjuna.')">
+                                <img src="../event6_felicitation.jpg" alt="Felicitation ceremony thumbnail">
+                            </div>
+                            <div class="mini-thumb" onclick="event.stopPropagation(); window.openLightboxImage('../event6_certificates.jpg', 'Certificate Distribution — ALIET', 'Presenting workshop merit & participation certificates to student project teams.')">
+                                <img src="../event6_certificates.jpg" alt="Certificate presentation thumbnail">
+                            </div>
+                            <div class="mini-thumb" onclick="event.stopPropagation(); window.openLightboxImage('../event6_presentation.jpg', 'EDA Tools & TCL Lecture — ALIET', 'Interactive presentation and lecture on EDA tools, RTL to GDSII flow, and TCL scripting.')">
+                                <img src="../event6_presentation.jpg" alt="Presentation thumbnail">
+                            </div>
+                            <div class="mini-thumb" onclick="event.stopPropagation(); window.openLightboxImage('../event6_lab_session.jpg', 'Hands-on VLSI Lab Implementation — ALIET', 'Students implementing digital designs from RTL to GDSII in the VLSI Design Lab.')">
+                                <img src="../event6_lab_session.jpg" alt="Lab session thumbnail">
+                                <div class="mini-thumb-more"><i class="fa-solid fa-images" style="margin-right: 3px;"></i> +4</div>
+                            </div>
                         </div>
 
                         <div class="event-card-footer" style="margin-top: auto; padding-top: 0.75rem; display: flex; gap: 0.6rem;">
                             <button class="btn btn-primary open-event-btn" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 0.6rem 1rem;">
-                                <i class="fa-solid fa-circle-info" style="margin-right: 6px;"></i> View Event Details
+                                <i class="fa-solid fa-circle-info" style="margin-right: 6px;"></i> View Event Details &amp; Projects
                             </button>
-                            <a href="../event6_poster.jpg" target="_blank" class="btn btn-outline" style="border: 1px solid rgba(241,90,36,0.3); color: var(--primary-orange); font-size: 0.85rem; padding: 0.6rem 1rem;" onclick="event.stopPropagation();">
-                                <i class="fa-solid fa-file-image" style="margin-right: 4px;"></i> View Poster
+                            <a href="#gallery" class="btn btn-outline" style="border: 1px solid rgba(34,197,94,0.3); color: #16a34a; font-size: 0.85rem; padding: 0.6rem 1rem;" onclick="event.stopPropagation();">
+                                <i class="fa-solid fa-images" style="margin-right: 4px;"></i> Gallery
                             </a>
                         </div>
                     </div>
@@ -1709,7 +2085,10 @@
             <!-- Filter Buttons -->
             <div class="gallery-filter-bar fade-in">
                 <button class="gallery-filter-btn active" data-filter="all">
-                    <i class="fa-solid fa-layer-group"></i> All Photos <span class="count-badge">10</span>
+                    <i class="fa-solid fa-layer-group"></i> All Photos <span class="count-badge">14</span>
+                </button>
+                <button class="gallery-filter-btn" data-filter="aliet">
+                    <i class="fa-solid fa-bolt" style="color: var(--primary-orange);"></i> ALIET Workshop (Oct 2026) <span class="count-badge">4</span>
                 </button>
                 <button class="gallery-filter-btn" data-filter="gcet">
                     <i class="fa-solid fa-microchip"></i> GCET Workshop (Sept 2026) <span class="count-badge">4</span>
@@ -1727,6 +2106,74 @@
 
             <!-- Gallery Cards Grid -->
             <div class="gallery-grid fade-in">
+                <!-- ALIET 1: Felicitation -->
+                <div class="gallery-card" data-category="aliet" data-lightbox-src="../event6_felicitation.jpg" data-title="Memento Felicitation &amp; Faculty Honor — ALIET" data-caption="Department of ECE faculty presenting memento and plant gift to Mr. P V S D D Mallikarjuna at ALIET DSP / VLSI Lab." data-date="6 Oct 2026">
+                    <div class="gallery-img-wrap">
+                        <img src="../event6_felicitation.jpg" alt="Felicitation ceremony at ALIET" loading="lazy">
+                        <div class="gallery-overlay-badge"><i class="fa-solid fa-award" style="color: var(--primary-gold);"></i> Felicitation</div>
+                        <div class="gallery-zoom-icon"><div class="zoom-circle"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+                    </div>
+                    <div class="gallery-card-body">
+                        <div class="gallery-card-meta">
+                            <span class="tag">ALIET Workshop</span>
+                            <span>6 Oct 2026</span>
+                        </div>
+                        <h3 class="gallery-card-title">Felicitation &amp; Memento Ceremony</h3>
+                        <p class="gallery-card-desc">ECE faculty presenting memento honors to Mr. P V S D D Mallikarjuna at the VLSI Design Lab.</p>
+                    </div>
+                </div>
+
+                <!-- ALIET 2: Certificates -->
+                <div class="gallery-card" data-category="aliet" data-lightbox-src="../event6_certificates.jpg" data-title="Student Team Certificate Distribution — ALIET" data-caption="Awarding certificates of achievement to 16 student teams for completing independent RTL-to-GDSII digital design projects." data-date="6 Oct 2026">
+                    <div class="gallery-img-wrap">
+                        <img src="../event6_certificates.jpg" alt="Certificate presentation to students at ALIET" loading="lazy">
+                        <div class="gallery-overlay-badge"><i class="fa-solid fa-certificate" style="color: var(--primary-gold);"></i> Certificates</div>
+                        <div class="gallery-zoom-icon"><div class="zoom-circle"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+                    </div>
+                    <div class="gallery-card-body">
+                        <div class="gallery-card-meta">
+                            <span class="tag">ALIET Certificates</span>
+                            <span>6 Oct 2026</span>
+                        </div>
+                        <h3 class="gallery-card-title">16 Project Teams Honored</h3>
+                        <p class="gallery-card-desc">Presenting merit and participation certificates to students completing ALU, Counter, and FSM projects.</p>
+                    </div>
+                </div>
+
+                <!-- ALIET 3: Presentations -->
+                <div class="gallery-card" data-category="aliet" data-lightbox-src="../event6_presentation.jpg" data-title="EDA Toolchains &amp; TCL Lecture — ALIET" data-caption="Deep dive lecture into Cadence EDA tool role in VLSI, digital post-layout flow, and TCL scripting for automation." data-date="5 &amp; 6 Oct 2026">
+                    <div class="gallery-img-wrap">
+                        <img src="../event6_presentation.jpg" alt="Technical presentation and lectures at ALIET" loading="lazy">
+                        <div class="gallery-overlay-badge"><i class="fa-solid fa-chalkboard-user" style="color: var(--primary-gold);"></i> Technical Lecture</div>
+                        <div class="gallery-zoom-icon"><div class="zoom-circle"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+                    </div>
+                    <div class="gallery-card-body">
+                        <div class="gallery-card-meta">
+                            <span class="tag">Technical Session</span>
+                            <span>5 &amp; 6 Oct 2026</span>
+                        </div>
+                        <h3 class="gallery-card-title">EDA Tools &amp; TCL Scripting Session</h3>
+                        <p class="gallery-card-desc">Interactive session demonstrating Cadence Xcelium/Genus/Innovus and TCL automation workflows.</p>
+                    </div>
+                </div>
+
+                <!-- ALIET 4: Lab Mentoring -->
+                <div class="gallery-card" data-category="aliet" data-lightbox-src="../event6_lab_session.jpg" data-title="Hands-on Lab Guidance &amp; Physical Layouts — ALIET" data-caption="Real-time lab mentoring in ALIET VLSI Lab with students running synthesis, placement, routing, and viewing layouts." data-date="6 Oct 2026">
+                    <div class="gallery-img-wrap">
+                        <img src="../event6_lab_session.jpg" alt="Hands-on VLSI lab session at ALIET" loading="lazy">
+                        <div class="gallery-overlay-badge"><i class="fa-solid fa-laptop-code" style="color: var(--primary-gold);"></i> Hands-on Lab</div>
+                        <div class="gallery-zoom-icon"><div class="zoom-circle"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+                    </div>
+                    <div class="gallery-card-body">
+                        <div class="gallery-card-meta">
+                            <span class="tag">VLSI Lab</span>
+                            <span>6 Oct 2026</span>
+                        </div>
+                        <h3 class="gallery-card-title">Hands-on RTL to GDSII Lab</h3>
+                        <p class="gallery-card-desc">Mentoring students through synthesis, placement, routing, DRC/LVS, and layout inspection on laptops.</p>
+                    </div>
+                </div>
+
                 <!-- 1. GCET Poster -->
                 <div class="gallery-card" data-category="gcet" data-lightbox-src="../event5_poster.jpg" data-title="GCET Workshop Official Poster" data-caption="Official announcement for 'ECE to VLSI Chip Design Using Open Source Tools' at Geethanjali College of Engineering &amp; Technology, Keesara." data-date="19 Sept 2026">
                     <div class="gallery-img-wrap">
@@ -2207,92 +2654,331 @@
 
     <!-- Hidden source details for modals (SEO Friendly) -->
     <div class="hidden-details-container" style="display: none;">
-        <!-- EVENT 6 DETAILS (ALIET Two-Day Workshop) -->
+        <!-- EVENT 6 DETAILS (ALIET Two-Day Workshop - Successfully Completed) -->
         <div id="details-event6">
             <div class="event-modal-meta">
                 <span class="event-meta-item" style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted); display: inline-flex; align-items: center; gap: 0.35rem;"><i class="fa-solid fa-calendar-days" style="color: var(--primary-orange);"></i> 5th &amp; 6th October 2026</span>
                 <span class="event-meta-item" style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted); display: inline-flex; align-items: center; gap: 0.35rem; margin-left: 1rem;"><i class="fa-solid fa-location-dot" style="color: var(--primary-orange);"></i> Andhra Loyola Inst. of Engg. &amp; Tech. (ALIET), Vijayawada</span>
                 <span class="event-meta-item" style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted); display: inline-flex; align-items: center; gap: 0.35rem; margin-left: 1rem;"><i class="fa-solid fa-users" style="color: var(--primary-orange);"></i> ElectroCratZ &bull; ECE Technical Club</span>
-                <span class="event-meta-item" style="font-size: 0.8rem; font-weight: 700; color: #16a34a; display: inline-flex; align-items: center; gap: 0.35rem; margin-left: 1rem;"><i class="fa-solid fa-user-graduate" style="color: #16a34a;"></i> III &amp; IV B.Tech ECE (Max 45 Students)</span>
+                <span class="event-meta-item" style="font-size: 0.8rem; font-weight: 700; color: #16a34a; display: inline-flex; align-items: center; gap: 0.35rem; margin-left: 1rem;"><i class="fa-solid fa-circle-check" style="color: #16a34a;"></i> Successfully Completed</span>
             </div>
 
-            <p class="event-desc" style="font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); margin-top: 1rem;">
-                <strong>ElectroCratZ – ECE Technical Club</strong>, Department of Electronics and Communication Engineering, <strong>Andhra Loyola Institute of Engineering and Technology (ALIET - Autonomous)</strong>, Vijayawada in collaboration with <strong>PrimeMOS Research &amp; Solutions</strong> presents an intensive <strong>Two-Day Workshop on "Fundamentals of VLSI Design: Complete RTL to GDSII Flow Using Open Source EDA Tools"</strong>.
-            </p>
-            <p class="event-desc" style="font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); margin-top: 0.75rem;">
-                The workshop is presented and mentored by <strong>Mr. P V S D D Mallikarjuna</strong> (AMIETE, Founder of PrimeMOS Research &amp; Solutions), designed to bridge the gap between academic textbook theory and real-world semiconductor industry practice.
-            </p>
-
-            <div class="event-participants" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1rem; background: linear-gradient(135deg, rgba(241,90,36,0.08), rgba(248,158,27,0.06)); border-radius: var(--radius-sm); border: 1px solid rgba(241,90,36,0.2); margin-top: 1rem; margin-bottom: 0.75rem; font-size: 0.85rem; font-weight: 600; color: var(--primary-maroon);">
-                <i class="fa-solid fa-microchip" style="color: var(--primary-orange);"></i>
-                <span>Theme: "Design Your Future with VLSI — Learn &bull; Design &bull; Implement &bull; Innovate"</span>
-            </div>
-
-            <!-- Complete RTL to GDSII Flow Grid -->
-            <div style="margin: 1.5rem 0;">
-                <div style="font-size: 0.88rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; font-family: 'Outfit', sans-serif;">
-                    <i class="fa-solid fa-diagram-project" style="color: var(--primary-orange);"></i> Complete RTL to GDSII Flow Covered
-                </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.5rem;">
-                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
-                        <i class="fa-solid fa-code" style="color: var(--primary-orange); font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
-                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">RTL Design &amp; Verification</div>
+            <!-- Interactive Root Container -->
+            <div class="aliet-interactive-container">
+                <!-- Completion Outcome Announcement Banner -->
+                <div class="aliet-success-banner">
+                    <div class="aliet-success-badge-title">
+                        <i class="fa-solid fa-award"></i> RTL to GDSII Workshop Successfully Completed
                     </div>
-                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
-                        <i class="fa-solid fa-gear" style="color: #0284c7; font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
-                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">Logic Synthesis</div>
-                    </div>
-                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
-                        <i class="fa-solid fa-table-cells-large" style="color: #16a34a; font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
-                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">Floorplanning</div>
-                    </div>
-                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
-                        <i class="fa-solid fa-microchip" style="color: #d97706; font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
-                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">Standard Cell Placement</div>
-                    </div>
-                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
-                        <i class="fa-solid fa-clock" style="color: #9333ea; font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
-                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">CTS (Clock Tree)</div>
-                    </div>
-                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
-                        <i class="fa-solid fa-route" style="color: #2563eb; font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
-                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">Detailed Routing</div>
-                    </div>
-                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
-                        <i class="fa-solid fa-shield-halved" style="color: #dc2626; font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
-                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">Physical Verification (DRC/LVS)</div>
-                    </div>
-                    <div style="background: rgba(241,90,36,0.06); border: 1px solid rgba(241,90,36,0.2); border-radius: var(--radius-sm); padding: 0.6rem 0.5rem; text-align: center;">
-                        <i class="fa-solid fa-border-all" style="color: #059669; font-size: 1.1rem; margin-bottom: 0.25rem;"></i>
-                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary);">GDSII Tapeout Stream</div>
+                    <p style="font-size: 0.88rem; line-height: 1.6; color: var(--text-main); margin-bottom: 0.4rem;">
+                        The <strong>“VLSI Design Fundamentals: RTL to GDSII using EDA Tools”</strong> workshop concluded with resounding success on <strong>5th &amp; 6th October 2026</strong>. Hosted in collaboration with <strong>ElectroCratZ (Dept. of ECE, ALIET - Autonomous)</strong> and presented by <strong>Mr. P V S D D Mallikarjuna</strong> (Founder, PrimeMOS), students bridged academic digital concepts with real semiconductor industry workflows.
+                    </p>
+                    <div style="font-size: 0.78rem; font-weight: 700; color: var(--primary-maroon); display: flex; align-items: center; gap: 0.45rem; padding-top: 0.35rem; border-top: 1px dashed rgba(34,197,94,0.3);">
+                        <i class="fa-solid fa-bolt" style="color: var(--primary-orange);"></i>
+                        <span>Day 1: Build the Environment &nbsp;→&nbsp; Day 2: Build the Design &nbsp;→&nbsp; RTL to GDSII</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- Workshop Poster View -->
-            <div style="margin: 1.5rem 0;">
-                <div style="font-size: 0.85rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.6rem; display: flex; align-items: center; justify-content: space-between;">
-                    <span style="display: inline-flex; align-items: center; gap: 0.4rem;"><i class="fa-solid fa-image" style="color: var(--primary-orange);"></i> Official Workshop Poster</span>
-                    <a href="../event6_poster.jpg" target="_blank" style="font-size: 0.76rem; color: var(--primary-orange); font-weight: 600;">Open Full Poster <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <!-- 4 Metrics Stats Grid -->
+                <div class="aliet-stats-grid">
+                    <div class="aliet-stat-card">
+                        <div class="aliet-stat-num">16</div>
+                        <div class="aliet-stat-label"><i class="fa-solid fa-users" style="color: var(--primary-orange); margin-right: 3px;"></i> Student Teams</div>
+                    </div>
+                    <div class="aliet-stat-card">
+                        <div class="aliet-stat-num">16</div>
+                        <div class="aliet-stat-label"><i class="fa-solid fa-microchip" style="color: #16a34a; margin-right: 3px;"></i> RTL to GDSII Projects</div>
+                    </div>
+                    <div class="aliet-stat-card">
+                        <div class="aliet-stat-num">5</div>
+                        <div class="aliet-stat-label"><i class="fa-solid fa-laptop-code" style="color: #0284c7; margin-right: 3px;"></i> Live Demo Projects</div>
+                    </div>
+                    <div class="aliet-stat-card">
+                        <div class="aliet-stat-num" style="font-size: 0.95rem; line-height: 1.35; padding-top: 0.2rem;">Cadence + OpenEDA</div>
+                        <div class="aliet-stat-label"><i class="fa-solid fa-layer-group" style="color: #9333ea; margin-right: 3px;"></i> Industry Toolchains</div>
+                    </div>
                 </div>
-                <div style="text-align: center; background: #0f172a; border-radius: var(--radius-md); overflow: hidden; padding: 1rem; border: 1px solid rgba(255,255,255,0.1);">
-                    <a href="../event6_poster.jpg" target="_blank" title="Click to view high-resolution poster">
-                        <img src="../event6_poster.jpg" alt="ALIET VLSI Workshop Official Poster" style="max-height: 480px; width: auto; max-width: 100%; border-radius: var(--radius-sm); box-shadow: 0 8px 24px rgba(0,0,0,0.4); margin: 0 auto; display: block;">
+
+                <!-- EDA Toolchains & Technology Badges (Replaces text clutter with logos/badges) -->
+                <div class="aliet-tech-box">
+                    <div class="aliet-section-title">
+                        <i class="fa-solid fa-microchip" style="color: var(--primary-orange);"></i> Industry EDA Toolchains &amp; Environment
+                    </div>
+                    <div class="aliet-tech-badges-wrap">
+                        <span class="aliet-tech-pill cadence" title="Cadence Logic Simulation"><i class="fa-solid fa-microchip"></i> Cadence Xcelium</span>
+                        <span class="aliet-tech-pill cadence" title="Cadence RTL Synthesis"><i class="fa-solid fa-gears"></i> Cadence Genus</span>
+                        <span class="aliet-tech-pill cadence" title="Cadence Place & Route (Physical Design)"><i class="fa-solid fa-diagram-project"></i> Cadence Innovus</span>
+                        <span class="aliet-tech-pill open-source" title="Open-source RTL Synthesis"><i class="fa-solid fa-code-fork"></i> Yosys Synthesis</span>
+                        <span class="aliet-tech-pill open-source" title="Open-source RTL-to-GDSII P&R"><i class="fa-solid fa-cubes"></i> OpenROAD P&amp;R</span>
+                        <span class="aliet-tech-pill open-source" title="Digital Waveform Viewer"><i class="fa-solid fa-wave-square"></i> GTKWave</span>
+                        <span class="aliet-tech-pill env" title="Windows Subsystem for Linux"><i class="fa-brands fa-linux"></i> WSL Setup</span>
+                        <span class="aliet-tech-pill env" title="Ubuntu Linux 22.04 LTS"><i class="fa-brands fa-ubuntu"></i> Ubuntu Linux</span>
+                        <span class="aliet-tech-pill script" title="EDA Automation Scripting"><i class="fa-solid fa-terminal"></i> TCL Scripting</span>
+                        <span class="aliet-tech-pill script" title="Digital Logic Verilog"><i class="fa-solid fa-code"></i> Verilog HDL</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Day 1 vs Day 2 Switcher Tabs -->
+                <div class="aliet-section-title" style="margin-top: 1.25rem;">
+                    <i class="fa-solid fa-calendar-check" style="color: var(--primary-orange);"></i> Workshop Day-wise Roadmap &amp; Highlights
+                </div>
+                <div class="aliet-tabs-nav">
+                    <button type="button" class="aliet-tab-btn active" data-tab="day1">
+                        <i class="fa-solid fa-wrench"></i> Day 1: Build the Environment
+                    </button>
+                    <button type="button" class="aliet-tab-btn" data-tab="day2">
+                        <i class="fa-solid fa-laptop-code"></i> Day 2: Build the Design &amp; Projects
+                    </button>
+                </div>
+
+                <!-- Day 1 Panel -->
+                <div class="aliet-tab-panel" data-panel="day1">
+                    <div class="aliet-timeline-card">
+                        <div class="aliet-timeline-icon" style="background: rgba(241,90,36,0.1); color: var(--primary-orange);">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <div class="aliet-timeline-content">
+                            <h4>VLSI Fundamentals &amp; MOSFET Physics</h4>
+                            <p>Explored MOSFET operation principles, NMOS &amp; PMOS switching behavior, evolution of Integrated Circuits (ICs), and understanding core <strong>PPA (Power, Performance &amp; Area)</strong> design tradeoffs in modern silicon.</p>
+                        </div>
+                    </div>
+                    <div class="aliet-timeline-card">
+                        <div class="aliet-timeline-icon" style="background: rgba(220,38,38,0.1); color: #dc2626;">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <div class="aliet-timeline-content">
+                            <h4>Commercial Cadence EDA Demonstration</h4>
+                            <p>Live industrial demonstration covering <strong>Cadence Xcelium</strong> (digital simulation), <strong>Cadence Genus</strong> (RTL logic synthesis), and <strong>Cadence Innovus</strong> (Place &amp; Route physical layout).</p>
+                        </div>
+                    </div>
+                    <div class="aliet-timeline-card">
+                        <div class="aliet-timeline-icon" style="background: rgba(14,165,233,0.1); color: #0284c7;">
+                            <i class="fa-brands fa-ubuntu"></i>
+                        </div>
+                        <div class="aliet-timeline-content">
+                            <h4>Environment Setup: WSL, Ubuntu &amp; Open EDA</h4>
+                            <p>Configured students' laptops with <strong>WSL (Windows Subsystem for Linux)</strong>, Ubuntu Linux environment, compilers, and complete open-source EDA toolchains preparing them for hands-on automation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 2 Panel (Hidden by default, switched on tab click) -->
+                <div class="aliet-tab-panel" data-panel="day2" style="display: none;">
+                    <div class="aliet-timeline-card">
+                        <div class="aliet-timeline-icon" style="background: rgba(147,51,234,0.1); color: #9333ea;">
+                            <i class="fa-solid fa-terminal"></i>
+                        </div>
+                        <div class="aliet-timeline-content">
+                            <h4>TCL Scripting &amp; Flow Automation</h4>
+                            <p>Mastered TCL scripting fundamentals tailored for RTL design flows, timing constraints, synthesis scripting, and hands-on automation across open EDA toolchains.</p>
+                        </div>
+                    </div>
+                    <div class="aliet-timeline-card">
+                        <div class="aliet-timeline-icon" style="background: rgba(22,163,74,0.1); color: #16a34a;">
+                            <i class="fa-solid fa-flask-vial"></i>
+                        </div>
+                        <div class="aliet-timeline-content">
+                            <h4>5 Live Demonstration Projects</h4>
+                            <p>Interactive real-time demonstrations taking complete digital blocks through simulation, logic synthesis, floorplanning, placement, CTS, routing, and GDSII generation.</p>
+                        </div>
+                    </div>
+                    <div class="aliet-timeline-card">
+                        <div class="aliet-timeline-icon" style="background: rgba(241,90,36,0.1); color: var(--primary-orange);">
+                            <i class="fa-solid fa-users-gear"></i>
+                        </div>
+                        <div class="aliet-timeline-content">
+                            <h4>16 Student Teams — 16 RTL to GDSII Projects</h4>
+                            <p>Students formed 16 project teams, independently coding Verilog RTL, validating waveforms, performing synthesis, and generating physical GDSII streams for custom digital architectures.</p>
+                        </div>
+                    </div>
+                    <div class="aliet-timeline-card">
+                        <div class="aliet-timeline-icon" style="background: rgba(248,158,27,0.1); color: #d97706;">
+                            <i class="fa-solid fa-road"></i>
+                        </div>
+                        <div class="aliet-timeline-content">
+                            <h4>VLSI Domain Career Roadmap</h4>
+                            <p>Detailed career guidance spanning RTL Design, Functional Verification, Physical Design (PD), Analog Mixed-Signal, DFT, and EDA tooling pathways in the semiconductor sector.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Student Projects Showcase -->
+                <div style="margin: 1.25rem 0;">
+                    <div class="aliet-section-title">
+                        <i class="fa-solid fa-laptop-code" style="color: var(--primary-orange);"></i> Student Hands-on Projects (16 Teams &bull; 16 Completed)
+                    </div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                        Filter and inspect the designs taken through the physical design flow by student teams:
+                    </p>
+                    <div class="aliet-proj-chips-bar">
+                        <button type="button" class="aliet-proj-chip active" data-filter="all"><i class="fa-solid fa-border-all"></i> All 16 Projects</button>
+                        <button type="button" class="aliet-proj-chip" data-filter="alu"><i class="fa-solid fa-calculator"></i> ALU Designs</button>
+                        <button type="button" class="aliet-proj-chip" data-filter="counter"><i class="fa-solid fa-stopwatch"></i> Counters</button>
+                        <button type="button" class="aliet-proj-chip" data-filter="fsm"><i class="fa-solid fa-arrows-split-up-and-left"></i> Sequence Detectors</button>
+                        <button type="button" class="aliet-proj-chip" data-filter="logic"><i class="fa-solid fa-microchip"></i> Digital Logic</button>
+                    </div>
+
+                    <div class="aliet-proj-grid">
+                        <div class="aliet-proj-card" data-category="alu">
+                            <div class="aliet-proj-icon" style="background: rgba(241,90,36,0.1); color: var(--primary-orange);"><i class="fa-solid fa-calculator"></i></div>
+                            <div>
+                                <div class="aliet-proj-title">8-Bit Configurable ALU</div>
+                                <div class="aliet-proj-meta">Teams 1 &amp; 2 &bull; Arithmetic &amp; Logic &bull; RTL → GDSII</div>
+                            </div>
+                        </div>
+                        <div class="aliet-proj-card" data-category="alu">
+                            <div class="aliet-proj-icon" style="background: rgba(241,90,36,0.1); color: var(--primary-orange);"><i class="fa-solid fa-plus-minus"></i></div>
+                            <div>
+                                <div class="aliet-proj-title">4-Bit Fast Adder-Subtractor</div>
+                                <div class="aliet-proj-meta">Teams 3 &amp; 4 &bull; CLA Logic &bull; RTL → GDSII</div>
+                            </div>
+                        </div>
+                        <div class="aliet-proj-card" data-category="counter">
+                            <div class="aliet-proj-icon" style="background: rgba(14,165,233,0.1); color: #0284c7;"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                            <div>
+                                <div class="aliet-proj-title">Synchronous Up/Down Counter</div>
+                                <div class="aliet-proj-meta">Teams 5 &amp; 6 &bull; Modulo-16 &bull; RTL → GDSII</div>
+                            </div>
+                        </div>
+                        <div class="aliet-proj-card" data-category="counter">
+                            <div class="aliet-proj-icon" style="background: rgba(14,165,233,0.1); color: #0284c7;"><i class="fa-solid fa-stopwatch-20"></i></div>
+                            <div>
+                                <div class="aliet-proj-title">BCD Decade &amp; Ring Counters</div>
+                                <div class="aliet-proj-meta">Teams 7 &amp; 8 &bull; Timing Logic &bull; RTL → GDSII</div>
+                            </div>
+                        </div>
+                        <div class="aliet-proj-card" data-category="fsm">
+                            <div class="aliet-proj-icon" style="background: rgba(147,51,234,0.1); color: #9333ea;"><i class="fa-solid fa-arrows-split-up-and-left"></i></div>
+                            <div>
+                                <div class="aliet-proj-title">1011 Sequence Detector (Mealy)</div>
+                                <div class="aliet-proj-meta">Teams 9 &amp; 10 &bull; Overlapping FSM &bull; RTL → GDSII</div>
+                            </div>
+                        </div>
+                        <div class="aliet-proj-card" data-category="fsm">
+                            <div class="aliet-proj-icon" style="background: rgba(147,51,234,0.1); color: #9333ea;"><i class="fa-solid fa-code-branch"></i></div>
+                            <div>
+                                <div class="aliet-proj-title">1101 Pattern Detector (Moore)</div>
+                                <div class="aliet-proj-meta">Teams 11 &amp; 12 &bull; Non-Overlapping &bull; RTL → GDSII</div>
+                            </div>
+                        </div>
+                        <div class="aliet-proj-card" data-category="logic">
+                            <div class="aliet-proj-icon" style="background: rgba(22,163,74,0.1); color: #16a34a;"><i class="fa-solid fa-traffic-light"></i></div>
+                            <div>
+                                <div class="aliet-proj-title">Traffic Light State Controller</div>
+                                <div class="aliet-proj-meta">Teams 13 &amp; 14 &bull; FSM Controller &bull; RTL → GDSII</div>
+                            </div>
+                        </div>
+                        <div class="aliet-proj-card" data-category="logic">
+                            <div class="aliet-proj-icon" style="background: rgba(22,163,74,0.1); color: #16a34a;"><i class="fa-solid fa-sliders"></i></div>
+                            <div>
+                                <div class="aliet-proj-title">Priority Encoder &amp; Shifters</div>
+                                <div class="aliet-proj-meta">Teams 15 &amp; 16 &bull; Barrel Shifter &bull; RTL → GDSII</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive RTL to GDSII Flow Pipeline -->
+                <div style="margin: 1.25rem 0;">
+                    <div class="aliet-section-title">
+                        <i class="fa-solid fa-diagram-project" style="color: var(--primary-orange);"></i> Interactive RTL to GDSII Flow
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.4rem;">
+                        Click each stage to inspect the tools and processes executed during the workshop:
+                    </p>
+                    <div class="aliet-flow-chips">
+                        <button type="button" class="aliet-flow-step active" data-step="s1"><i class="fa-solid fa-code"></i> 1. RTL Design</button>
+                        <button type="button" class="aliet-flow-step" data-step="s2"><i class="fa-solid fa-wave-square"></i> 2. Simulation</button>
+                        <button type="button" class="aliet-flow-step" data-step="s3"><i class="fa-solid fa-gears"></i> 3. Synthesis</button>
+                        <button type="button" class="aliet-flow-step" data-step="s4"><i class="fa-solid fa-table-cells"></i> 4. Floorplanning</button>
+                        <button type="button" class="aliet-flow-step" data-step="s5"><i class="fa-solid fa-clock"></i> 5. Placement &amp; CTS</button>
+                        <button type="button" class="aliet-flow-step" data-step="s6"><i class="fa-solid fa-route"></i> 6. Routing</button>
+                        <button type="button" class="aliet-flow-step" data-step="s7"><i class="fa-solid fa-shield-halved"></i> 7. DRC &amp; LVS</button>
+                        <button type="button" class="aliet-flow-step" data-step="s8"><i class="fa-solid fa-border-all"></i> 8. GDSII Tapeout</button>
+                    </div>
+
+                    <div class="aliet-step-inspector">
+                        <div class="aliet-step-detail" data-step-info="s1">
+                            <strong><i class="fa-solid fa-code" style="color: var(--primary-orange);"></i> 1. RTL Design &amp; Modeling:</strong> Writing synthesizable Verilog HDL descriptions for ALUs, counters, and FSM sequence detectors.
+                        </div>
+                        <div class="aliet-step-detail" data-step-info="s2" style="display: none;">
+                            <strong><i class="fa-solid fa-wave-square" style="color: #0284c7;"></i> 2. Functional Simulation:</strong> Testbench stimulus generation, functional waveform verification using <em>Cadence Xcelium</em> and <em>GTKWave</em>.
+                        </div>
+                        <div class="aliet-step-detail" data-step-info="s3" style="display: none;">
+                            <strong><i class="fa-solid fa-gears" style="color: #dc2626;"></i> 3. Logic Synthesis:</strong> Translating RTL to gate-level netlists mapped to standard cell libraries using <em>Cadence Genus</em> and <em>Yosys</em>.
+                        </div>
+                        <div class="aliet-step-detail" data-step-info="s4" style="display: none;">
+                            <strong><i class="fa-solid fa-table-cells" style="color: #16a34a;"></i> 4. Floorplanning &amp; PPA:</strong> Die sizing, core aspect ratio, power distribution grid (PDN), and I/O pad placement with PPA optimization.
+                        </div>
+                        <div class="aliet-step-detail" data-step-info="s5" style="display: none;">
+                            <strong><i class="fa-solid fa-clock" style="color: #9333ea;"></i> 5. Placement &amp; CTS:</strong> Standard cell legalization, Clock Tree Synthesis (CTS) for minimal clock skew, latency, and setup/hold timing closure.
+                        </div>
+                        <div class="aliet-step-detail" data-step-info="s6" style="display: none;">
+                            <strong><i class="fa-solid fa-route" style="color: #2563eb;"></i> 6. Detailed Routing:</strong> Global and detail metal routing interconnecting gates and clock trees with zero design rule violations using <em>Cadence Innovus</em> &amp; <em>OpenROAD</em>.
+                        </div>
+                        <div class="aliet-step-detail" data-step-info="s7" style="display: none;">
+                            <strong><i class="fa-solid fa-shield-halved" style="color: #ea580c;"></i> 7. Physical Verification:</strong> Running automated Design Rule Checks (DRC) and Layout Versus Schematic (LVS) cleanly matching netlist.
+                        </div>
+                        <div class="aliet-step-detail" data-step-info="s8" style="display: none;">
+                            <strong><i class="fa-solid fa-border-all" style="color: #059669;"></i> 8. GDSII Stream Tapeout:</strong> Final manufacturing binary layout stream generation ready for semiconductor foundry fabrication.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Workshop Photo Highlights inside Modal -->
+                <div style="margin: 1.5rem 0;">
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.6rem; display: flex; align-items: center; justify-content: space-between;">
+                        <span style="display: inline-flex; align-items: center; gap: 0.4rem;"><i class="fa-solid fa-camera" style="color: var(--primary-orange);"></i> Workshop Photo Highlights &amp; Moments</span>
+                        <a href="#gallery" onclick="document.getElementById('closeEventModal').click();" style="font-size: 0.76rem; color: var(--primary-orange); font-weight: 600;">View in Gallery <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="modal-photo-grid">
+                        <div class="modal-photo-item" onclick="window.openLightboxImage('../event6_felicitation.jpg', 'Memento Felicitation &amp; Faculty Honor — ALIET', 'ECE faculty presenting memento and plant gift to Founder Mr. P V S D D Mallikarjuna at ALIET DSP / VLSI Lab.')">
+                            <img src="../event6_felicitation.jpg" alt="Felicitation ceremony at ALIET" loading="lazy">
+                            <div class="modal-photo-caption">Felicitation &amp; Memento Ceremony</div>
+                        </div>
+                        <div class="modal-photo-item" onclick="window.openLightboxImage('../event6_certificates.jpg', 'Certificate Distribution Honors — ALIET', 'Awarding certificates to 16 student teams for completing independent RTL-to-GDSII digital designs.')">
+                            <img src="../event6_certificates.jpg" alt="Certificate presentation to students at ALIET" loading="lazy">
+                            <div class="modal-photo-caption">Student Certificate Honors</div>
+                        </div>
+                        <div class="modal-photo-item" onclick="window.openLightboxImage('../event6_presentation.jpg', 'EDA Tools &amp; TCL Scripting Lecture — ALIET', 'Interactive sessions on Cadence Xcelium/Genus/Innovus, open-source EDA, and TCL automation.')">
+                            <img src="../event6_presentation.jpg" alt="Technical presentation and lectures at ALIET" loading="lazy">
+                            <div class="modal-photo-caption">Technical Lectures &amp; EDA Demos</div>
+                        </div>
+                        <div class="modal-photo-item" onclick="window.openLightboxImage('../event6_lab_session.jpg', 'Hands-on VLSI Lab Mentoring — ALIET', 'Guiding students in the DSP/VLSI Lab on layout generation, DRC/LVS, and GDSII stream.')">
+                            <img src="../event6_lab_session.jpg" alt="Hands-on VLSI lab session at ALIET" loading="lazy">
+                            <div class="modal-photo-caption">Hands-on VLSI Lab Guidance</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Workshop Poster View -->
+                <div style="margin: 1.5rem 0;">
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.6rem; display: flex; align-items: center; justify-content: space-between;">
+                        <span style="display: inline-flex; align-items: center; gap: 0.4rem;"><i class="fa-solid fa-image" style="color: var(--primary-orange);"></i> Official Workshop Poster</span>
+                        <a href="../event6_poster.jpg" target="_blank" style="font-size: 0.76rem; color: var(--primary-orange); font-weight: 600;">Open Full Poster <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <div style="text-align: center; background: #0f172a; border-radius: var(--radius-md); overflow: hidden; padding: 1rem; border: 1px solid rgba(255,255,255,0.1);">
+                        <a href="../event6_poster.jpg" target="_blank" title="Click to view high-resolution poster">
+                            <img src="../event6_poster.jpg" alt="ALIET VLSI Workshop Official Poster" style="max-height: 480px; width: auto; max-width: 100%; border-radius: var(--radius-sm); box-shadow: 0 8px 24px rgba(0,0,0,0.4); margin: 0 auto; display: block;">
+                        </a>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.78rem; margin-top: 0.75rem;"><i class="fa-solid fa-magnifying-glass-plus"></i> Click poster to open full high-resolution image</p>
+                    </div>
+                </div>
+
+                <!-- Event Modal Actions Bar -->
+                <div class="event-modal-actions" style="margin-top: 1.75rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <a href="../aliet_letter_of_appreciation.png" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.6rem 1.25rem; background: #16a34a; border-color: #16a34a;">
+                        <i class="fa-solid fa-file-invoice" style="margin-right: 6px;"></i> View Official Letter of Appreciation
                     </a>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.78rem; margin-top: 0.75rem;"><i class="fa-solid fa-magnifying-glass-plus"></i> Click poster to open full high-resolution image</p>
-                </div>
-            </div>
-
-            <!-- Key Workshop Features -->
-            <div style="margin-top: 1.25rem; margin-bottom: 1.25rem;">
-                <div style="font-size: 0.88rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem; font-family: 'Outfit', sans-serif;">
-                    <i class="fa-solid fa-list-check" style="color: var(--primary-orange);"></i> Key Workshop Highlights &amp; Outcomes
-                </div>
-                <div class="project-list" style="display: flex; flex-direction: column; gap: 0.5rem;">
-                    <div class="project-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Practical Hands-On Sessions:</strong> Live walkthroughs and practical implementation using industry-grade open-source EDA tools.</span></div>
-                    <div class="project-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Learn Open Source EDA Tools:</strong> Comprehensive mastery of open tools for simulation, synthesis, placement, routing, and timing closure.</span></div>
-                    <div class="project-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Bridge Theory &amp; Practice:</strong> Transitioning semiconductor physics and digital logic theories into taped-out physical layouts for industry readiness.</span></div>
-                    <div class="project-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Exclusive Cohort:</strong> Focused mentor attention with a limited batch of maximum 45 students from III &amp; IV B.Tech ECE.</span></div>
+                    <a href="../testimonials/#aliet-endorsement" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.6rem 1.25rem; border: 1px solid rgba(241,90,36,0.4); color: var(--primary-orange);">
+                        <i class="fa-solid fa-comments" style="margin-right: 6px;"></i> View All 16 Teams Feedback
+                    </a>
+                    <a href="#gallery" onclick="document.getElementById('closeEventModal').click();" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.6rem 1.25rem; border: 1px solid #ddd; color: var(--secondary);">
+                        <i class="fa-solid fa-camera" style="margin-right: 6px;"></i> View Photo Gallery
+                    </a>
+                    <a href="https://wa.me/918019847793?text=Hi%2C%20I%20would%20like%20to%20organize%20a%20similar%20VLSI%20workshop%20at%20our%20college." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="font-size: 0.85rem; padding: 0.6rem 1.25rem;">
+                        <i class="fa-brands fa-whatsapp" style="margin-right: 6px;"></i> Book for My College
+                    </a>
                 </div>
             </div>
         </div>
@@ -2778,39 +3464,95 @@
                 });
             }
 
-            let savedScrollPosition = 0;
+            let savedScrollTop = 0;
+            let isBackgroundLocked = false;
 
-            // Open Modal Handler
+            // Absolute freeze background lock so the background never scrolls
+            const lockBackgroundScroll = () => {
+                if (isBackgroundLocked) return;
+                savedScrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+                
+                // Prevent horizontal layout shift
+                const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+                if (scrollbarWidth > 0) {
+                    document.body.style.paddingRight = `${scrollbarWidth}px`;
+                }
+
+                document.documentElement.classList.add('modal-open');
+                document.body.classList.add('modal-open');
+                document.body.style.position = 'fixed';
+                document.body.style.top = `-${savedScrollTop}px`;
+                document.body.style.left = '0';
+                document.body.style.right = '0';
+                document.body.style.width = '100%';
+                isBackgroundLocked = true;
+            };
+
+            const unlockBackgroundScroll = () => {
+                if (!isBackgroundLocked) return;
+                document.documentElement.classList.remove('modal-open');
+                document.body.classList.remove('modal-open');
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.left = '';
+                document.body.style.right = '';
+                document.body.style.width = '';
+                document.body.style.paddingRight = '';
+
+                window.scrollTo({
+                    top: savedScrollTop,
+                    left: 0,
+                    behavior: 'instant'
+                });
+                isBackgroundLocked = false;
+            };
+
+            // Open Event Modal without scrolling the background page
+            const openEventModal = (eventId) => {
+                if (!eventId) return;
+                const targetCard = document.querySelector(`.event-card[data-event-id="${eventId}"]`);
+                const sourceContent = document.getElementById(`details-${eventId}`);
+                if (!sourceContent) return;
+
+                let imgUrl = '';
+                let titleText = 'Event Details';
+                if (targetCard) {
+                    const imgElem = targetCard.querySelector('.event-card-image img');
+                    if (imgElem) imgUrl = imgElem.getAttribute('src');
+                    const titleElem = targetCard.querySelector('.event-title');
+                    if (titleElem) titleText = titleElem.textContent;
+                }
+
+                modalImg.setAttribute('src', imgUrl);
+                modalImg.setAttribute('alt', titleText);
+                modalTitle.textContent = titleText;
+                modalContent.innerHTML = sourceContent.innerHTML;
+
+                // Reset inner modal container scroll to the top
+                const modalBody = modal.querySelector('.event-modal-body');
+                if (modalBody) {
+                    modalBody.scrollTop = 0;
+                }
+
+                // Freeze background scroll exactly where user is
+                lockBackgroundScroll();
+
+                // Show modal
+                modal.classList.add('active');
+            };
+
+            // Open Modal Handler on event cards
             document.querySelectorAll('.event-card').forEach(card => {
-                const openBtn = card.querySelector('.open-event-btn');
+                const eventId = card.getAttribute('data-event-id');
                 const triggerOpen = (e) => {
                     if (e) {
                         e.preventDefault();
                         e.stopPropagation();
                     }
-                    // Save exact scroll position before opening modal
-                    savedScrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
-
-                    const eventId = card.getAttribute('data-event-id');
-                    const imgUrl = card.querySelector('.event-card-image img').getAttribute('src');
-                    const titleText = card.querySelector('.event-title').textContent;
-                    
-                    // Fetch source details content
-                    const sourceContent = document.getElementById(`details-${eventId}`);
-                    
-                    if (sourceContent) {
-                        modalImg.setAttribute('src', imgUrl);
-                        modalImg.setAttribute('alt', titleText);
-                        modalTitle.textContent = titleText;
-                        modalContent.innerHTML = sourceContent.innerHTML;
-                        
-                        // Show modal
-                        modal.classList.add('active');
-                        document.body.classList.add('modal-open');
-                    }
+                    openEventModal(eventId);
                 };
 
-                // Trigger on button click or whole card click
+                const openBtn = card.querySelector('.open-event-btn');
                 if (openBtn) {
                     openBtn.addEventListener('click', triggerOpen);
                 }
@@ -2818,15 +3560,14 @@
                 card.addEventListener('click', triggerOpen);
             });
 
-            // Trigger modal from collaboration buttons
+            // Trigger modal from collaboration buttons (stay in place, don't scroll)
             document.querySelectorAll('[data-open-event]').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.preventDefault();
                     e.stopPropagation();
                     const eventId = btn.getAttribute('data-open-event');
-                    const targetCard = document.querySelector(`.event-card[data-event-id="${eventId}"]`);
-                    if (targetCard) {
-                        targetCard.click();
+                    if (eventId) {
+                        openEventModal(eventId);
                     }
                 });
             });
@@ -2834,28 +3575,20 @@
             // Close Modal Handler
             const closeModal = () => {
                 modal.classList.remove('active');
-                document.body.classList.remove('modal-open');
-
-                // Restore user's exact scroll position without jumping
-                window.scrollTo({
-                    top: savedScrollPosition,
-                    left: 0,
-                    behavior: 'instant'
-                });
-
-                requestAnimationFrame(() => {
-                    window.scrollTo({
-                        top: savedScrollPosition,
-                        left: 0,
-                        behavior: 'instant'
-                    });
-                });
+                
+                // Only unlock background if lightbox is also closed
+                const lightboxEl = document.getElementById('galleryLightbox');
+                if (!lightboxEl || !lightboxEl.classList.contains('active')) {
+                    unlockBackgroundScroll();
+                }
 
                 // Clear content after animation completes
                 setTimeout(() => {
-                    modalImg.setAttribute('src', '');
-                    modalTitle.textContent = '';
-                    modalContent.innerHTML = '';
+                    if (!modal.classList.contains('active')) {
+                        modalImg.setAttribute('src', '');
+                        modalTitle.textContent = '';
+                        modalContent.innerHTML = '';
+                    }
                 }, 400);
             };
 
@@ -2874,6 +3607,13 @@
                 }
             });
 
+            // Prevent any wheel scroll on the backdrop overlay from leaking
+            modal.addEventListener('wheel', (e) => {
+                if (e.target === modal || !e.target.closest('.event-modal-body')) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+
             // Close on Escape Key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && modal.classList.contains('active')) {
@@ -2882,6 +3622,7 @@
             });
 
             // Auto-open specific event modal if targeted via URL query param (?event=eventX) or hash (#eventX)
+            // Opens directly without scrolling the background page
             const checkAndOpenEventFromUrl = () => {
                 const params = new URLSearchParams(window.location.search);
                 let targetEventId = params.get('event');
@@ -2892,13 +3633,7 @@
                     }
                 }
                 if (targetEventId) {
-                    const targetCard = document.querySelector(`.event-card[data-event-id="${targetEventId}"]`);
-                    if (targetCard) {
-                        setTimeout(() => {
-                            targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            targetCard.click();
-                        }, 250);
-                    }
+                    openEventModal(targetEventId);
                 }
             };
             checkAndOpenEventFromUrl();
@@ -3009,8 +3744,8 @@
                 lightboxDesc.textContent = `${date ? date + ' — ' : ''}${caption}`;
                 lightboxCounter.textContent = `Photo ${currentLightboxIndex + 1} of ${activeGalleryItems.length}`;
 
+                lockBackgroundScroll();
                 lightbox.classList.add('active');
-                document.body.classList.add('modal-open');
             };
 
             // Global helper to open lightbox from anywhere (e.g. mini thumbs)
@@ -3020,8 +3755,8 @@
                 lightboxTitle.textContent = title || 'Event Photo';
                 lightboxDesc.textContent = caption || '';
                 lightboxCounter.textContent = 'Event Showcase';
+                lockBackgroundScroll();
                 lightbox.classList.add('active');
-                document.body.classList.add('modal-open');
             };
 
             // Card click listener
@@ -3037,7 +3772,10 @@
             // Close lightbox
             const closeLightbox = () => {
                 lightbox.classList.remove('active');
-                document.body.classList.remove('modal-open');
+                // Only unlock background if event modal is also closed
+                if (!modal || !modal.classList.contains('active')) {
+                    unlockBackgroundScroll();
+                }
             };
 
             if (closeLightboxBtn) {
@@ -3067,6 +3805,11 @@
                         closeLightbox();
                     }
                 });
+
+                // Prevent any wheel scroll while viewing photos in lightbox
+                lightbox.addEventListener('wheel', (e) => {
+                    e.preventDefault();
+                }, { passive: false });
             }
 
             // Keyboard navigation for Lightbox
@@ -3079,6 +3822,66 @@
                     } else if (e.key === 'ArrowRight') {
                         showLightbox(currentLightboxIndex + 1);
                     }
+                }
+            });
+
+            // ── Interactive Handlers for ALIET Workshop (Tabs, Project Filters & RTL Flow) ──
+            document.addEventListener('click', (e) => {
+                // 1. Day 1 vs Day 2 Tabs
+                const tabBtn = e.target.closest('.aliet-tab-btn');
+                if (tabBtn) {
+                    e.preventDefault();
+                    const tabKey = tabBtn.getAttribute('data-tab');
+                    const parent = tabBtn.closest('.aliet-interactive-container') || document;
+                    parent.querySelectorAll('.aliet-tab-btn').forEach(btn => {
+                        btn.classList.toggle('active', btn.getAttribute('data-tab') === tabKey);
+                    });
+                    parent.querySelectorAll('.aliet-tab-panel').forEach(panel => {
+                        if (panel.getAttribute('data-panel') === tabKey) {
+                            panel.style.display = 'block';
+                        } else {
+                            panel.style.display = 'none';
+                        }
+                    });
+                    return;
+                }
+
+                // 2. Project Category Filter Chips
+                const projChip = e.target.closest('.aliet-proj-chip');
+                if (projChip) {
+                    e.preventDefault();
+                    const filterKey = projChip.getAttribute('data-filter');
+                    const parent = projChip.closest('.aliet-interactive-container') || document;
+                    parent.querySelectorAll('.aliet-proj-chip').forEach(chip => {
+                        chip.classList.toggle('active', chip.getAttribute('data-filter') === filterKey);
+                    });
+                    parent.querySelectorAll('.aliet-proj-card').forEach(card => {
+                        if (filterKey === 'all' || card.getAttribute('data-category') === filterKey) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    return;
+                }
+
+                // 3. RTL to GDSII Flow Step Inspector
+                const flowStep = e.target.closest('.aliet-flow-step');
+                if (flowStep) {
+                    e.preventDefault();
+                    const stepKey = flowStep.getAttribute('data-step');
+                    const parent = flowStep.closest('.aliet-interactive-container') || document;
+                    parent.querySelectorAll('.aliet-flow-step').forEach(step => {
+                        step.classList.toggle('active', step.getAttribute('data-step') === stepKey);
+                    });
+                    parent.querySelectorAll('.aliet-step-detail').forEach(detail => {
+                        if (detail.getAttribute('data-step-info') === stepKey) {
+                            detail.style.display = 'block';
+                        } else {
+                            detail.style.display = 'none';
+                        }
+                    });
+                    return;
                 }
             });
         });
